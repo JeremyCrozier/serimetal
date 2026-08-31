@@ -1,0 +1,54 @@
+name: Build and deploy to preproduction
+
+on:
+  push:
+    branches:
+      - "staging"
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: preproduction
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '24.x'
+          cache: 'npm'
+          cache-dependency-path: wp-content/themes/serimetal/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --prefix ./wp-content/themes/serimetal/
+
+      - name: Build theme
+        run: npm run build --if-present --prefix ./wp-content/themes/serimetal/
+
+      - name: Configure SSH
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "${{ secrets.PREPROD_SSH_KEY }}" > ~/.ssh/preprod
+          chmod 600 ~/.ssh/preprod
+          printf '%s\n' "${{ secrets.PREPROD_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Deploy to preproduction
+        env:
+          DEPLOY_HOST: ${{ secrets.PREPROD_HOST }}
+          DEPLOY_USER: ${{ vars.DEPLOY_USER }}
+          DEPLOY_PATH: ${{ vars.PREPROD_DEPLOY_PATH }}
+          DEPLOY_PORT: ${{ vars.PREPROD_SSH_PORT }}
+        run: |
+          DEPLOY_PORT="${DEPLOY_PORT}"
+          rsync \
+            -rlDz \
+            --delete \
+            --filter="merge .rsyncignore" \
+            --no-owner --no-group \
+            --chmod=Dug=rwx,Do=rx,Dg+s,Fu=rw,Fg=rw,Fo=r \
+            --rsync-path="umask 0002 && rsync" \
+            -e "ssh -i ~/.ssh/preprod -p ${DEPLOY_PORT}" \
+            ./ "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH%/}/"
