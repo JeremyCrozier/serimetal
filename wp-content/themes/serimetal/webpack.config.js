@@ -31,8 +31,8 @@ module.exports = {
     entry: {
         main: './src/main.js',
         mainStyles: './src/css/index.scss',
-        blocks: './src/css/blocks/index.scss',
-        adminStyles: './src/css/admin/index.scss',
+        // blocks: './src/css/blocks/index.scss',
+        // adminStyles: './src/css/admin/index.scss',
         adminScript: './src/js/admin/block-editor.js',
     },
 
