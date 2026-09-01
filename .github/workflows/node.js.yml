@@ -28,7 +28,11 @@ jobs:
         run: npm run build --if-present --prefix ./wp-content/themes/serimetal/
 
       - name: Clean deployment files
-        run: rm -rf -- ./wp-content/themes/serimetal/src/
+        run: |
+          rm -rf -- ./wp-content/themes/serimetal/src/
+          rm -f -- ./wp-content/themes/serimetal/package-lock.json
+          rm -f -- ./wp-content/themes/serimetal/package.json
+          rm -f -- ./wp-content/themes/serimetal/webpack.config.js
 
       - name: Configure SSH
         run: |
