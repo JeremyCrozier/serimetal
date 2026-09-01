@@ -1,0 +1,396 @@
+@charset "UTF-8";
+
+/* ASSETS PATH */
+
+$icons_dir: "/wp-content/uploads/icons/";
+
+/* BREAKPOINTS */
+
+$desktop-small: 1240px;
+$tablet: 992px;
+$mobile-large: 768px;
+$mobile: 480px;
+
+$container-width: 1320px;
+$wide-size: 1920px;
+
+/* COLORS */
+
+// Slate Colors
+$slate-50: #f8fafc;
+$slate-100: #f1f5f9;
+$slate-200: #e2e8f0;
+$slate-300: #cbd5e1;
+$slate-400: #94a3b8;
+$slate-500: #64748b;
+$slate-600: #475569;
+$slate-700: #334155;
+$slate-800: #1e293b;
+$slate-900: #0f172a;
+$slate-950: #020617;
+
+// Blue Colors
+$blue-50: #f2f9fd;
+$blue-100: #e3f0fb;
+$blue-200: #c1e2f6;
+$blue-300: #8acbef;
+$blue-400: #4cb0e4;
+$blue-500: #2596d2;
+$blue-600: #1778b2;
+$blue-700: #136091;
+$blue-800: #134d71;
+$blue-900: #164464;
+$blue-950: #0f2c42;
+
+// Green Colors
+$green-50: #f0fdf4;
+$green-100: #dcfce7;
+$green-200: #bbf7d0;
+$green-300: #86efac;
+$green-400: #4ade80;
+$green-500: #22c55e;
+$green-600: #16a34a;
+$green-700: #15803d;
+$green-800: #166534;
+$green-900: #14532d;
+$green-950: #052e16;
+
+// Orange Colors
+$orange-50: #fff7ed;
+$orange-100: #ffedd4;
+$orange-200: #ffd6a7;
+$orange-300: #ffb86a;
+$orange-400: #ff8904;
+$orange-500: #ff6900;
+$orange-600: #f54900;
+$orange-700: #ca3500;
+$orange-800: #9f2d00;
+$orange-900: #7e2a0c;
+$orange-950: #441306;
+
+// Red Colors
+$red-50: #fef2f2;
+$red-100: #fee2e2;
+$red-200: #fecaca;
+$red-300: #fca5a5;
+$red-400: #f87171;
+$red-500: #ef4444;
+$red-600: #dc2626;
+$red-700: #b91c1c;
+$red-800: #991b1b;
+$red-900: #7f1d1d;
+$red-950: #450a0a;
+
+// Dark Colors (with opacity)
+$dark-0: #09090b00;
+$dark-4: #09090b0a;
+$dark-10: #09090b1a;
+$dark-20: #09090b33;
+$dark-30: #09090b4d;
+$dark-40: #09090b66;
+$dark-50: #09090b80;
+$dark-60: #09090b99;
+$dark-70: #09090bb2;
+$dark-80: #09090bcc;
+$dark-100: #09090b;
+
+// Light Colors (with opacity)
+$light-0: #ffffff00;
+$light-4: #ffffff0a;
+$light-10: #ffffff1a;
+$light-20: #ffffff33;
+$light-30: #ffffff4d;
+$light-40: #ffffff66;
+$light-50: #ffffff80;
+$light-60: #ffffff99;
+$light-70: #ffffffb2;
+$light-80: #ffffffcc;
+$light-100: #ffffff;
+
+// Additional Colors
+$gris-chaud-600: #5d5d5d;
+$transition: all 0.3s ease;
+
+// SPACING
+
+$spacing-3xs: 4px;
+$spacing-2xs: 8px;
+$spacing-xs: 12px;
+$spacing-sm: 16px;
+$spacing-md: 24px;
+$spacing-lg: 32px;
+$spacing-xl: 48px;
+$spacing-2xl: 64px;
+$spacing-3xl: 84px;
+
+
+// TYPOGRAPHY MIXINS
+
+// Heading Styles - Desktop
+@mixin heading-1 {
+    font-family: 'Anton', sans-serif;
+    font-size: 47px; // 2.938rem
+    font-weight: 400;
+    line-height: 115%; // 54px
+    letter-spacing: 0;
+
+    strong {
+        font-weight: inherit;
+        color: $orange-500;
+    }
+    
+    @media screen and (max-width: $mobile-large) {
+        font-size: 36px;
+        line-height: 117%;
+    }
+}
+
+@mixin heading-2 {
+    font-family: 'Anton', sans-serif;
+    font-size: 36px; // 2.250rem
+    font-weight: 400;
+    line-height: 120%; // 43px
+    letter-spacing: 0;
+
+    strong {
+        font-weight: inherit;
+        color: $orange-500;
+    }
+    
+    @media screen and (max-width: $mobile-large) {
+        font-size: 28px;
+        line-height: 120%;
+    }
+}
+
+@mixin heading-3 {
+    font-family: 'Anton', sans-serif;
+    font-size: 27px; // 1.688rem
+    font-weight: 400;
+    line-height: 130%; // 35px
+    letter-spacing: 0;
+
+    strong {
+        font-weight: inherit;
+        color: $orange-500;
+    }
+
+    @media screen and (max-width: $mobile-large) {
+        font-size: 24px;
+        line-height: 125%;
+    }
+}
+
+@mixin heading-4 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 21px; // 1.312rem
+    font-weight: 700; // Bold
+    line-height: 135%; // 28px
+    letter-spacing: 0;
+    
+    @media screen and (max-width: $mobile-large) {
+        font-size: 18px;
+        line-height: 135%;
+    }
+}
+
+@mixin body-1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px; // 1.000rem
+    font-weight: 400; // Regular
+    line-height: 150%; // 24px
+    letter-spacing: 0;
+    color: $blue-950;
+}
+
+@mixin body-2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px; // 0.750rem
+    font-weight: 400; // Regular
+    line-height: 150%; // 18px
+    letter-spacing: 0;
+    color: $blue-950;
+}
+
+@mixin caption {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px; // 0.750rem
+    font-weight: 400; // Regular
+    line-height: 150%; // 18px
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+
+// BUTTON MIXINS
+
+// Button Base Mixin
+@mixin button-base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0;
+    border: none;
+    cursor: pointer;
+    transition: $transition;
+    text-decoration: none;
+    border-radius: 100px;
+    padding: 16px 24px;
+    gap: 4px;
+
+    .button-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    @media screen and (max-width: $mobile-large) {
+        display: flex;
+    }
+}
+
+// Button Primary (Brand)
+@mixin button-primary($state: 'default') {
+    @include button-base;
+    
+    @if $state == 'default' {
+        background-color: $orange-400; // #ff8904
+        color: $light-100; // white
+        
+        &:hover {
+            background-color: $orange-600; // #f54900
+        }
+        
+        &:active {
+            background-color: $orange-800; // #9f2d00
+        }
+    } @else if $state == 'hover' {
+        background-color: $orange-600; // #f54900
+        color: $light-100;
+    } @else if $state == 'pressed' {
+        background-color: $orange-800; // #9f2d00
+        color: $light-100;
+    } @else if $state == 'selected' or $state == 'enable' {
+        background-color: $orange-400; // #ff8904
+        color: $light-100;
+    } @else if $state == 'disabled' {
+        background-color: $slate-200; // #e2e8f0
+        color: $slate-300; // #cbd5e1
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}
+
+// Button Outline
+@mixin button-outline($state: 'default') {
+    @include button-base;
+    
+    @if $state == 'default' {
+        background-color: transparent;
+        border: 1px solid $orange-400; // #ff8904
+        color: $orange-600; // #f54900
+        
+        &:hover {
+            background-color: $orange-100; // #ffedd4
+            border-color: $orange-600; // #f54900
+        }
+        
+        &:active {
+            background-color: $orange-200; // #ffd6a7
+            border-color: $orange-700; // #ca3500
+        }
+    } @else if $state == 'hover' {
+        background-color: $orange-100; // #ffedd4
+        border: 1px solid $orange-600; // #f54900
+        color: $orange-600;
+    } @else if $state == 'pressed' {
+        background-color: $orange-200; // #ffd6a7
+        border: 1px solid $orange-700; // #ca3500
+        color: $orange-600;
+    } @else if $state == 'selected' or $state == 'enable' {
+        background-color: $orange-100; // #ffedd4
+        border: 1px solid $orange-500; // #ff6900
+        color: $orange-600;
+    } @else if $state == 'disabled' {
+        background-color: transparent;
+        border: 1px solid $slate-200; // #e2e8f0
+        color: $slate-300; // #cbd5e1
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}
+
+// Button Subtle
+@mixin button-subtle($state: 'default') {
+    @include button-base;
+    
+    @if $state == 'default' {
+        background-color: $slate-50; // #f8fafc
+        color: $blue-950; // #0f2c42
+        
+        &:hover {
+            background-color: $slate-200; // #e2e8f0
+        }
+        
+        &:active {
+            background-color: $slate-300; // #cbd5e1
+        }
+    } @else if $state == 'hover' {
+        background-color: $slate-200; // #e2e8f0
+        color: $blue-950;
+    } @else if $state == 'pressed' {
+        background-color: $slate-300; // #cbd5e1
+        color: $blue-950;
+    } @else if $state == 'selected' or $state == 'enable' {
+        background-color: $slate-100; // #f1f5f9
+        color: $blue-950;
+    } @else if $state == 'disabled' {
+        background-color: $slate-200; // #e2e8f0
+        color: $slate-300; // #cbd5e1
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}
+
+// Button Underline
+@mixin button-underline($state: 'default') {
+    @include button-base;
+    display: inline-flex;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 4px 0;
+    border-bottom: 1.5px solid transparent;
+    
+    @if $state == 'default' {
+        color: $blue-950; // #0f2c42
+        border-bottom-color: $blue-950;
+        
+        &:hover {
+            color: $blue-600; // #1778b2
+            border-bottom-color: $blue-600;
+        }
+        
+        &:active {
+            color: $blue-800; // #134d71
+            border-bottom-color: $blue-800;
+        }
+    } @else if $state == 'hover' {
+        color: $blue-600; // #1778b2
+        border-bottom-color: $blue-600;
+    } @else if $state == 'pressed' {
+        color: $blue-800; // #134d71
+        border-bottom-color: $blue-800;
+    } @else if $state == 'selected' or $state == 'enable' {
+        color: $blue-800; // #134d71
+        border-bottom-color: $blue-800;
+    } @else if $state == 'disabled' {
+        color: $slate-400; // #94a3b8
+        border-bottom-color: $slate-400;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}
