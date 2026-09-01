@@ -38,11 +38,20 @@ jobs:
       - name: Deploy to preproduction
         env:
           DEPLOY_HOST: ${{ secrets.PREPROD_HOST }}
-          DEPLOY_USER: ${{ vars.DEPLOY_USER }}
+          DEPLOY_USER: ${{ secrets.PREPROD_USER }}
           DEPLOY_PATH: ${{ vars.PREPROD_DEPLOY_PATH }}
-          DEPLOY_PORT: ${{ vars.PREPROD_SSH_PORT }}
+          DEPLOY_PORT: ${{ secrets.PREPROD_SSH_PORT }}
         run: |
-          DEPLOY_PORT="${DEPLOY_PORT}"
+          : "${DEPLOY_HOST:?Missing PREPROD_HOST secret}"
+          : "${DEPLOY_USER:?Missing PREPROD_USER secret}"
+          : "${DEPLOY_PATH:?Missing PREPROD_DEPLOY_PATH variable}"
+          DEPLOY_PORT="${DEPLOY_PORT:-22}"
+
+          if [[ "${DEPLOY_PATH}" != /* || "${DEPLOY_PATH}" == "/" ]]; then
+            echo "PREPROD_DEPLOY_PATH must be an absolute path other than /"
+            exit 1
+          fi
+
           rsync \
             -rlDz \
             --delete \
