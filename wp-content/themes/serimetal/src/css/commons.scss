@@ -13,3 +13,118 @@
     position: absolute !important;
     width: 1px;
 }
+
+body {
+    @include body-medium;
+
+    div {
+        box-sizing: border-box;
+    }
+}
+
+// Typography
+
+h1.wp-block-heading, h1.wp-block-post-title, .wp-block-heading.h1 {
+    @include heading-xlarge;
+}
+
+h2.wp-block-heading, .wp-block-heading.is-style-h2, .is-style-h2 {
+    @include heading-large;
+}
+
+h3.wp-block-heading, .wp-block-heading.is-style-h3, .is-style-h3 {
+    @include heading-medium;
+}
+
+h4.wp-block-heading, .wp-block-heading.is-style-h4, .is-style-h4 {
+    @include heading-small;
+}
+
+.body-large {
+    @include body-large;
+}
+
+.body-medium {
+    @include body-medium;
+}
+
+.body-small {
+    @include body-small;
+}
+
+.body-xsmall {
+    @include body-xsmall;
+}
+
+.metric-large {
+    @include metric-large;
+}
+
+.metric-medium {
+    @include metric-medium;
+}
+
+.metric-small {
+    @include metric-small;
+}
+
+.font-regular {
+    font-weight: 400;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+// Buttons
+// Combine a style with .btn-md, .btn-sm and .btn-icon
+
+.btn-filled-primary,
+.btn-filled-secondary,
+.btn-outline,
+.btn-ghost-primary,
+.btn-ghost-secondary {
+    &.btn-md {
+        @include button-size('md');
+    }
+
+    &.btn-sm {
+        @include button-size('sm');
+    }
+
+    &.btn-icon {
+        @include button-size('lg', true);
+
+        &.btn-md {
+            @include button-size('md', true);
+        }
+
+        &.btn-sm {
+            @include button-size('sm', true);
+        }
+    }
+}
+
+.btn-filled-primary {
+    @include button-filled('primary');
+}
+
+.btn-filled-secondary {
+    @include button-filled('secondary');
+}
+
+.btn-outline {
+    @include button-outline;
+}
+
+.btn-ghost-primary {
+    @include button-ghost('primary');
+}
+
+.btn-ghost-secondary {
+    @include button-ghost('secondary');
+}

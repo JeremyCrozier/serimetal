@@ -15,73 +15,87 @@ $container-width: 1320px;
 $wide-size: 1920px;
 
 /* COLORS */
+/* Primitive colors — Figma node 253:5177 */
 
-// Slate Colors
-$slate-50: #f8fafc;
-$slate-100: #f1f5f9;
-$slate-200: #e2e8f0;
-$slate-300: #cbd5e1;
-$slate-400: #94a3b8;
-$slate-500: #64748b;
-$slate-600: #475569;
-$slate-700: #334155;
-$slate-800: #1e293b;
-$slate-900: #0f172a;
-$slate-950: #020617;
+// Blue — Honey (Brand Primary)
+$blue-50: #edf8ff;
+$blue-100: #d7f0ff;
+$blue-200: #b7e4ff;
+$blue-300: #86d6ff;
+$blue-400: #4dbeff;
+$blue-500: #24a0ff;
+$blue-600: #0c85ff;
+$blue-700: #0874f9;
+$blue-800: #0c58c1;
+$blue-900: #114d97;
+$blue-950: #0f2f5c;
 
-// Blue Colors
-$blue-50: #f2f9fd;
-$blue-100: #e3f0fb;
-$blue-200: #c1e2f6;
-$blue-300: #8acbef;
-$blue-400: #4cb0e4;
-$blue-500: #2596d2;
-$blue-600: #1778b2;
-$blue-700: #136091;
-$blue-800: #134d71;
-$blue-900: #164464;
-$blue-950: #0f2c42;
+// Metal (Brand Primary)
+$metal-50: #fafafa;
+$metal-100: #f5f5f5;
+$metal-200: #e7e4e6;
+$metal-300: #d8d4d7;
+$metal-400: #aba0a8;
+$metal-500: #7b7078;
+$metal-600: #5c5159;
+$metal-700: #473e45;
+$metal-800: #312d30;
+$metal-900: #1b181a;
+$metal-950: #0b090b;
 
-// Green Colors
-$green-50: #f0fdf4;
-$green-100: #dcfce7;
-$green-200: #bbf7d0;
-$green-300: #86efac;
-$green-400: #4ade80;
-$green-500: #22c55e;
-$green-600: #16a34a;
-$green-700: #15803d;
-$green-800: #166534;
-$green-900: #14532d;
-$green-950: #052e16;
+// Rose (Brand Secondary)
+$rose-50: #fef1fa;
+$rose-100: #fee5f6;
+$rose-200: #ffc3ec;
+$rose-300: #ffa1df;
+$rose-400: #ff66c8;
+$rose-500: #fb39af;
+$rose-600: #eb178e;
+$rose-700: #cd0971;
+$rose-800: #a90b5d;
+$rose-900: #8d0e50;
+$rose-950: #57002d;
 
-// Orange Colors
-$orange-50: #fff7ed;
-$orange-100: #ffedd4;
-$orange-200: #ffd6a7;
-$orange-300: #ffb86a;
-$orange-400: #ff8904;
-$orange-500: #ff6900;
-$orange-600: #f54900;
-$orange-700: #ca3500;
-$orange-800: #9f2d00;
-$orange-900: #7e2a0c;
-$orange-950: #441306;
+// Orange (Brand Secondary)
+$orange-50: #fff9ed;
+$orange-100: #fff1d5;
+$orange-200: #fee0aa;
+$orange-300: #fed28b;
+$orange-400: #fca63b;
+$orange-500: #fa8b15;
+$orange-600: #eb700b;
+$orange-700: #c3540b;
+$orange-800: #9b4211;
+$orange-900: #7d3811;
+$orange-950: #431a07;
 
-// Red Colors
-$red-50: #fef2f2;
-$red-100: #fee2e2;
-$red-200: #fecaca;
-$red-300: #fca5a5;
-$red-400: #f87171;
-$red-500: #ef4444;
-$red-600: #dc2626;
-$red-700: #b91c1c;
-$red-800: #991b1b;
-$red-900: #7f1d1d;
-$red-950: #450a0a;
+// Violet (Brand Secondary)
+$violet-50: #f9f5ff;
+$violet-100: #f1e9fe;
+$violet-200: #e6d7fd;
+$violet-300: #cdaefa;
+$violet-400: #b88af6;
+$violet-500: #9c5cf0;
+$violet-600: #853be2;
+$violet-700: #712ac6;
+$violet-800: #6127a2;
+$violet-900: #502182;
+$violet-950: #340b60;
 
-// Dark Colors (with opacity)
+// Vert (Brand Secondary)
+$vert-50: #eefbf5;
+$vert-100: #d5f6e5;
+$vert-200: #a9ebcc;
+$vert-300: #79dcb4;
+$vert-400: #42c594;
+$vert-500: #1faa7b;
+$vert-600: #128963;
+$vert-700: #0e6e52;
+$vert-800: #0e5742;
+$vert-900: #0d4737;
+$vert-950: #062820;
+
+// Dark (Teinte)
 $dark-0: #09090b00;
 $dark-4: #09090b0a;
 $dark-10: #09090b1a;
@@ -92,9 +106,9 @@ $dark-50: #09090b80;
 $dark-60: #09090b99;
 $dark-70: #09090bb2;
 $dark-80: #09090bcc;
-$dark-100: #09090b;
+$dark-100: #0b090b;
 
-// Light Colors (with opacity)
+// Light (Teinte)
 $light-0: #ffffff00;
 $light-4: #ffffff0a;
 $light-10: #ffffff1a;
@@ -107,290 +121,296 @@ $light-70: #ffffffb2;
 $light-80: #ffffffcc;
 $light-100: #ffffff;
 
-// Additional Colors
-$gris-chaud-600: #5d5d5d;
 $transition: all 0.3s ease;
-
-// SPACING
-
-$spacing-3xs: 4px;
-$spacing-2xs: 8px;
-$spacing-xs: 12px;
-$spacing-sm: 16px;
-$spacing-md: 24px;
-$spacing-lg: 32px;
-$spacing-xl: 48px;
-$spacing-2xl: 64px;
-$spacing-3xl: 84px;
 
 
 // TYPOGRAPHY MIXINS
+// Primitive typography — Figma node 255:14465
 
-// Heading Styles - Desktop
-@mixin heading-1 {
-    font-family: 'Anton', sans-serif;
-    font-size: 47px; // 2.938rem
-    font-weight: 400;
-    line-height: 115%; // 54px
-    letter-spacing: 0;
+$font-heading: 'TT Supermolot', 'Inter', sans-serif;
+$font-body: 'IBM Plex', 'Inter', sans-serif;
 
-    strong {
-        font-weight: inherit;
-        color: $orange-500;
-    }
-    
-    @media screen and (max-width: $mobile-large) {
-        font-size: 36px;
-        line-height: 117%;
-    }
-}
-
-@mixin heading-2 {
-    font-family: 'Anton', sans-serif;
-    font-size: 36px; // 2.250rem
-    font-weight: 400;
-    line-height: 120%; // 43px
-    letter-spacing: 0;
-
-    strong {
-        font-weight: inherit;
-        color: $orange-500;
-    }
-    
-    @media screen and (max-width: $mobile-large) {
-        font-size: 28px;
-        line-height: 120%;
-    }
-}
-
-@mixin heading-3 {
-    font-family: 'Anton', sans-serif;
-    font-size: 27px; // 1.688rem
-    font-weight: 400;
-    line-height: 130%; // 35px
-    letter-spacing: 0;
-
-    strong {
-        font-weight: inherit;
-        color: $orange-500;
-    }
-
-    @media screen and (max-width: $mobile-large) {
-        font-size: 24px;
-        line-height: 125%;
-    }
-}
-
-@mixin heading-4 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 21px; // 1.312rem
-    font-weight: 700; // Bold
-    line-height: 135%; // 28px
-    letter-spacing: 0;
-    
-    @media screen and (max-width: $mobile-large) {
-        font-size: 18px;
-        line-height: 135%;
-    }
-}
-
-@mixin body-1 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px; // 1.000rem
-    font-weight: 400; // Regular
-    line-height: 150%; // 24px
-    letter-spacing: 0;
-    color: $blue-950;
-}
-
-@mixin body-2 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 12px; // 0.750rem
-    font-weight: 400; // Regular
-    line-height: 150%; // 18px
-    letter-spacing: 0;
-    color: $blue-950;
-}
-
-@mixin caption {
-    font-family: 'Roboto', sans-serif;
-    font-size: 12px; // 0.750rem
-    font-weight: 400; // Regular
-    line-height: 150%; // 18px
+@mixin text-heading {
+    font-family: $font-heading;
+    font-weight: 600;
+    font-style: normal;
     letter-spacing: 0;
     text-transform: uppercase;
+    color: $metal-800;
+}
+
+@mixin text-body {
+    font-family: $font-body;
+    font-style: normal;
+    letter-spacing: 0;
+    color: $metal-800;
+}
+
+// Heading
+@mixin heading-xlarge {
+    @include text-heading;
+    font-size: 56px;
+    line-height: 60px;
+}
+
+@mixin heading-large {
+    @include text-heading;
+    font-size: 40px;
+    line-height: 46px;
+}
+
+@mixin heading-medium {
+    @include text-heading;
+    font-size: 30px;
+    line-height: 36px;
+}
+
+@mixin heading-small {
+    @include text-heading;
+    font-size: 22px;
+    line-height: 28px;
+}
+
+// Body
+@mixin body-large {
+    @include text-body;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+@mixin body-medium {
+    @include text-body;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+@mixin body-small {
+    @include text-body;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+@mixin body-xsmall {
+    @include text-body;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+// Metric
+@mixin metric-large {
+    font-family: 'TT Supermolot', 'Inter', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 48px;
+    line-height: 52px;
+    letter-spacing: 0;
+    color: $metal-800;
+}
+
+@mixin metric-medium {
+    font-family: 'TT Supermolot', 'Inter', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: 0;
+    color: $metal-800;
+}
+
+@mixin metric-small {
+    font-family: 'TT Supermolot', 'Inter', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0;
+    color: $metal-800;
 }
 
 
 // BUTTON MIXINS
+// Figma component Button, node 255:13439
+// Styles: filled, outline (secondary only), ghost
+// Colors: primary, secondary
+// Sizes: lg, md, sm
+// States: default, hover, active
 
-// Button Base Mixin
-@mixin button-base {
+@mixin button-size($size: 'lg', $icon-only: false) {
+    @if $icon-only {
+        min-width: 0;
+
+        @if $size == 'md' {
+            gap: 8px;
+            padding: 10px;
+        } @else if $size == 'sm' {
+            gap: 8px;
+            padding: 8px;
+        } @else {
+            gap: 8px;
+            padding: 14px;
+        }
+    } @else if $size == 'md' {
+        gap: 8px;
+        min-width: 60px;
+        padding: 10px 14px;
+        font-size: 14px;
+        line-height: 16px;
+    } @else if $size == 'sm' {
+        gap: 8px;
+        min-width: 60px;
+        padding: 8px 12px;
+        font-size: 14px;
+        line-height: 16px;
+    } @else {
+        gap: 8px;
+        min-width: 80px;
+        padding: 14px 16px;
+        font-size: 16px;
+        line-height: 1;
+    }
+}
+
+@mixin button-base($size: 'lg', $icon-only: false) {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1;
+    box-sizing: border-box;
+    font-family: $font-body;
+    font-weight: 400;
     letter-spacing: 0;
-    border: none;
-    cursor: pointer;
-    transition: $transition;
+    text-transform: uppercase;
+    text-align: center;
     text-decoration: none;
-    border-radius: 100px;
-    padding: 16px 24px;
-    gap: 4px;
+    white-space: nowrap;
+    cursor: pointer;
+    border-radius: 0;
+    border: 1px solid transparent;
+    background-color: transparent;
+    transition: $transition;
+
+    @include button-size($size, $icon-only);
 
     .button-icon {
         width: 16px;
         height: 16px;
-    }
-
-    @media screen and (max-width: $mobile-large) {
-        display: flex;
+        flex-shrink: 0;
     }
 }
 
-// Button Primary (Brand)
-@mixin button-primary($state: 'default') {
-    @include button-base;
-    
-    @if $state == 'default' {
-        background-color: $orange-400; // #ff8904
-        color: $light-100; // white
-        
-        &:hover {
-            background-color: $orange-600; // #f54900
-        }
-        
-        &:active {
-            background-color: $orange-800; // #9f2d00
+@mixin button-filled($color: 'primary', $size: 'lg', $icon-only: false, $state: 'default') {
+    @include button-base($size, $icon-only);
+
+    @if $color == 'secondary' {
+        @if $state == 'hover' {
+            background-color: $metal-700; // #473e45
+            border-color: $metal-700;
+            color: $light-100;
+        } @else if $state == 'active' {
+            background-color: $metal-600; // #5c5159
+            border-color: $metal-600;
+            color: $light-100;
+        } @else {
+            background-color: $metal-800; // #312d30
+            border-color: $metal-800;
+            color: $light-100;
+
+            &:hover {
+                background-color: $metal-700;
+                border-color: $metal-700;
+            }
+
+            &:active {
+                background-color: $metal-600;
+                border-color: $metal-600;
+            }
         }
     } @else if $state == 'hover' {
-        background-color: $orange-600; // #f54900
+        background-color: $blue-700; // #0874f9
+        border-color: $blue-700;
         color: $light-100;
-    } @else if $state == 'pressed' {
-        background-color: $orange-800; // #9f2d00
+    } @else if $state == 'active' {
+        background-color: $blue-800; // #0c58c1
+        border-color: $blue-800;
         color: $light-100;
-    } @else if $state == 'selected' or $state == 'enable' {
-        background-color: $orange-400; // #ff8904
-        color: $light-100;
-    } @else if $state == 'disabled' {
-        background-color: $slate-200; // #e2e8f0
-        color: $slate-300; // #cbd5e1
-        cursor: not-allowed;
-        pointer-events: none;
-    }
-}
-
-// Button Outline
-@mixin button-outline($state: 'default') {
-    @include button-base;
-    
-    @if $state == 'default' {
+    } @else {
         background-color: transparent;
-        border: 1px solid $orange-400; // #ff8904
-        color: $orange-600; // #f54900
-        
+        border-color: $blue-700; // #0874f9
+        color: $blue-700;
+
         &:hover {
-            background-color: $orange-100; // #ffedd4
-            border-color: $orange-600; // #f54900
+            background-color: $blue-700;
+            border-color: $blue-700;
+            color: $light-100;
         }
-        
+
         &:active {
-            background-color: $orange-200; // #ffd6a7
-            border-color: $orange-700; // #ca3500
+            background-color: $blue-800;
+            border-color: $blue-800;
+            color: $light-100;
         }
-    } @else if $state == 'hover' {
-        background-color: $orange-100; // #ffedd4
-        border: 1px solid $orange-600; // #f54900
-        color: $orange-600;
-    } @else if $state == 'pressed' {
-        background-color: $orange-200; // #ffd6a7
-        border: 1px solid $orange-700; // #ca3500
-        color: $orange-600;
-    } @else if $state == 'selected' or $state == 'enable' {
-        background-color: $orange-100; // #ffedd4
-        border: 1px solid $orange-500; // #ff6900
-        color: $orange-600;
-    } @else if $state == 'disabled' {
-        background-color: transparent;
-        border: 1px solid $slate-200; // #e2e8f0
-        color: $slate-300; // #cbd5e1
-        cursor: not-allowed;
-        pointer-events: none;
     }
 }
 
-// Button Subtle
-@mixin button-subtle($state: 'default') {
-    @include button-base;
-    
-    @if $state == 'default' {
-        background-color: $slate-50; // #f8fafc
-        color: $blue-950; // #0f2c42
-        
-        &:hover {
-            background-color: $slate-200; // #e2e8f0
-        }
-        
-        &:active {
-            background-color: $slate-300; // #cbd5e1
-        }
-    } @else if $state == 'hover' {
-        background-color: $slate-200; // #e2e8f0
-        color: $blue-950;
-    } @else if $state == 'pressed' {
-        background-color: $slate-300; // #cbd5e1
-        color: $blue-950;
-    } @else if $state == 'selected' or $state == 'enable' {
-        background-color: $slate-100; // #f1f5f9
-        color: $blue-950;
-    } @else if $state == 'disabled' {
-        background-color: $slate-200; // #e2e8f0
-        color: $slate-300; // #cbd5e1
-        cursor: not-allowed;
-        pointer-events: none;
-    }
-}
-
-// Button Underline
-@mixin button-underline($state: 'default') {
-    @include button-base;
-    display: inline-flex;
+@mixin button-outline($size: 'lg', $icon-only: false, $state: 'default') {
+    @include button-base($size, $icon-only);
     background-color: transparent;
-    border: none;
-    border-radius: 0;
-    padding: 4px 0;
-    border-bottom: 1.5px solid transparent;
-    
-    @if $state == 'default' {
-        color: $blue-950; // #0f2c42
-        border-bottom-color: $blue-950;
-        
+
+    @if $state == 'hover' {
+        border-color: $metal-500; // #7b7078
+        color: $metal-700; // #473e45
+    } @else if $state == 'active' {
+        border-color: $metal-600; // #5c5159
+        color: $metal-600;
+    } @else {
+        border-color: $metal-400; // #aba0a8
+        color: $metal-800; // #312d30
+
         &:hover {
-            color: $blue-600; // #1778b2
-            border-bottom-color: $blue-600;
+            border-color: $metal-500;
+            color: $metal-700;
         }
-        
+
         &:active {
-            color: $blue-800; // #134d71
-            border-bottom-color: $blue-800;
+            border-color: $metal-600;
+            color: $metal-600;
+        }
+    }
+}
+
+@mixin button-ghost($color: 'primary', $size: 'lg', $icon-only: false, $state: 'default') {
+    @include button-base($size, $icon-only);
+    background-color: transparent;
+    border-color: transparent;
+
+    @if $color == 'secondary' {
+        @if $state == 'hover' {
+            color: $metal-700; // #473e45
+        } @else if $state == 'active' {
+            color: $metal-600; // #5c5159
+        } @else {
+            color: $metal-800; // #312d30
+
+            &:hover {
+                color: $metal-700;
+            }
+
+            &:active {
+                color: $metal-600;
+            }
         }
     } @else if $state == 'hover' {
-        color: $blue-600; // #1778b2
-        border-bottom-color: $blue-600;
-    } @else if $state == 'pressed' {
-        color: $blue-800; // #134d71
-        border-bottom-color: $blue-800;
-    } @else if $state == 'selected' or $state == 'enable' {
-        color: $blue-800; // #134d71
-        border-bottom-color: $blue-800;
-    } @else if $state == 'disabled' {
-        color: $slate-400; // #94a3b8
-        border-bottom-color: $slate-400;
-        cursor: not-allowed;
-        pointer-events: none;
+        color: $blue-800; // #0c58c1
+    } @else if $state == 'active' {
+        color: $blue-900; // #114d97
+    } @else {
+        color: $blue-700; // #0874f9
+
+        &:hover {
+            color: $blue-800;
+        }
+
+        &:active {
+            color: $blue-900;
+        }
     }
 }

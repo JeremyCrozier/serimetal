@@ -90,8 +90,8 @@ class SM_Setup {
 
     public function add_image_sizes() {
         add_image_size('icon', 24, 24, true);
-        add_image_size('vertical-slider', 536, 536, true);
-        add_image_size('featured-post', 636, 440, true);
-        add_image_size('thumbnail-post', 400, 200, true);
+        // add_image_size('vertical-slider', 536, 536, true);
+        // add_image_size('featured-post', 636, 440, true);
+        // add_image_size('thumbnail-post', 400, 200, true);
     }
 }

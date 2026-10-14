@@ -48,7 +48,7 @@ class SM_Blocks {
         // add_action('init', array($this, 'register_pattern_categories'), 15);
 
         // Filtrer les blocs autorisés
-        //add_filter('allowed_block_types_all', array($this, 'allowed_block_types'), 5, 2);
+        add_filter('allowed_block_types_all', array($this, 'allowed_block_types'), 5, 2);
 
         //add_filter( 'render_block', array($this, 'render_block'), 5, 2);
         // Filtrer les arguments des blocs
@@ -60,7 +60,7 @@ class SM_Blocks {
      * Enregistrer les blocs ACF
      */
     public function register_acf_blocks() {
-        // register_block_type(__DIR__ . '/../blocks/icon');
+        register_block_type(__DIR__ . '/../blocks/button');
 
         // Enregistrer le style pour l'image
         // register_block_style(
@@ -108,6 +108,7 @@ class SM_Blocks {
         return array(
             'wpforms/form-selector',
             'acf/icon',
+            'acf/button',
             // 'core/legacy-widget',
             // 'core/widget-group',
             // 'core/archives',
@@ -132,12 +133,12 @@ class SM_Blocks {
             // 'core/file',
             // 'core/footnotes',
             // 'core/gallery',
-             'core/heading',
+            'core/heading',
             // 'core/home-link',
-            'core/image',
+            //'core/image',
             // 'core/latest-comments',
             // 'core/latest-posts',
-             'core/list',
+            'core/list',
             // 'core/loginout',
             // 'core/media-text',
             // 'core/navigation',
@@ -145,7 +146,7 @@ class SM_Blocks {
             // 'core/navigation-submenu',
             // 'core/page-list',
             // 'core/page-list-item',
-            'core/pattern',
+            //'core/pattern',
             // 'core/post-author',
             // 'core/post-author-biography',
             // 'core/post-author-name',
@@ -178,14 +179,14 @@ class SM_Blocks {
             // 'core/audio',
             // 'core/buttons',
             // 'core/code',
-            'core/column',
-            'core/columns',
+            //'core/column',
+            //'core/columns',
             // 'core/details',
-            'core/embed',
+            //'core/embed',
             // 'core/freeform',
-             'core/group',
+            //'core/group',
             // 'core/html',
-             'core/list-item',
+            //'core/list-item',
             // 'core/missing',
             // 'core/more',
             // 'core/nextpage',
@@ -195,7 +196,7 @@ class SM_Blocks {
             // 'core/quote',
             // 'core/separator',
             // 'core/social-links',
-             'core/spacer',
+            //'core/spacer',
             // 'core/table',
             // 'core/text-columns',
             // 'core/verse',
