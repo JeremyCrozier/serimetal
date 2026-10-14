@@ -55,7 +55,7 @@ class SM_Assets {
      * Enqueue des assets admin
      */
     public function enqueue_admin_assets() {
-        wp_enqueue_style('admin', SM_THEME_URL . '/assets/adminStyles.min.css', array(), SM_THEME_VERSION);
+        wp_enqueue_style('admin', SM_THEME_URL . '/assets/admin.min.css', array(), SM_THEME_VERSION);
         wp_enqueue_style('blocks', SM_THEME_URL . '/assets/blocks.min.css', array(), SM_THEME_VERSION);
         wp_enqueue_script('adminScript', SM_THEME_URL . '/assets/adminScript.js', array('wp-blocks', 'wp-dom-ready'), SM_THEME_VERSION, true);
     }
