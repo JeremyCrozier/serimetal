@@ -68,18 +68,6 @@ h4.wp-block-heading, .wp-block-heading.is-style-h4, .is-style-h4 {
     @include metric-small;
 }
 
-.font-regular {
-    font-weight: 400;
-}
-
-.font-medium {
-    font-weight: 500;
-}
-
-.font-bold {
-    font-weight: 700;
-}
-
 // Buttons
 // Combine a style with .btn-md, .btn-sm and .btn-icon
 
@@ -107,6 +95,10 @@ h4.wp-block-heading, .wp-block-heading.is-style-h4, .is-style-h4 {
             @include button-size('sm', true);
         }
     }
+
+    &.btn-icon-right {
+        flex-direction: row-reverse;
+    }
 }
 
 .btn-filled-primary {
@@ -127,4 +119,12 @@ h4.wp-block-heading, .wp-block-heading.is-style-h4, .is-style-h4 {
 
 .btn-ghost-secondary {
     @include button-ghost('secondary');
+}
+
+.has-text-align-center {
+    text-align: center;
+}
+
+.has-text-align-right {
+    text-align: right;
 }

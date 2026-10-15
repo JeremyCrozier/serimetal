@@ -238,15 +238,11 @@ $font-body: 'IBM Plex', 'Inter', sans-serif;
 @mixin button-size($size: 'lg', $icon-only: false) {
     @if $icon-only {
         min-width: 0;
-
         @if $size == 'md' {
-            gap: 8px;
             padding: 10px;
         } @else if $size == 'sm' {
-            gap: 8px;
             padding: 8px;
         } @else {
-            gap: 8px;
             padding: 14px;
         }
     } @else if $size == 'md' {
@@ -289,49 +285,24 @@ $font-body: 'IBM Plex', 'Inter', sans-serif;
     transition: $transition;
 
     @include button-size($size, $icon-only);
-
-    .button-icon {
-        width: 16px;
-        height: 16px;
-        flex-shrink: 0;
-    }
 }
 
-@mixin button-filled($color: 'primary', $size: 'lg', $icon-only: false, $state: 'default') {
+@mixin button-filled($color: 'primary', $size: 'lg', $icon-only: false) {
     @include button-base($size, $icon-only);
-
     @if $color == 'secondary' {
-        @if $state == 'hover' {
-            background-color: $metal-700; // #473e45
+        background-color: $metal-800; // #312d30
+        border-color: $metal-800;
+        color: $light-100;
+
+        &:hover {
+            background-color: $metal-700;
             border-color: $metal-700;
-            color: $light-100;
-        } @else if $state == 'active' {
-            background-color: $metal-600; // #5c5159
-            border-color: $metal-600;
-            color: $light-100;
-        } @else {
-            background-color: $metal-800; // #312d30
-            border-color: $metal-800;
-            color: $light-100;
-
-            &:hover {
-                background-color: $metal-700;
-                border-color: $metal-700;
-            }
-
-            &:active {
-                background-color: $metal-600;
-                border-color: $metal-600;
-            }
         }
-    } @else if $state == 'hover' {
-        background-color: $blue-700; // #0874f9
-        border-color: $blue-700;
-        color: $light-100;
-    } @else if $state == 'active' {
-        background-color: $blue-800; // #0c58c1
-        border-color: $blue-800;
-        color: $light-100;
+
+        &:active {
+            background-color: $metal-600;
+            border-color: $metal-600;
+        }
     } @else {
         background-color: transparent;
         border-color: $blue-700; // #0874f9
@@ -351,57 +322,38 @@ $font-body: 'IBM Plex', 'Inter', sans-serif;
     }
 }
 
-@mixin button-outline($size: 'lg', $icon-only: false, $state: 'default') {
+@mixin button-outline($size: 'lg', $icon-only: false) {
     @include button-base($size, $icon-only);
     background-color: transparent;
+    border-color: $metal-800;
+    color: $metal-800;
 
-    @if $state == 'hover' {
-        border-color: $metal-500; // #7b7078
-        color: $metal-700; // #473e45
-    } @else if $state == 'active' {
-        border-color: $metal-600; // #5c5159
+    &:hover {
+        border-color: $metal-500;
+        color: $metal-700;
+    }
+
+    &:active {
+        border-color: $metal-600;
         color: $metal-600;
-    } @else {
-        border-color: $metal-400; // #aba0a8
-        color: $metal-800; // #312d30
-
-        &:hover {
-            border-color: $metal-500;
-            color: $metal-700;
-        }
-
-        &:active {
-            border-color: $metal-600;
-            color: $metal-600;
-        }
     }
 }
 
-@mixin button-ghost($color: 'primary', $size: 'lg', $icon-only: false, $state: 'default') {
+@mixin button-ghost($color: 'primary', $size: 'lg', $icon-only: false) {
     @include button-base($size, $icon-only);
     background-color: transparent;
     border-color: transparent;
 
     @if $color == 'secondary' {
-        @if $state == 'hover' {
-            color: $metal-700; // #473e45
-        } @else if $state == 'active' {
-            color: $metal-600; // #5c5159
-        } @else {
-            color: $metal-800; // #312d30
-
-            &:hover {
-                color: $metal-700;
-            }
-
-            &:active {
-                color: $metal-600;
-            }
+        color: $metal-800;
+        
+        &:hover {
+            color: $metal-700;
         }
-    } @else if $state == 'hover' {
-        color: $blue-800; // #0c58c1
-    } @else if $state == 'active' {
-        color: $blue-900; // #114d97
+
+        &:active {
+            color: $metal-600;
+        }
     } @else {
         color: $blue-700; // #0874f9
 

@@ -20,11 +20,11 @@
             "allow_in_bindings": 0
         },
         {
-            "key": "field_69497793a88d8",
-            "label": "Icon",
-            "name": "icon",
+            "key": "field_6ad089272e140",
+            "label": "Style",
+            "name": "style",
             "aria-label": "",
-            "type": "image",
+            "type": "radio",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -33,17 +33,20 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "url",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "svg",
+            "choices": {
+                "btn-filled-primary": "Filled Primary",
+                "btn-ghost-primary": "Ghost Primary",
+                "btn-outline": "Outline",
+                "btn-filled-secondary": "Filled Secondary",
+                "btn-ghost-secondary": "Ghost Secondary"
+            },
+            "default_value": "btn-filled-primary",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
             "allow_in_bindings": 0,
-            "preview_size": "thumbnail"
+            "layout": "vertical",
+            "save_other_choice": 0
         }
     ],
     "location": [
@@ -67,5 +70,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1791987084
+    "modified": 1792051874
 }

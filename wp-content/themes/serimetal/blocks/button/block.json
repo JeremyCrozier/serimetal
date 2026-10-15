@@ -1,7 +1,7 @@
 {
     "name": "acf/button",
     "title": "Bouton",
-    "description": "Bouton avec icon",
+    "description": "Bouton avec différents styles",
     "style": [],
     "category": "text",
     "icon": "button",
@@ -17,30 +17,5 @@
         "typography": {
             "textAlign": true
         }
-    },
-    "attributes": {
-        "className": {
-            "type": "string",
-            "default": "is-style-default"
-        }
-    },
-	"styles": [
-		{   
-			"name": "default",
-			"label": "Default",
-			"isDefault": true
-		},
-        {
-            "name": "subtle",
-            "label": "Subtle"
-        },
-		{
-            "name": "outline",
-            "label": "Outline"
-        },
-        {
-            "name": "underline",
-            "label": "Underline"
-        }
-	]
+    }
 }
