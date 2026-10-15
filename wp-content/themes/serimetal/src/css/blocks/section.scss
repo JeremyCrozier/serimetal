@@ -1,0 +1,37 @@
+@use "../config" as *;
+
+.wp-block-acf-section {
+    h2.wp-block-heading {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        padding-left: 0;
+        padding-right: 0;
+
+        &::before,
+        &::after {
+            content: "";
+            flex: 1 1;
+            height: 1px;
+            background: $metal-300;
+            min-width: 24px;
+            max-width: 1fr;
+        }
+    }
+
+    .acf-innerblocks-container {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+        padding: 48px 0;
+        width: min(100% - 48px, $container-width);
+        margin-inline: auto;
+    }
+}

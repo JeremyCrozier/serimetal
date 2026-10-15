@@ -3,3 +3,53 @@
 .wp-block-acf-button {
   padding: 24px 0;
 }
+
+.btn-filled-primary,
+.btn-filled-secondary,
+.btn-outline,
+.btn-ghost-primary,
+.btn-ghost-secondary {
+    &.btn-md {
+        @include button-size('md');
+    }
+
+    &.btn-sm {
+        @include button-size('sm');
+    }
+
+    &.btn-icon {
+        @include button-size('lg', true);
+
+        &.btn-md {
+            @include button-size('md', true);
+        }
+
+        &.btn-sm {
+            @include button-size('sm', true);
+        }
+    }
+
+    &.btn-icon-right {
+        flex-direction: row-reverse;
+    }
+}
+
+.btn-filled-primary {
+    @include button-filled('primary');
+}
+
+.btn-filled-secondary {
+    @include button-filled('secondary');
+}
+
+.btn-outline {
+    @include button-outline;
+}
+
+.btn-ghost-primary {
+    @include button-ghost('primary');
+}
+
+.btn-ghost-secondary {
+    @include button-ghost('secondary');
+}

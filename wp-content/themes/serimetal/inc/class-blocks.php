@@ -61,6 +61,8 @@ class SM_Blocks {
      */
     public function register_acf_blocks() {
         register_block_type(__DIR__ . '/../blocks/button');
+        register_block_type(__DIR__ . '/../blocks/section');
+        register_block_type(__DIR__ . '/../blocks/blocks');
 
         // Enregistrer le style pour l'image
         // register_block_style(
@@ -109,6 +111,8 @@ class SM_Blocks {
             'wpforms/form-selector',
             'acf/icon',
             'acf/button',
+            'acf/section',
+            'acf/blocks',
             // 'core/legacy-widget',
             // 'core/widget-group',
             // 'core/archives',

@@ -137,6 +137,7 @@ $font-body: 'IBM Plex', 'Inter', sans-serif;
     letter-spacing: 0;
     text-transform: uppercase;
     color: $metal-800;
+    margin: 0;
 }
 
 @mixin text-body {

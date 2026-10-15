@@ -18,9 +18,19 @@
 
     body {
         @include body-medium;
+        background-color: $metal-100;
 
         div {
             box-sizing: border-box;
+        }
+    }
+
+    .bg-dark {
+        background-color: $metal-900;
+        color: $metal-50;
+
+        :is(h1, h2, h3, h4, h5, h6, p, li, .wp-block-heading) {
+            color: $light-100;
         }
     }
 
@@ -70,61 +80,11 @@
         @include metric-small;
     }
 
-    .font-regular {
-        font-weight: 400;
+    .has-text-align-center {
+        text-align: center;
     }
 
-    .font-medium {
-        font-weight: 500;
-    }
-
-    .font-bold {
-        font-weight: 700;
-    }
-
-    .btn-filled-primary,
-    .btn-filled-secondary,
-    .btn-outline,
-    .btn-ghost-primary,
-    .btn-ghost-secondary {
-        &.btn-md {
-            @include button-size('md');
-        }
-
-        &.btn-sm {
-            @include button-size('sm');
-        }
-
-        &.btn-icon {
-            @include button-size('lg', true);
-
-            &.btn-md {
-                @include button-size('md', true);
-            }
-
-            &.btn-sm {
-                @include button-size('sm', true);
-            }
-        }
-    }
-
-    .btn-filled-primary {
-        @include button-filled('primary');
-    }
-
-    .btn-filled-secondary {
-        @include button-filled('secondary');
-    }
-
-    .btn-outline {
-        @include button-outline;
-    }
-
-    .btn-ghost-primary {
-        @include button-ghost('primary');
-    }
-
-    .btn-ghost-secondary {
-        @include button-ghost('secondary');
+    .has-text-align-right {
+        text-align: right;
     }
 }

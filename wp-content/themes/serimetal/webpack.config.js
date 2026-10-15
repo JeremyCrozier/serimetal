@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const stylesDir = path.resolve(__dirname, 'src/css');
 const iconFont = './src/icons.font.js';
+const iconFontBundles = new Set(['main', 'admin']);
 
 /**
  * One CSS bundle per index.scss.
@@ -17,8 +18,13 @@ function getStyleEntries() {
     const entries = {};
     const rootIndex = path.join(stylesDir, 'index.scss');
 
+    const addEntry = (name, indexFile) => {
+        const outputName = name.replace(/Styles$/, '');
+        entries[name] = iconFontBundles.has(outputName) ? [indexFile, iconFont] : indexFile;
+    };
+
     if (fs.existsSync(rootIndex)) {
-        entries.mainStyles = [rootIndex, iconFont];
+        addEntry('mainStyles', rootIndex);
     }
 
     for (const entry of fs.readdirSync(stylesDir, { withFileTypes: true })) {
@@ -29,7 +35,7 @@ function getStyleEntries() {
         const indexFile = path.join(stylesDir, entry.name, 'index.scss');
 
         if (fs.existsSync(indexFile)) {
-            entries[entry.name] = [indexFile, iconFont];
+            addEntry(entry.name, indexFile);
         }
     }
 
