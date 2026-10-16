@@ -63,6 +63,8 @@ class SM_Blocks {
         register_block_type(__DIR__ . '/../blocks/button');
         register_block_type(__DIR__ . '/../blocks/section');
         register_block_type(__DIR__ . '/../blocks/blocks');
+        register_block_type(__DIR__ . '/../blocks/tabs');
+        register_block_type(__DIR__ . '/../blocks/tab');
 
         // Enregistrer le style pour l'image
         // register_block_style(
@@ -113,6 +115,8 @@ class SM_Blocks {
             'acf/button',
             'acf/section',
             'acf/blocks',
+            'acf/tabs',
+            'acf/tab',
             // 'core/legacy-widget',
             // 'core/widget-group',
             // 'core/archives',
@@ -190,7 +194,7 @@ class SM_Blocks {
             // 'core/freeform',
             //'core/group',
             // 'core/html',
-            //'core/list-item',
+            'core/list-item',
             // 'core/missing',
             // 'core/more',
             // 'core/nextpage',

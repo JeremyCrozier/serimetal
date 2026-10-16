@@ -28,7 +28,5 @@ $wrapper_attributes = ! empty( $is_preview )
 ?>
 
 <section <?php echo $wrapper_attributes; ?>>
-	<div class="section__inner">
-		<InnerBlocks />
-	</div>
+	<InnerBlocks class="inside" />
 </section>

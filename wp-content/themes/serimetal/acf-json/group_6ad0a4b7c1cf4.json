@@ -29,6 +29,29 @@
             "save_other_choice": 0
         },
         {
+            "key": "field_6ad21cd49bb8a",
+            "label": "Nombre de colonne",
+            "name": "nb_columns",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 3,
+            "min": 1,
+            "max": 3,
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_6ad0cb6156fe3",
             "label": "Bloc mise en avant",
             "name": "highlighting",
@@ -195,5 +218,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1792059004
+    "modified": 1792155066
 }

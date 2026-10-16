@@ -1,0 +1,111 @@
+@use "../config" as *;
+
+.block-tabs {
+    .tabs-content {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        column-gap: 8px;
+        row-gap: 8px;
+
+        > .tab {
+            display: contents;
+        }
+    }
+
+    .tabs-indicator {
+        position: absolute;
+        height: 4px;
+        background-color: $blue-700;
+        pointer-events: none;
+        transition: left 0.35s ease, width 0.35s ease, top 0.35s ease;
+    }
+
+    .tab-item {
+        @include button-outline;
+        order: 1;
+
+        &:focus-visible {
+            outline: 2px solid $blue-700;
+            outline-offset: 2px;
+        }
+    }
+
+    .tab-item.active,
+    &:not(.is-ready) .tabs-content > .tab:first-child .tab-item {
+        background-color: $blue-700;
+        border-color: $blue-700;
+        color: $light-100;
+
+        &:hover,
+        &:active {
+            background-color: $blue-700;
+            border-color: $blue-700;
+            color: $light-100;
+        }
+    }
+
+    .tab-content-item {
+        order: 2;
+        flex: 1 0 100%;
+        display: none;
+        gap: 24px;
+        flex-direction: column;
+        margin-top: 20px;
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.35s ease, transform 0.35s ease;
+
+        &.is-active {
+            display: flex;
+        }
+
+        &.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    &:not(.is-ready) .tabs-content > .tab:first-child .tab-content-item {
+        display: block;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+// Keep every panel visible while editing.
+.acf-block-preview .block-tabs,
+.editor-styles-wrapper .block-tabs {
+
+    .tabs-content {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .acf-block-component {
+        width: 100%;
+    }
+
+    .tab-content-item {
+        display: flex;
+        opacity: 1;
+        transform: none;
+        margin-top: 16px;
+    }
+
+    .tabs-indicator {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .block-tabs {
+        .tabs-indicator,
+        .tab-content-item {
+            transition: none;
+        }
+    }
+}

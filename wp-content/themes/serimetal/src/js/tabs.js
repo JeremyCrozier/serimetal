@@ -1,82 +1,166 @@
-(function ($, window, undefined) {
+(function ($, window) {
     "use strict";
 
-    const MOBILE_BREAKPOINT = 992;
-    const SCROLL_ACTIVATION_DELAY = 150;
+    const DURATION = 350;
 
-    function isMobile() {
-        return window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`).matches;
+    function prefersReducedMotion() {
+        return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     }
 
-    let verticalSliderObservers = [];
+    function moveIndicator($tabs, $button, animate) {
+        const $content = $tabs.find(".tabs-content");
+        const $indicator = $tabs.find(".tabs-indicator");
+        const content = $content.get(0);
+        const button = $button.get(0);
 
-    function initVerticalSliderScrollActivation() {
-        const $sliders = $('.wp-block-acf-vertical-slider');
-        if (!$sliders.length || !isMobile()) return;
+        if (!content || !button || !$indicator.length) {
+            return;
+        }
 
-        // Disconnect existing observers before re-init (e.g. on resize)
-        verticalSliderObservers.forEach(obs => obs.disconnect());
-        verticalSliderObservers = [];
+        const contentRect = content.getBoundingClientRect();
+        const buttonRect = button.getBoundingClientRect();
+        const range = document.createRange();
+        range.selectNodeContents(button);
+        const textRect = range.getBoundingClientRect();
+        const left = (textRect.width ? textRect.left : buttonRect.left) - contentRect.left;
+        const width = textRect.width || buttonRect.width;
+        const top = buttonRect.bottom - contentRect.top + 8;
 
-        $sliders.each(function() {
-            const $container = $(this);
-            const $tabItems = $container.find('.tab-item');
-            const $slideContainers = $container.find('.tab-content-item');
-            let activationTimeout = null;
+        if (!animate) {
+            $indicator.css("transition", "none");
+        }
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (!entry.isIntersecting) return;
+        $indicator.css({
+            left: left,
+            width: width,
+            top: top
+        });
 
-                    const $target = $(entry.target);
-                    const tabIndex = $tabItems.index($target);
+        if (!animate) {
+            $indicator.get(0).offsetHeight;
+            $indicator.css("transition", "");
+        }
+    }
 
-                    if (tabIndex === -1) return;
+    function activate($tabs, index, animate) {
+        const $buttons = $tabs.find(".tabs-content > .tab > .tab-item");
+        const $panels = $tabs.find(".tabs-content > .tab > .tab-content-item");
+        const $nextButton = $buttons.eq(index);
+        const $nextPanel = $panels.eq(index);
 
-                    if (activationTimeout) clearTimeout(activationTimeout);
+        if (!$nextButton.length || $nextButton.hasClass("active")) {
+            return;
+        }
 
-                    activationTimeout = setTimeout(() => {
-                        $tabItems.removeClass('active');
-                        $slideContainers.removeClass('active');
-                        $target.addClass('active');
-                        $slideContainers.eq(tabIndex).addClass('active');
-                        activationTimeout = null;
-                    }, SCROLL_ACTIVATION_DELAY);
-                });
-            }, {
-                root: null,
-                rootMargin: '-40% 0px -40% 0px',
-                threshold: [0, 0.25, 0.5, 0.75, 1]
+        window.clearTimeout($tabs.data("tabsTimer"));
+
+        $buttons.removeClass("active").attr("aria-selected", "false");
+        $nextButton.addClass("active").attr("aria-selected", "true");
+        moveIndicator($tabs, $nextButton, animate);
+
+        const reveal = function () {
+            $panels.removeClass("is-active is-visible");
+            $nextPanel.addClass("is-active");
+
+            if (!animate || prefersReducedMotion()) {
+                $nextPanel.addClass("is-visible");
+                return;
+            }
+
+            $nextPanel.get(0).offsetHeight;
+            $nextPanel.addClass("is-visible");
+        };
+
+        const $current = $panels.filter(".is-active").not($nextPanel);
+
+        if (!animate || prefersReducedMotion() || !$current.length) {
+            reveal();
+            return;
+        }
+
+        $current.removeClass("is-visible");
+        $tabs.data("tabsTimer", window.setTimeout(reveal, DURATION));
+    }
+
+    function setupTabs($tabs, groupIndex) {
+        const $content = $tabs.find(".tabs-content");
+        const $buttons = $content.find("> .tab > .tab-item");
+        const $panels = $content.find("> .tab > .tab-content-item");
+
+        if (!$buttons.length) {
+            return;
+        }
+
+        if (!$content.find(".tabs-indicator").length) {
+            $content.append('<span class="tabs-indicator" aria-hidden="true"></span>');
+        }
+
+        $buttons.each(function (index) {
+            const tabId = "tabs-" + groupIndex + "-" + index;
+            const panelId = tabId + "-panel";
+
+            $(this).attr({
+                id: tabId,
+                role: "tab",
+                "aria-controls": panelId,
+                "aria-selected": "false"
             });
 
-            $tabItems.each((_, el) => observer.observe(el));
-            verticalSliderObservers.push(observer);
+            $panels.eq(index).attr({
+                id: panelId,
+                role: "tabpanel",
+                "aria-labelledby": tabId
+            });
+        });
+
+        $tabs.addClass("is-ready");
+        $buttons.removeClass("active");
+        activate($tabs, 0, false);
+
+        $buttons.on("click", function () {
+            activate($tabs, $buttons.index(this), true);
+        });
+
+        $buttons.on("keydown", function (event) {
+            const current = $buttons.index(this);
+            let next = null;
+
+            if (event.key === "ArrowRight") {
+                next = (current + 1) % $buttons.length;
+            } else if (event.key === "ArrowLeft") {
+                next = (current - 1 + $buttons.length) % $buttons.length;
+            } else if (event.key === "Home") {
+                next = 0;
+            } else if (event.key === "End") {
+                next = $buttons.length - 1;
+            }
+
+            if (next === null) {
+                return;
+            }
+
+            event.preventDefault();
+            $buttons.eq(next).trigger("focus");
+            activate($tabs, next, true);
         });
     }
 
-    $(document).ready(function() {
-        $('.block-tabs').each(function() {
-            const $container = $(this);
-            const $tabItems = $container.find('.tab-item');
-            const $slideContainers = $container.find('.tab-content-item');
-            
-            $tabItems.on('click', function() {
-                const $clickedTab = $(this);
-                const tabIndex = $tabItems.index($clickedTab);
+    $(function () {
+        const $groups = $(".block-tabs");
 
-                $tabItems.removeClass('active');
-                $slideContainers.removeClass('active');
-
-                $clickedTab.addClass('active');
-
-                // Add active class to corresponding slide
-                $slideContainers.eq(tabIndex).addClass('active');
-            });
+        $groups.each(function (index) {
+            setupTabs($(this), index);
         });
 
-        // Mobile-only: activate vertical slider items on scroll
-        initVerticalSliderScrollActivation();
+        $(window).on("resize", function () {
+            $groups.each(function () {
+                const $tabs = $(this);
+                const $active = $tabs.find(".tab-item.active").first();
+
+                if ($active.length) {
+                    moveIndicator($tabs, $active, false);
+                }
+            });
+        });
     });
-
-
 })(jQuery, window);

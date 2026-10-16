@@ -23,6 +23,44 @@
         div {
             box-sizing: border-box;
         }
+
+        p {
+            margin: 0 0 16px 0;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .columns-1 {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: 1fr;
+    }
+
+    .columns-2 {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(2, 1fr);
+
+        @media (max-width: $mobile-large) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .columns-3 {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(3, 1fr);
+
+        @media (max-width: $tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: $desktop-small) {
+            grid-template-columns: 1fr;
+        }
     }
 
     .bg-dark {
@@ -32,23 +70,40 @@
         :is(h1, h2, h3, h4, h5, h6, p, li, .wp-block-heading) {
             color: $light-100;
         }
+
+        &.section h2.wp-block-heading {
+            &::before,
+            &::after {
+                background: $metal-600;
+            }
+        }
+
+        .btn-filled-primary, .btn-ghost-primary, .btn-ghost-secondary  {
+            color: $light-100;
+            border-color: $light-100;
+        }
+
+        .btn-filled-secondary {
+            background-color: $light-100;
+            color: $metal-900;
+        }
     }
 
     // Typography
 
-    h1.wp-block-heading, h1.wp-block-post-title, .wp-block-heading.h1 {
+    h1.wp-block-heading, h1.wp-block-post-title, .wp-block-heading.h1, .heading-xlarge {
         @include heading-xlarge;
     }
 
-    h2.wp-block-heading, .wp-block-heading.is-style-h2, .is-style-h2 {
+    h2.wp-block-heading, .wp-block-heading.is-style-h2, .heading-large {
         @include heading-large;
     }
 
-    h3.wp-block-heading, .wp-block-heading.is-style-h3, .is-style-h3 {
+    h3.wp-block-heading, .wp-block-heading.is-style-h3, .heading-medium {
         @include heading-medium;
     }
 
-    h4.wp-block-heading, .wp-block-heading.is-style-h4, .is-style-h4 {
+    h4.wp-block-heading, .wp-block-heading.is-style-h4, .heading-small {
         @include heading-small;
     }
 

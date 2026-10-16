@@ -16,16 +16,19 @@
 $style = get_field( 'style' );
 $blocks = get_field( 'blocks' );
 $highlighting = get_field( 'highlighting' );
-$columns = $blocks ? count( $blocks ) : 1;
+$nb_columns = get_field( 'nb_columns' );
+$nb_blocks = $blocks ? count( $blocks ) : 1;
 $number = 1;
-$classes = array(
-	'columns-' . max( 3, $columns ),
-	'blocks-style-' . $style,
-);
 
 if ( $highlighting ) {
 	$classes[] = 'has-highlighting';
+	$nb_blocks += 1;
 }
+
+$classes = array(
+	'columns-' . min( $nb_columns, $nb_blocks ),
+	'blocks-style-' . $style,
+);
 
 $styles_border = array(
 	"default" => "border--yellow",

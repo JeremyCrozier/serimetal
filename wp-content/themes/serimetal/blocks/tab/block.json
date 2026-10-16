@@ -1,0 +1,21 @@
+{
+    "name": "acf/tab",
+    "title": "Onglet",
+    "description": "Panneau d'un bloc Onglets",
+    "style": [],
+    "category": "design",
+    "icon": "excerpt-view",
+    "keywords": ["tab", "onglet"],
+    "parent": ["acf/tabs"],
+    "acf": {
+        "version": 3,
+        "mode": "preview",
+        "renderTemplate": "tab.php"
+    },
+    "supports": {
+        "anchor": false,
+        "align": false,
+        "jsx": true,
+        "mode": false
+    }
+}
