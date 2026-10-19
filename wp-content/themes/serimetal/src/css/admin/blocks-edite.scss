@@ -1,0 +1,27 @@
+@use "../config" as *;
+
+// Keep every panel visible while editing.
+.acf-block-preview .block-tabs,
+.editor-styles-wrapper .block-tabs {
+
+    .tabs-content {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .acf-block-component {
+        width: 100%;
+    }
+
+    .tab-content-item {
+        display: flex;
+        opacity: 1;
+        transform: none;
+        margin-top: 16px;
+    }
+
+    .tabs-indicator {
+        display: none;
+    }
+}

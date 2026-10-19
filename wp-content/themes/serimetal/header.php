@@ -28,27 +28,21 @@
 
 <header id="header">
     <div class="inside">
-        <div class="header-left">
-            <a href="<?php echo esc_url(home_url('/')); ?>" class="logo" aria-label="<?php bloginfo('name'); ?>" title="Accueil">
-                <img src="/wp-content/uploads/icons/logo-Serimetal.svg" alt="<?php bloginfo('name'); ?>" width="130" height="35" class="logo-desktop">
-                <img src="/wp-content/uploads/icons/logo-Serimetal-mobile.svg" alt="<?php bloginfo('name'); ?>" width="32" height="32" class="logo-mobile">
-                <span class="screen-reader-text"><?php bloginfo('name'); ?></span>
-            </a>
-            
-            <nav class="main-nav" role="navigation" aria-label="<?php esc_attr_e('Main Navigation', 'Serimetal'); ?>">
-                <?php wp_nav_menu( array(  'menu' => 'menu', 'container' => '', 'menu_class' => 'menu menu-header' ) ); ?>
-            </nav>
-        </div>
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="logo" aria-label="<?php bloginfo('name'); ?>" title="Accueil">
+            <img src="/wp-content/uploads/icons/logo-serimetal-white.svg" alt="<?php bloginfo('name'); ?>" width="247" height="36" class="logo-desktop">
+            <img src="/wp-content/uploads/icons/logo-serimetal-withe-mobile.svg" alt="<?php bloginfo('name'); ?>" width="32" height="32" class="logo-mobile">
+            <span class="screen-reader-text"><?php bloginfo('name'); ?></span>
+        </a>
         
-        <div class="header-right">
-            <?php wp_nav_menu( array(  'menu' => 'cta', 'container' => '', 'menu_class' => 'menu menu-cta' ) ); ?>
-        </div>
-        <button class="burger-menu-button" aria-label="Menu">
-            <img src="/wp-content/uploads/icons/menu.svg" alt="Ouvrir le menu" width="40" height="40" class="burger-menu-icon">
-            <img src="/wp-content/uploads/icons/menu-close.svg" alt="Fermer le menu" width="40" height="40" class="burger-menu-icon close-menu">
-            <span class="screen-reader-text">Menu</span>
-        </button>
+        <nav class="main-nav" role="navigation" aria-label="<?php esc_attr_e('Main Navigation', 'Serimetal'); ?>">
+            <?php wp_nav_menu( array(  'menu' => 'menu', 'container' => '', 'menu_class' => 'menu menu-header' ) ); ?>
+        </nav>
     </div>
+    <button class="burger-menu-button" aria-label="Menu">
+        <img src="/wp-content/uploads/icons/menu.svg" alt="Ouvrir le menu" width="40" height="40" class="burger-menu-icon">
+        <img src="/wp-content/uploads/icons/menu-close.svg" alt="Fermer le menu" width="40" height="40" class="burger-menu-icon close-menu">
+        <span class="screen-reader-text">Menu</span>
+    </button>
 </header>
 
 <main id="main">
