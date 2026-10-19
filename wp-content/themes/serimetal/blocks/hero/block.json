@@ -1,0 +1,20 @@
+{
+    "name": "acf/hero",
+    "title": "Hero",
+    "description": "Bloc Hero principal",
+    "style": [],
+    "category": "design",
+    "icon": "cover-image",
+    "keywords": ["hero", "bannière", "banner", "header"],
+    "acf": {
+        "version": 3,
+        "mode": "preview",
+        "renderTemplate": "hero.php"
+    },
+    "supports": {
+        "anchor": true,
+        "align": false,
+        "jsx": true,
+        "mode": false
+    }
+}

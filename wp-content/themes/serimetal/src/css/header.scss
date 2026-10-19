@@ -7,6 +7,8 @@ body {
 }
 
 #header {
+    position: relative;
+    z-index: 2;
 
     .inside {
         display: flex;
@@ -102,7 +104,7 @@ body {
                 opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
                 transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             display: block; // pour que l’animation fonctionne
-            z-index: 2;
+            z-index: 3;
 
             & > li {
                 margin-bottom: 8px;

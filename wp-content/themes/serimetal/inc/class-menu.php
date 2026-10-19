@@ -88,8 +88,6 @@ class SM_Menu {
      */
     public function blog_menu_item_title($title, $item, $args, $depth) {
 
-    error_log(print_r($item, true));
-
         if ($depth !== 1) {
             return $title;
         }

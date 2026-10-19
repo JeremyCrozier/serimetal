@@ -7,22 +7,22 @@
         align-items: center;
         justify-content: center;
         gap: 32px;
-        width: 100vw;
+        width: calc(100vw - 8px);
         left: 50%;
         right: 50%;
         margin-left: -50vw;
         margin-right: -50vw;
         padding-left: 0;
         padding-right: 0;
+        text-align: center;
 
         &::before,
         &::after {
             content: "";
-            flex: 1 1;
+            flex: 1 1 24px;
             height: 1px;
             background: $metal-300;
             min-width: 24px;
-            max-width: 1fr;
         }
     }
 
