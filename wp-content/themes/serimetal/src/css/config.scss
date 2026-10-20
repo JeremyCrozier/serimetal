@@ -136,7 +136,7 @@ $font-body: 'IBM Plex', 'Inter', sans-serif;
     font-style: normal;
     letter-spacing: 0;
     text-transform: uppercase;
-    color: $metal-800;
+    color: $metal-900;
     margin: 0;
 }
 
@@ -144,7 +144,7 @@ $font-body: 'IBM Plex', 'Inter', sans-serif;
     font-family: $font-body;
     font-style: normal;
     letter-spacing: 0;
-    color: $metal-800;
+    color: $metal-900;
 }
 
 // Heading
@@ -248,19 +248,16 @@ $font-body: 'IBM Plex', 'Inter', sans-serif;
         }
     } @else if $size == 'md' {
         gap: 8px;
-        min-width: 60px;
         padding: 10px 14px;
         font-size: 14px;
         line-height: 16px;
     } @else if $size == 'sm' {
         gap: 8px;
-        min-width: 60px;
         padding: 8px 12px;
         font-size: 14px;
         line-height: 16px;
     } @else {
         gap: 8px;
-        min-width: 80px;
         padding: 14px 16px;
         font-size: 16px;
         line-height: 1;

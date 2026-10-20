@@ -1,26 +1,28 @@
-(function ($, window, undefined) {
+(function ($, window) {
     "use strict";
 
-    $(document).ready(function() {
-        const $accordion = $('.wp-block-acf-accordion');
+    $(function () {
+        $(".block-accordion").each(function () {
+            const $accordion = $(this);
 
-        if ($accordion.length) {
-            const $accordionItems = $accordion.find('.accordion-item');
+            $accordion.addClass("is-ready");
+            $accordion.find(".accordion-item.is-active .accordion-content").show();
 
-            $accordionItems.on('click', function(e) {
-                // Ignore clicks that happen on .accordion-content or inside it (so only header/item area clicks)
-                if ($(e.target).closest('.accordion-content').length) {
+            $accordion.on("click", ".accordion-item", function (event) {
+                if ($(event.target).closest(".accordion-content").length) {
                     return;
                 }
-                const $clickedItem = $(this);
-                const $accordionTitle = $clickedItem.find('.accordion-title').first();
-                const $accordionContent = $clickedItem.find('.accordion-content').first();
 
-                $clickedItem.toggleClass('is-active');
-                $accordionTitle.toggleClass('is-active');
-                $accordionContent.stop(true, true).slideToggle();
+                const $item = $(this);
+                const $title = $item.find(".accordion-title").first();
+                const $content = $item.find(".accordion-content").first();
+                const willOpen = !$item.hasClass("is-active");
+
+                $item.toggleClass("is-active", willOpen);
+                $title.toggleClass("is-active", willOpen).attr("aria-expanded", willOpen ? "true" : "false");
+                $title.find(".ph").toggleClass("ph-plus", !willOpen).toggleClass("ph-minus", willOpen);
+                $content.stop(true, true)[willOpen ? "slideDown" : "slideUp"](300);
             });
-        }
+        });
     });
-
 })(jQuery, window);

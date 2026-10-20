@@ -16,20 +16,22 @@
 
 .editor-styles-wrapper {
 
-    body {
-        @include body-medium;
-        background-color: $metal-100;
+    @include body-medium;
+    background-color: $metal-100;
 
-        div {
-            box-sizing: border-box;
-        }
+    div {
+        box-sizing: border-box;
+    }
 
-        p {
-            margin: 0 0 16px 0;
+    p {
+        margin: 0;
+    }
 
-            &:last-child {
-                margin-bottom: 0;
-            }
+    .wp-block-paragraph {
+        margin: 0 0 16px 0;
+
+        &:last-child {
+            margin-bottom: 0;
         }
     }
 

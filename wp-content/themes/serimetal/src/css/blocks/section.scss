@@ -29,9 +29,16 @@
     .inside {
         display: flex;
         flex-direction: column;
-        gap: 48px;
         padding: 48px 0;
         width: min(100% - 48px, $container-width);
         margin-inline: auto;
+
+        & > div, & > .wp-block-heading {
+            margin-bottom: 48px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
     }
 }
