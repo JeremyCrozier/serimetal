@@ -67,6 +67,7 @@ class SM_Blocks {
         register_block_type(__DIR__ . '/../blocks/tab');
         register_block_type(__DIR__ . '/../blocks/hero');
         register_block_type(__DIR__ . '/../blocks/accordion');
+        register_block_type(__DIR__ . '/../blocks/about');
 
         // Enregistrer le style pour l'image
         // register_block_style(
@@ -121,6 +122,7 @@ class SM_Blocks {
             'acf/tab',
             'acf/hero',
             'acf/accordion',
+            'acf/about',
             // 'core/legacy-widget',
             // 'core/widget-group',
             // 'core/archives',

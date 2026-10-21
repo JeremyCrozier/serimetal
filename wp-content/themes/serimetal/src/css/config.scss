@@ -353,7 +353,7 @@ $font-body: 'IBM Plex', 'Inter', sans-serif;
             color: $metal-600;
         }
     } @else {
-        color: $blue-700; // #0874f9
+        color: $blue-700;
 
         &:hover {
             color: $blue-800;

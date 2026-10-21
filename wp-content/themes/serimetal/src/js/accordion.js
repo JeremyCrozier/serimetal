@@ -2,7 +2,7 @@
     "use strict";
 
     $(function () {
-        $(".block-accordion").each(function () {
+        $(".wp-block-acf-accordion").each(function () {
             const $accordion = $(this);
 
             $accordion.addClass("is-ready");
