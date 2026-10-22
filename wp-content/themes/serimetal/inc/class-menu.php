@@ -88,6 +88,12 @@ class SM_Menu {
      */
     public function blog_menu_item_title($title, $item, $args, $depth) {
 
+        if (in_array('ph-icon', $item->classes)) {
+            $output  = '<span class="screen-reader-text">' . esc_html($item->title) . '</span>';
+            $output .= '<i class="btn-filled-secondary btn-icon ph ph-' . sanitize_title($item->title) . '-logo"></i>';
+            return $output;
+        }
+
         if ($depth !== 1) {
             return $title;
         }
@@ -106,6 +112,7 @@ class SM_Menu {
             $output .= '<i class="ph ph-caret-right"></i>';
 
             return $output;
+
         }
 
         return $title;
