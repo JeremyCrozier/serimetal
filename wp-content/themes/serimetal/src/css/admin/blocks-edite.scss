@@ -25,3 +25,9 @@
         display: none;
     }
 }
+
+.acf-block-preview.wp-block-acf-form {
+    .form-panel {
+        pointer-events: none;
+    }
+}

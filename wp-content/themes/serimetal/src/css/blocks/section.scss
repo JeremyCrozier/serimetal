@@ -33,7 +33,7 @@
         width: min(100% - 48px, $container-width);
         margin-inline: auto;
 
-        & > div, & > .wp-block-heading {
+        & > div, & > .wp-block-heading,  & > section {
             margin-bottom: 48px;
 
             &:last-child {

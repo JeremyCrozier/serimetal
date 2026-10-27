@@ -68,6 +68,7 @@ class SM_Blocks {
         register_block_type(__DIR__ . '/../blocks/hero');
         register_block_type(__DIR__ . '/../blocks/accordion');
         register_block_type(__DIR__ . '/../blocks/about');
+        register_block_type(__DIR__ . '/../blocks/form');
 
         // Enregistrer le style pour l'image
         // register_block_style(
@@ -123,6 +124,7 @@ class SM_Blocks {
             'acf/hero',
             'acf/accordion',
             'acf/about',
+            'acf/form',
             // 'core/legacy-widget',
             // 'core/widget-group',
             // 'core/archives',

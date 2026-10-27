@@ -116,6 +116,7 @@ body {
                     color: $light-100;
                     background-color: $dark-80;
                     text-transform: uppercase;
+                    transition: background-color 0.3s ease;
 
                     img {
                         width: 128px;
@@ -128,6 +129,11 @@ body {
                         margin-left: auto;
                         margin-right: 16px;
                     }
+
+
+                    &:hover {
+                        background-color: #3E3E42;
+                    }
                 }
             }
         }
@@ -135,20 +141,7 @@ body {
 }
 
 .menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    ul {
-        margin: 0;
-        padding: 0;
-    }
-
     li {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-
         a {
             @include body-medium;
             text-decoration: none;

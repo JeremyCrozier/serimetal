@@ -1,17 +1,7 @@
 @use "./config" as *;
 
 .screen-reader-text {
-    clip: rect(1px, 1px, 1px, 1px);
-    word-wrap: normal !important;
-    border: 0;
-    clip-path: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    overflow-wrap: normal !important;
-    padding: 0;
-    position: absolute !important;
-    width: 1px;
+    @include screen-reader-text;
 }
 
 body {
@@ -31,6 +21,18 @@ body {
 
         &:last-child {
             margin-bottom: 0;
+        }
+    }
+
+    ul, ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
     }
 }
@@ -87,6 +89,12 @@ body {
 
     .btn-filled-secondary {
         background-color: $light-100;
+        color: $metal-900;
+    }
+
+    .btn-filled-primary:hover {
+        background-color: $light-100;
+        border-color: $light-100;
         color: $metal-900;
     }
 }

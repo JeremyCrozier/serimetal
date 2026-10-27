@@ -199,7 +199,7 @@ $font-body: 'IBM Plex', 'Inter', sans-serif;
 
 // Metric
 @mixin metric-large {
-    font-family: 'TT Supermolot', 'Inter', sans-serif;
+    font-family: $font-heading;
     font-weight: 600;
     font-style: normal;
     font-size: 48px;
@@ -209,7 +209,7 @@ $font-body: 'IBM Plex', 'Inter', sans-serif;
 }
 
 @mixin metric-medium {
-    font-family: 'TT Supermolot', 'Inter', sans-serif;
+    font-family: $font-heading;
     font-weight: 600;
     font-style: normal;
     font-size: 32px;
@@ -219,7 +219,7 @@ $font-body: 'IBM Plex', 'Inter', sans-serif;
 }
 
 @mixin metric-small {
-    font-family: 'TT Supermolot', 'Inter', sans-serif;
+    font-family: $font-heading;
     font-weight: 500;
     font-style: normal;
     font-size: 12px;
@@ -363,4 +363,18 @@ $font-body: 'IBM Plex', 'Inter', sans-serif;
             color: $blue-900;
         }
     }
+}
+
+@mixin screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    word-wrap: normal !important;
+    border: 0;
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    overflow-wrap: normal !important;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
 }
