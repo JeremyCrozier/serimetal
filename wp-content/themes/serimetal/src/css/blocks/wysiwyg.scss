@@ -1,0 +1,62 @@
+@use "../config" as *;
+
+.wysiwyg {
+    h1 {
+        @include heading-large;
+        margin-top: 0;
+        padding-bottom: 24px;
+    }
+
+    h2 {
+        @include heading-medium;
+        margin-top: 0;
+        padding-bottom: 16px;
+    }
+
+    h3 {
+        @include heading-small;
+        margin-top: 0;
+        padding-bottom: 12px;
+    }
+
+    h4 {
+        @include heading-small;
+        margin-top: 0;
+        padding-bottom: 8px;
+    }
+
+    p {
+        margin-bottom: 8px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    ul {
+        margin-bottom: 8px;
+        padding-left: 48px;
+
+        li {
+            list-style: disc;
+        }
+    }
+
+    ol {
+        margin-bottom: 8px;
+        padding-left: 48px;
+
+        li {
+            list-style: decimal;
+        }
+    }
+
+    a {
+        color: $blue-700;
+        text-decoration: underline;
+
+        &:hover {
+            color: $blue-800;
+        }
+    }
+}

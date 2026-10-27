@@ -17,7 +17,7 @@ $style  = get_field( 'style' );
 $target = !empty($link['target']) ? $link['target'] : '_self';
 $disabled = $is_preview ? 'style="pointer-events: none"' : '';
 
-$wrapper_attributes = $is_preview ? ' ' : get_block_wrapper_attributes();
+$wrapper_attributes = get_block_wrapper_attributes();
 ?>
 
 <div <?php echo $wrapper_attributes ?>>

@@ -1,0 +1,92 @@
+@use "../config" as *;
+
+.block-small-hero {
+    padding: 32px 0;
+
+    .inside {
+        display: grid;
+        grid-template-columns: minmax(0, 547fr) minmax(0, 773fr);
+        gap: 16px;
+        align-items: stretch;
+        width: min(100% - 48px, $container-width);
+        margin-inline: auto;
+    }
+
+    .inside:has(> :only-child) {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 48px;
+        min-height: 493px;
+        padding: 32px;
+        background-color: $light-100;
+        border-bottom: 4px solid $orange-300;
+    }
+
+    .hero-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .heading-large {
+        margin: 0;
+    }
+
+    .wysiwyg {
+
+        h2 {
+            @include heading-small;
+        }
+
+        h3 {
+            @include heading-small;
+        }
+    }
+
+    .btn-filled-primary {
+        align-self: flex-start;
+        border-color: $blue-400;
+
+        &:hover,
+        &:active {
+            border-color: $blue-700;
+        }
+    }
+
+    .image {
+        position: relative;
+        min-height: 493px;
+
+        img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    @media (max-width: $tablet) {
+        .inside {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .content,
+        .image {
+            min-height: 0;
+        }
+
+        .image {
+            aspect-ratio: 773 / 493;
+
+            img {
+                position: absolute;
+            }
+        }
+    }
+}
