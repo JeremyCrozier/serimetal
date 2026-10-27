@@ -29,8 +29,13 @@
 <header id="header">
     <div class="inside">
         <a href="<?php echo esc_url(home_url('/')); ?>" class="logo" aria-label="<?php bloginfo('name'); ?>" title="Accueil">
-            <img src="/wp-content/uploads/icons/logo-serimetal-white.svg" alt="<?php bloginfo('name'); ?>" width="247" height="36" class="logo-desktop">
-            <img src="/wp-content/uploads/icons/logo-serimetal-withe-mobile.svg" alt="<?php bloginfo('name'); ?>" width="32" height="32" class="logo-mobile">
+            <?php if ( is_front_page() ) : ?>
+                <img src="/wp-content/uploads/icons/logo-serimetal-white.svg" alt="<?php bloginfo('name'); ?>" width="247" height="36" class="logo-desktop">
+                <img src="/wp-content/uploads/icons/logo-serimetal-withe-mobile.svg" alt="<?php bloginfo('name'); ?>" width="32" height="32" class="logo-mobile">
+            <?php else : ?>
+                <img src="/wp-content/uploads/icons/logo-serimetal-blue-black.svg" alt="<?php bloginfo('name'); ?>" width="247" height="36" class="logo-desktop">
+                <img src="/wp-content/uploads/icons/logo-serimetal-blue-black.svg" alt="<?php bloginfo('name'); ?>" width="32" height="32" class="logo-mobile">
+            <?php endif; ?>
             <span class="screen-reader-text"><?php bloginfo('name'); ?></span>
         </a>
         
@@ -46,3 +51,8 @@
 </header>
 
 <main id="main">
+<?php
+if ( function_exists('yoast_breadcrumb') && ! is_front_page() ) {
+  yoast_breadcrumb('<nav id="breadcrumbs" class="body-small" aria-label="breadcrumb">','</nav>');
+}
+?>
