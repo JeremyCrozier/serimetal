@@ -30,11 +30,6 @@ $classes = array(
 	'blocks-style-' . $style,
 );
 
-$styles_border = array(
-	"default" => "border--yellow",
-	"numbers" => "border--blue",
-);
-
 $wrapper_attributes = ! empty( $is_preview )
 	? 'class="' . esc_attr( implode( ' ', $classes ) ) . '"'
 	: get_block_wrapper_attributes(
@@ -47,7 +42,7 @@ $wrapper_attributes = ! empty( $is_preview )
 <div <?php echo $wrapper_attributes; ?>>
 
 	<?php if ( $highlighting['titre'] && $highlighting['text'] ) : ?>
-		<div class="block-item bg-dark block-highlight">
+		<div class="block-item bg--dark block-highlight">
 			<?php if ( $highlighting['titre'] ) : ?>
 				<h3 class="heading-medium"><?php echo esc_html( $highlighting['titre'] ); ?></h3>
 			<?php endif; ?>
@@ -68,7 +63,7 @@ $wrapper_attributes = ! empty( $is_preview )
 
 	<?php if ( have_rows( 'blocks' ) ) : ?>
 		<?php while ( have_rows( 'blocks' ) ) : the_row(); ?>
-			<div class="block-item <?php echo $styles_border[ $style ]; ?>">
+			<div class="block-item border">
 				<?php if ( $style === 'numbers' ) : ?>
 					<div class="block-number heading-medium">
 						<?php echo esc_html( '0' . $number . '.' ); ?>

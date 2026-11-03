@@ -47,6 +47,9 @@ class SM_Setup {
         // Support SVG
         add_filter('upload_mimes', array($this, 'add_svg_support'));
 
+        // Page color as a CSS custom property
+        add_action('wp_head', array($this, 'output_page_color'));
+
         // For dev
         if ( wp_get_environment_type() === 'local' ) {
             // Only allow fields to be edited on development
@@ -86,6 +89,30 @@ class SM_Setup {
     public function add_svg_support($mimes) {
         $mimes['svg'] = 'image/svg+xml';
         return $mimes;
+    }
+
+    /**
+     * Print the ACF page color as --page-color.
+     */
+    public function output_page_color() {
+        $color = '#0874f9';
+
+        if (function_exists('get_field')) {
+            $page_color = get_field('page_color');
+
+            if (is_string($page_color)) {
+                $page_color = sanitize_hex_color($page_color);
+
+                if ($page_color) {
+                    $color = $page_color;
+                }
+            }
+        }
+
+        printf(
+            "<style>:root{--page-color:%s;}</style>\n",
+            esc_attr($color)
+        );
     }
 
     public function add_image_sizes() {

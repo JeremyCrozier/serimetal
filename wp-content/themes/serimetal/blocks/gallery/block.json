@@ -1,0 +1,20 @@
+{
+    "name": "acf/gallery",
+    "title": "Galerie",
+    "description": "Galerie d'images",
+    "style": [],
+    "category": "design",
+    "icon": "format-gallery",
+    "keywords": ["gallery", "galerie", "images", "photos", "media"],
+    "acf": {
+        "version": 3,
+        "mode": "preview",
+        "renderTemplate": "gallery.php"
+    },
+    "supports": {
+        "anchor": true,
+        "align": false,
+        "jsx": true,
+        "mode": false
+    }
+}

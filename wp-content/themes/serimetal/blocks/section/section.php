@@ -15,7 +15,7 @@
 
 $background = get_field( 'background' );
 $classes = array(
-	'bg-' . $background,
+	'bg--' . $background,
 );
 
 $wrapper_attributes = ! empty( $is_preview )

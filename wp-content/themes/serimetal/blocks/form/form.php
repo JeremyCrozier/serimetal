@@ -53,7 +53,7 @@ $wrapper_attributes = ! empty( $is_preview )
 	<?php endif; ?>
 
 	<?php if ( $form_id && function_exists( 'wpforms_display' ) ) : ?>
-		<div class="form-panel bg-<?php echo $background; ?>">
+		<div class="form-panel bg--<?php echo $background; ?>">
 			<?php wpforms_display( $form_id ); ?>
 		</div>
 	<?php endif; ?>

@@ -50,6 +50,9 @@ class SM_Blocks {
         // Filtrer les blocs autorisés
         add_filter('allowed_block_types_all', array($this, 'allowed_block_types'), 5, 2);
 
+        // Locked small hero on new realisation posts.
+        //add_filter('register_post_type_args', array($this, 'set_realisation_template'), 10, 2);
+
         //add_filter( 'render_block', array($this, 'render_block'), 5, 2);
         // Filtrer les arguments des blocs
         //add_filter('register_block_tySM_args', array($this, 'filter_block_tySM_args'), 10, 2);
@@ -70,6 +73,7 @@ class SM_Blocks {
         register_block_type(__DIR__ . '/../blocks/accordion');
         register_block_type(__DIR__ . '/../blocks/about');
         register_block_type(__DIR__ . '/../blocks/form');
+        register_block_type(__DIR__ . '/../blocks/gallery');
 
         // Enregistrer le style pour l'image
         // register_block_style(
@@ -106,6 +110,33 @@ class SM_Blocks {
     }
 
     /**
+     * Prepend a locked small hero on empty realisation posts.
+     *
+     * @param array  $args      Post type registration arguments.
+     * @param string $post_type Post type slug.
+     * @return array
+     */
+    public function set_realisation_template($args, $post_type) {
+        if ($post_type !== 'realisation') {
+            return $args;
+        }
+
+        $args['template'] = array(
+            array(
+                'acf/small-hero',
+                array(
+                    'lock' => array(
+                        'remove' => true,
+                        'move'   => true,
+                    ),
+                ),
+            ),
+        );
+
+        return $args;
+    }
+
+    /**
      * Définir les blocs autorisés
      *
      * @param array $allowed_blocks Liste des blocs autorisés.
@@ -127,6 +158,7 @@ class SM_Blocks {
             'acf/accordion',
             'acf/about',
             'acf/form',
+            'acf/gallery',
             // 'core/legacy-widget',
             // 'core/widget-group',
             // 'core/archives',
@@ -240,5 +272,6 @@ class SM_Blocks {
 
         return $content;
     }
+
 
 }

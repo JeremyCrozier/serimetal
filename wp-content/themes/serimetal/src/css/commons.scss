@@ -67,35 +67,75 @@ body {
     }
 }
 
-.bg-dark {
-    background-color: $metal-900;
-    color: $metal-50;
+// Skip text/button color overrides for descendants of .block-item.
+// A .block-item that is itself .bg--dark / .bg--gradient still receives them.
+@mixin on-dark-foreground($skip-block-items: false) {
+    $exclude: "";
 
-    :is(h1, h2, h3, h4, h5, h6, p, li, .wp-block-heading) {
+    @if $skip-block-items {
+        $exclude: ":not(.block-item *)";
+    }
+
+    :is(h1, h2, h3, h4, h5, h6, p, li, .wp-block-heading)#{$exclude} {
         color: $light-100;
     }
 
-    &.section h2.wp-block-heading {
+    &.section h2.wp-block-heading#{$exclude} {
         &::before,
         &::after {
             background: $metal-600;
         }
     }
 
-    .btn-filled-primary, .btn-ghost-primary, .btn-ghost-secondary  {
+    :is(.btn-filled-primary, .btn-ghost-primary, .btn-ghost-secondary)#{$exclude} {
         color: $light-100;
         border-color: $light-100;
     }
 
-    .btn-filled-secondary {
+    .btn-filled-secondary#{$exclude} {
         background-color: $light-100;
         color: $metal-900;
     }
 
-    .btn-filled-primary:hover {
+    .btn-filled-primary#{$exclude}:hover {
         background-color: $light-100;
         border-color: $light-100;
         color: $metal-900;
+    }
+}
+
+.bg {
+
+    &--gradient {
+        background: linear-gradient(180deg, $metal-800 0%, $metal-950 100%);
+    }
+
+    &--dark {
+        background: $metal-900;
+    }
+
+    &--gradient, &--dark {
+        color: $metal-50;
+
+        .block-item:not(.bg--gradient):not(.bg--dark) {
+            color: $metal-900;
+        }
+
+        &:not(.block-item) {
+            @include on-dark-foreground(true);
+        }
+
+        &.block-item {
+            @include on-dark-foreground(false);
+        }
+    }
+
+    &--top-gradient {
+        background: linear-gradient(180deg, $metal-950 50%, $metal-100 50%);
+    }
+
+    &--bottom-gradient {
+        background: linear-gradient(180deg, $metal-100 50%, $metal-800 50%);
     }
 }
 

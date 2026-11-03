@@ -1,5 +1,9 @@
 @use "../config" as *;
 
+.editor-visual-editor__post-title-wrapper {
+    margin-bottom: 48px;
+}
+
 // Keep every panel visible while editing.
 .acf-block-preview .block-tabs,
 .editor-styles-wrapper .block-tabs {

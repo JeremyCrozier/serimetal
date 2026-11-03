@@ -95,7 +95,7 @@
         flex: 0 0 4px;
         align-self: stretch;
         min-height: 84px;
-        background: $blue-700;
+        background: var(--page-color);
     }
 
     &__copy {
