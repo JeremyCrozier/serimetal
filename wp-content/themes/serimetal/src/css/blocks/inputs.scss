@@ -75,17 +75,11 @@ form.wpforms-form {
     }
 
     // Anti-spam fields stay in the DOM without taking space in the grid.
-    .wpforms-field:has(input[aria-hidden="true"]) {
-        position: absolute !important;
-        left: -9999px !important;
-        width: 1px !important;
-        height: 1px !important;
-        overflow: hidden !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
+    // .wpforms-field:has(input[aria-hidden="true"]) {
+    //     @include screen-reader-text;
+    // }
 
-    .wpforms-field:not(.wpforms-field-layout):not(.wpforms-field-checkbox):not(.wpforms-field-radio):not(.wpforms-field-gdpr-checkbox):not(.wpforms-field-payment-checkbox):not(.wpforms-field-payment-multiple):has(.wpforms-field-required) {
+    .wpforms-field:not(.wpforms-field-layout):not(.wpforms-field-checkbox):not(.wpforms-field-radio):not(.wpforms-field-gdpr-checkbox):not(.wpforms-field-payment-checkbox):not(.wpforms-field-payment-multiple):has(.wpforms-field-required):has(.wpforms-label-hide) {
         position: relative;
 
         &::after {
@@ -166,13 +160,35 @@ form.wpforms-form {
         line-height: 22px;
     }
 
-    :is(.wpforms-field-checkbox, .wpforms-field-radio, .wpforms-field-gdpr-checkbox, .wpforms-field-payment-checkbox, .wpforms-field-payment-multiple) {
-        > .wpforms-field-label:not(.wpforms-label-hide) {
-            @include body-medium;
-            display: block;
-            margin: 0 0 8px;
-            color: $metal-900;
+    .wpforms-field-label:not(.wpforms-label-hide) {
+        position: relative;
+        @include body-large;
+        display: inline-block;
+        padding: 24px 0 16px;
+        color: $metal-900;
+
+        .wpforms-required-label {
+            display: inline-block;
+            margin-left: 4px;
+            color: $form-error;
+            font-family: $font-body;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 26px;
         }
+    }
+
+    fieldset {
+        border: none;
+        padding: 0;
+        margin: 0;
+
+        legend {
+            display: block;
+        }
+    }
+
+    :is(.wpforms-field-checkbox, .wpforms-field-radio, .wpforms-field-gdpr-checkbox, .wpforms-field-payment-checkbox, .wpforms-field-payment-multiple) {
 
         ul:not(.wpforms-icon-choices):not(.wpforms-image-choices) {
             display: flex;
@@ -275,6 +291,12 @@ form.wpforms-form {
         &.wpforms-list-3-columns ul:not(.wpforms-icon-choices):not(.wpforms-image-choices) li {
             flex: 1 1 calc(33.333% - 11px);
         }
+    }
+
+    div.wpforms-uploader {
+        border: 1px dashed $metal-400;
+        border-radius: 0px;
+        background: transparent;
     }
 
     em.wpforms-error {

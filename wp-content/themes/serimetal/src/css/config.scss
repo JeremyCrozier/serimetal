@@ -12,6 +12,7 @@ $mobile-large: 768px;
 $mobile: 480px;
 
 $container-width: 1320px;
+$container-width-small: 824px;
 $wide-size: 1920px;
 
 /* COLORS */
@@ -177,6 +178,7 @@ $font-body: 'IBM Plex', 'Inter', sans-serif;
     @include text-body;
     font-size: 18px;
     line-height: 28px;
+    font-weight: 500;
 }
 
 @mixin body-medium {

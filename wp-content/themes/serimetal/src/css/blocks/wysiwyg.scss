@@ -27,10 +27,6 @@
 
     p {
         margin-bottom: 8px;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
     }
 
     ul {
@@ -58,5 +54,9 @@
         &:hover {
             color: $blue-800;
         }
+    }
+
+    .wpforms-container {
+        margin: 48px 0;
     }
 }

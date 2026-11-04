@@ -2,6 +2,7 @@
 
 .block-small-hero {
     padding: 32px 0;
+    margin-bottom: 48px;
 
     .inside {
         display: grid;
@@ -24,7 +25,7 @@
         min-height: 493px;
         padding: 32px;
         background-color: $light-100;
-        border-bottom: 4px solid $orange-300;
+        border-bottom: 4px solid var(--page-color);
     }
 
     .hero-copy {
