@@ -5,7 +5,8 @@
     "active": true,
     "taxonomy": "pole",
     "object_type": [
-        "realisation"
+        "realisation",
+        "page"
     ],
     "advanced_configuration": 1,
     "import_source": "",
@@ -50,7 +51,7 @@
     "show_ui": 1,
     "show_in_menu": 1,
     "show_in_nav_menus": 1,
-    "show_in_rest": 0,
+    "show_in_rest": 1,
     "rest_base": "",
     "rest_namespace": "wp\/v2",
     "rest_controller_class": "WP_REST_Terms_Controller",
@@ -71,5 +72,5 @@
     "meta_box_sanitize_cb": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1793713853
+    "modified": 1793785727
 }

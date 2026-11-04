@@ -1,0 +1,30 @@
+@use "../config" as *;
+
+.block-loop,
+.wp-block-acf-loop {
+    .loop-item__link {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        height: 100%;
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .loop-item__media {
+        margin: 0;
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .loop-item__excerpt {
+        color: $metal-600;
+    }
+}

@@ -74,6 +74,7 @@ class SM_Blocks {
         register_block_type(__DIR__ . '/../blocks/about');
         register_block_type(__DIR__ . '/../blocks/form');
         register_block_type(__DIR__ . '/../blocks/gallery');
+        register_block_type(__DIR__ . '/../blocks/loop');
 
         // Enregistrer le style pour l'image
         // register_block_style(
@@ -159,6 +160,7 @@ class SM_Blocks {
             'acf/about',
             'acf/form',
             'acf/gallery',
+            'acf/loop',
             // 'core/legacy-widget',
             // 'core/widget-group',
             // 'core/archives',
