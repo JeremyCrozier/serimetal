@@ -49,6 +49,7 @@ class SM_Setup {
 
         // Page color as a CSS custom property
         add_action('wp_head', array($this, 'output_page_color'));
+        add_filter('block_editor_settings_all', array($this, 'add_page_color_editor_style'), 10, 2);
 
         // For dev
         if ( wp_get_environment_type() === 'local' ) {
@@ -92,27 +93,64 @@ class SM_Setup {
     }
 
     /**
-     * Print the ACF page color as --page-color.
+     * Resolved page color, falling back to the theme blue.
+     *
+     * @param int $post_id Post ID. 0 uses the current post.
+     * @return string Hex color.
      */
-    public function output_page_color() {
+    private function get_page_color($post_id = 0) {
         $color = '#0874f9';
 
-        if (function_exists('get_field')) {
-            $page_color = get_field('page_color');
+        if (!function_exists('get_field')) {
+            return $color;
+        }
 
-            if (is_string($page_color)) {
-                $page_color = sanitize_hex_color($page_color);
+        $page_color = $post_id ? get_field('page_color', $post_id) : get_field('page_color');
 
-                if ($page_color) {
-                    $color = $page_color;
-                }
+        if (is_string($page_color)) {
+            $page_color = sanitize_hex_color($page_color);
+
+            if ($page_color) {
+                $color = $page_color;
             }
         }
 
+        return $color;
+    }
+
+    /**
+     * Print the ACF page color as --page-color.
+     */
+    public function output_page_color() {
         printf(
             "<style>:root{--page-color:%s;}</style>\n",
-            esc_attr($color)
+            esc_attr($this->get_page_color())
         );
+    }
+
+    /**
+     * Expose --page-color inside the block editor canvas.
+     *
+     * @param array                   $settings Editor settings.
+     * @param WP_Block_Editor_Context $context  Editor context.
+     * @return array
+     */
+    public function add_page_color_editor_style($settings, $context) {
+        $post_id = 0;
+
+        if ($context instanceof WP_Block_Editor_Context && isset($context->post->ID)) {
+            $post_id = (int) $context->post->ID;
+        }
+
+        if (!isset($settings['styles']) || !is_array($settings['styles'])) {
+            $settings['styles'] = array();
+        }
+
+        $settings['styles'][] = array(
+            'css' => sprintf(':root{--page-color:%s;}', $this->get_page_color($post_id)),
+        );
+
+        return $settings;
     }
 
     public function add_image_sizes() {

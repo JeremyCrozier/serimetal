@@ -4,6 +4,11 @@
     margin-bottom: 48px;
 }
 
+.wp-block-acf-section {
+    margin-block-start: 0 !important;
+    max-width: 100% !important;
+}
+
 // Keep every panel visible while editing.
 .acf-block-preview .block-tabs,
 .editor-styles-wrapper .block-tabs {
