@@ -6,10 +6,14 @@ body {
     }
 }
 
-body:not(.home) {
+body:has(.wp-block-acf-hero) {
     #header {
-        border-bottom: 1px solid $metal-200;
-    }
+        border: 0;
+        
+        .logo-desktop, .logo-mobile {
+            filter: brightness(0) invert(1);
+        }
+    }   
 }
 
 #breadcrumbs {
@@ -37,6 +41,7 @@ body:not(.home) {
 #header {
     position: relative;
     z-index: 2;
+    border-bottom: 1px solid $metal-200;
 
     .inside {
         display: flex;
@@ -48,8 +53,7 @@ body:not(.home) {
         padding: 24px 0;
         width: min(100% - 48px, $container-width);
         margin-inline: auto;
-
-        }
+    }
 
     .burger-menu-button, .logo-mobile {
         display: none;
