@@ -75,9 +75,9 @@ form.wpforms-form {
     }
 
     // Anti-spam fields stay in the DOM without taking space in the grid.
-    // .wpforms-field:has(input[aria-hidden="true"]) {
-    //     @include screen-reader-text;
-    // }
+    .wpforms-field:has(input[aria-hidden="true"]) {
+        @include screen-reader-text;
+    }
 
     .wpforms-field:not(.wpforms-field-layout):not(.wpforms-field-checkbox):not(.wpforms-field-radio):not(.wpforms-field-gdpr-checkbox):not(.wpforms-field-payment-checkbox):not(.wpforms-field-payment-multiple):has(.wpforms-field-required):has(.wpforms-label-hide) {
         position: relative;

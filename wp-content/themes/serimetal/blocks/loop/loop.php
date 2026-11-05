@@ -9,8 +9,12 @@
  * @param array   $context    The context provided to the block by the post or its parent block.
  */
 
-$type = get_field( 'type' );
-$type = ( 'poles' === $type ) ? 'poles' : 'realisation';
+$allowed_types = array( 'poles', 'realisation', 'recrutement' );
+$type          = get_field( 'type' );
+
+if ( ! in_array( $type, $allowed_types, true ) ) {
+	$type = 'realisation';
+}
 
 $query_args = array(
 	'post_status'         => 'publish',
@@ -20,7 +24,6 @@ $query_args = array(
 );
 
 if ( 'poles' === $type ) {
-	// Pages assigned to at least one term of the pole taxonomy.
 	$query_args['post_type'] = 'page';
 	$query_args['orderby']   = array(
 		'menu_order' => 'ASC',
@@ -33,12 +36,13 @@ if ( 'poles' === $type ) {
 		),
 	);
 } else {
-	$query_args['post_type'] = 'realisation';
+	$query_args['post_type'] = $type;
 	$query_args['orderby']   = 'date';
 	$query_args['order']     = 'DESC';
 }
 
-$query = new WP_Query( $query_args );
+$query       = new WP_Query( $query_args );
+$disabled   = $is_preview ? 'style="pointer-events: none"' : '';
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
@@ -49,30 +53,19 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 <div <?php echo $wrapper_attributes; ?>>
 	<?php if ( $query->have_posts() ) : ?>
-		<ul class="loop columns-3">
+		<ul class="loop" <?php echo $disabled; ?>>
 			<?php
 			while ( $query->have_posts() ) :
 				$query->the_post();
-
-				$excerpt  = wp_strip_all_tags( get_the_excerpt() );
-				$disabled = ! empty( $is_preview ) ? 'style="pointer-events: none"' : '';
-				?>
-				<li class="loop-item">
-					<a class="loop-item__link" href="<?php the_permalink(); ?>" <?php echo $disabled; ?>>
-						<?php if ( has_post_thumbnail() ) : ?>
-							<figure class="loop-item__media">
-								<?php the_post_thumbnail( 'medium' ); ?>
-							</figure>
-						<?php endif; ?>
-
-						<h3 class="loop-item__title heading-small"><?php the_title(); ?></h3>
-
-						<?php if ( $excerpt ) : ?>
-							<p class="loop-item__excerpt"><?php echo esc_html( $excerpt ); ?></p>
-						<?php endif; ?>
-					</a>
-				</li>
-			<?php endwhile; ?>
+				get_template_part(
+					'template-parts/card',
+					$type,
+					array(
+						'is_preview' => ! empty( $is_preview ),
+					)
+				);
+			endwhile;
+			?>
 		</ul>
 	<?php endif; ?>
 </div>

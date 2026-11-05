@@ -28,3 +28,81 @@
         color: $metal-600;
     }
 }
+
+.block-loop--recrutement {
+    .loop {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .job-card {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 32px;
+        background-color: $light-100;
+        border-bottom: 4px solid $blue-700;
+    }
+
+    .job-card__content {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+    }
+
+    .job-card__category {
+        margin: 0 0 4px;
+        color: $blue-700;
+        font-family: $font-body;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: 0;
+        text-transform: uppercase;
+    }
+
+    .heading-small {
+        margin: 0;
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+
+    .job-card__meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+        margin: 12px 0 0;
+        @include body-medium;
+
+        span {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        span:not(:last-child)::after {
+            content: "";
+            flex: 0 0 8px;
+            width: 8px;
+            height: 8px;
+            background-color: $blue-700;
+        }
+    }
+
+    .btn-filled-primary {
+        flex: 0 0 auto;
+    }
+
+    @media (max-width: $mobile-large) {
+        .job-card {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+}

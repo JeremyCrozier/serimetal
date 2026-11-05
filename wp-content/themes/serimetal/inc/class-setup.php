@@ -51,6 +51,9 @@ class SM_Setup {
         add_action('wp_head', array($this, 'output_page_color'));
         add_filter('block_editor_settings_all', array($this, 'add_page_color_editor_style'), 10, 2);
 
+        // Breadcrumb
+        add_filter('wpseo_breadcrumb_links', array($this, 'add_breadcrumb'));
+
         // For dev
         if ( wp_get_environment_type() === 'local' ) {
             // Only allow fields to be edited on development
@@ -155,8 +158,37 @@ class SM_Setup {
 
     public function add_image_sizes() {
         add_image_size('icon', 24, 24, true);
-        // add_image_size('vertical-slider', 536, 536, true);
+        add_image_size('small-hero', 773, 493, true);
         // add_image_size('featured-post', 636, 440, true);
         // add_image_size('thumbnail-post', 400, 200, true);
+    }
+    
+    /**
+     * Add breadcrumb
+     *
+     * @param array $links Breadcrumb links.
+     * @return array
+     */
+    public function add_breadcrumb($links) {
+
+        if (!is_singular('recrutement')) {
+            return $links;
+        }
+
+        $page = get_page_by_path('recrutement');
+
+        if (!$page) {
+            return $links;
+        }
+
+        array_splice($links, 1, 0, [
+            [
+                'id'   => $page->ID,
+                'text' => get_the_title($page->ID),
+                'url'  => get_permalink($page->ID),
+            ],
+        ]);
+
+        return $links;
     }
 }

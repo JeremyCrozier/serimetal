@@ -59,7 +59,7 @@ $wrapper_attributes = ! empty( $is_preview )
 
 		<?php if ( $image_id ) : ?>
 			<div class="image">
-				<?php echo wp_get_attachment_image( $image_id, 'large' ); ?>
+				<?php echo wp_get_attachment_image( $image_id, 'small-hero' ); ?>
 			</div>
 		<?php endif; ?>
 	</div>

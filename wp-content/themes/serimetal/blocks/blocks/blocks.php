@@ -41,7 +41,7 @@ $wrapper_attributes = ! empty( $is_preview )
 
 <div <?php echo $wrapper_attributes; ?>>
 
-	<?php if ( $highlighting['titre'] && $highlighting['text'] ) : ?>
+	<?php if ( $highlighting['titre'] || $highlighting['text'] ) : ?>
 		<div class="block-item bg--dark block-highlight">
 			<?php if ( $highlighting['titre'] ) : ?>
 				<h3 class="heading-medium"><?php echo esc_html( $highlighting['titre'] ); ?></h3>

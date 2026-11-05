@@ -4,6 +4,14 @@
 
 <?php get_header(); ?>
 
+<?php $meta = array_filter(
+	array(
+		get_field( 'contrat' ),
+		get_field( 'localisaton' ),
+		get_field( 'temps' ),
+	)
+); ?>
+
 <header id="recrutement-hero" class="block-small-hero">
 	<div class="inside">
 		<div class="content">
@@ -18,16 +26,18 @@
 					<div class="excerpt wysiwyg"><?php the_excerpt(); ?></div>
 				<?php endif; ?>
 			</div>
-			<div class="content-bottom">
-				<span class="location"><?php echo get_field('contrat'); ?></span>
-				<span class="type"><?php echo get_field('localisaton'); ?></span>
-				<span class="contract"><?php echo get_field('temps'); ?></span>
-			</div>
+			<?php if ( $meta ) : ?>
+			<p class="content-bottom">
+				<?php foreach ( $meta as $item ) : ?>
+					<span><?php echo esc_html( $item ); ?></span>
+				<?php endforeach; ?>
+			</p>
+			<?php endif; ?>
 		</div>
 
 		<?php if ( has_post_thumbnail() ) : ?>
 			<div class="image">
-				<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
+				<?php echo get_the_post_thumbnail( $post->ID, 'small-hero' ); ?>
 			</div>
 		<?php endif; ?>
 	</div>

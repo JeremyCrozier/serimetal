@@ -18,7 +18,8 @@
             },
             "choices": {
                 "realisation": "Réalisation",
-                "poles": "Pôles"
+                "poles": "Pôles",
+                "recrutement": "Recrutement"
             },
             "default_value": "realisation",
             "return_format": "value",
@@ -50,5 +51,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1793720310
+    "modified": 1793871515
 }
