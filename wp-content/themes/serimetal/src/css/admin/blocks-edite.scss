@@ -35,8 +35,15 @@
     }
 }
 
-.acf-block-preview.wp-block-acf-form {
-    .form-panel {
-        pointer-events: none;
+.acf-block-preview {
+
+    &.wp-block-acf-hero {
+        max-width: 100% !important;
+    }
+
+    &.wp-block-acf-form {
+        .form-panel {
+            pointer-events: none;
+        }
     }
 }

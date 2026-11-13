@@ -1,66 +1,86 @@
 <?php
 /**
- * Section Block template.
- *
- * Container that accepts native Gutenberg blocks and ACF blocks via InnerBlocks.
+ * Hero block template.
  *
  * @param array   $block      The block settings and attributes.
  * @param string  $content    The block inner HTML.
  * @param boolean $is_preview True during backend preview render.
  * @param integer $post_id    The Post ID.
  * @param array   $context    The context provided to the block by the post or its parent block.
- *
- * @link https://www.advancedcustomfields.com/resources/acf-blocks-using-innerblocks-and-parent-child-relationships/
  */
-$get_image = get_field( 'image' );
-$image = $get_image ? wp_get_attachment_image_url( $get_image, 'full' ) : get_the_post_thumbnail_url( get_the_ID(), 'full' );
-$heading = get_field( 'heading' ) ? get_field( 'heading' ) : get_the_title( get_the_ID() );
-$overtitle = get_field( 'overtitle' );
-$description = get_field( 'description' );
-$link = get_field( 'cta' );
-$target = !empty($link['target']) ? $link['target'] : '_self';
-$front_page = is_front_page() || intval( get_option( 'page_on_front' ) ) === get_the_ID();
 
-$class = $front_page ? 'home-hero' : '';
+$image_id      = get_field( 'image' );
+$image_url     = $image_id ? wp_get_attachment_image_url( $image_id, 'full' ) : get_the_post_thumbnail_url( get_the_ID(), 'full' );
+$video_desktop = get_field( 'video_desktop' );
+$video_mobile  = get_field( 'video_mobile' );
+$heading       = get_field( 'heading' ) ? get_field( 'heading' ) : get_the_title( get_the_ID() );
+$overtitle     = get_field( 'overtitle' );
+$description   = get_field( 'description' );
+$link          = get_field( 'cta' );
+$link          = is_array( $link ) ? $link : array();
 
-$wrapper_attributes = get_block_wrapper_attributes(
-	array(
-		'style' => 'background: linear-gradient(180deg, rgba(11, 9, 11, 0.10) 0%, rgba(11, 9, 11, 0.80) 100%), url(' . $image . ');',
-		'class' => $class,
-	)
-);
+$video_desktop = is_string( $video_desktop ) ? $video_desktop : '';
+$video_mobile  = is_string( $video_mobile ) ? $video_mobile : '';
+$classes       = array( 'block-hero' );
+
+if ( $video_mobile ) {
+	$classes[] = 'has-mobile-video';
+}
+
+$wrapper_attributes = ! empty( $is_preview )
+	? 'class="' . esc_attr( implode( ' ', $classes ) ) . '"'
+	: get_block_wrapper_attributes(
+		array(
+			'class' => implode( ' ', $classes ),
+		)
+	);
+
+$media_style = $image_url ? ' style="background-image: url(' . esc_url( $image_url ) . ');"' : '';
+$poster      = $image_url ? ' poster="' . esc_url( $image_url ) . '"' : '';
 ?>
 
 <header <?php echo $wrapper_attributes; ?>>
+	<div class="hero-media"<?php echo $media_style; ?>>
+		<?php if ( $video_desktop ) : ?>
+			<video class="hero-video hero-video--desktop" autoplay muted loop playsinline<?php echo $poster; ?>>
+				<source src="<?php echo esc_url( $video_desktop ); ?>">
+			</video>
+		<?php endif; ?>
+
+		<?php if ( $video_mobile ) : ?>
+			<video class="hero-video hero-video--mobile" autoplay muted loop playsinline<?php echo $poster; ?>>
+				<source src="<?php echo esc_url( $video_mobile ); ?>">
+			</video>
+		<?php endif; ?>
+
+		<span class="hero-overlay" aria-hidden="true"></span>
+	</div>
+
 	<div class="inside">
-		<?php if ( $front_page ) : ?>
+		<div class="heading-container">
+			<?php if ( $overtitle ) : ?>
+				<p class="heading-small"><?php echo esc_html( $overtitle ); ?></p>
+			<?php endif; ?>
+			<?php if ( $heading ) : ?>
+				<h1 class="heading-xlarge"><?php echo esc_html( $heading ); ?></h1>
+			<?php endif; ?>
+		</div>
+
+		<?php if ( $description || ! empty( $link['url'] ) ) : ?>
 			<div class="content">
 				<?php if ( $description ) : ?>
-					<?php echo wp_kses_post( wpautop( $description ) ); ?>
+					<div class="hero-description"><?php echo wp_kses_post( $description ); ?></div>
 				<?php endif; ?>
-				<span class="scroll-down">Scroll pour découvrir <i class="ph ph-caret-down"></i></span>
-			</div>
-			<div class="heading-container">
-				<?php if ( $overtitle ) : ?>
-					<p class="heading-small"><?php echo $overtitle; ?></p>
-				<?php endif; ?>
-				<h1 class="heading-xlarge"><?php echo $heading; ?></h1>
-			</div>
-		<?php else : ?>
-			<div class="heading-container">
-				<?php if ( $overtitle ) : ?>
-					<p class="heading-small"><?php echo $overtitle; ?></p>
-				<?php endif; ?>
-				<h1 class="heading-xlarge"><?php echo $heading; ?></h1>
-			</div>
-			<div class="content">
-				<?php if ( $description ) : ?>
-					<?php echo wp_kses_post( wpautop( $description ) ); ?>
-				<?php endif; ?>
-				<?php if ( $link ) : ?>
-					<a href="<?php echo esc_url($link['url'] ?? '#') ?>" class="btn-outline" target="<?php echo esc_attr($target) ?>" title="Accéder à la page">
-						<?php echo esc_html($link['title'] ?? 'Texte du bouton') ?>
+
+				<?php if ( ! empty( $link['url'] ) ) : ?>
+					<a class="scroll-down" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( ! empty( $link['target'] ) ? $link['target'] : '_self' ); ?>">
+						<?php echo esc_html( ! empty( $link['title'] ) ? $link['title'] : 'En savoir plus' ); ?>
+						<i class="ph ph-caret-down" aria-hidden="true"></i>
 					</a>
+				<?php else : ?>
+					<div class="scroll-down-container">
+						<span class="scroll-down">Scroll pour découvrir <i class="ph ph-caret-down" aria-hidden="true"></i></span>
+					</div>
 				<?php endif; ?>
 			</div>
 		<?php endif; ?>

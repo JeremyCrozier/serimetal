@@ -8,12 +8,17 @@ body {
 
 body:has(.wp-block-acf-hero) {
     #header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
         border: 0;
-        
+        background: transparent;
+
         .logo-desktop, .logo-mobile {
             filter: brightness(0) invert(1);
         }
-    }   
+    }
 }
 
 #breadcrumbs {

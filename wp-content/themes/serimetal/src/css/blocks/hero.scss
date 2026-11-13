@@ -1,88 +1,147 @@
 @use "../config" as *;
 
-.wp-block-acf-hero {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    max-width: 100% !important;
+.block-hero {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 100vh;
     margin-bottom: 48px;
+    overflow: hidden;
+    background-color: $metal-950;
 
-    .inside {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-end;
-        gap: 128px;
-        height: 717px;
-        padding: 48px 0;
-        width: min(100% - 48px, 1752px);
-        margin-inline: auto;
+    .hero-media {
+        position: absolute;
+        inset: 0;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 
+    .hero-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .hero-video--mobile {
+        display: none;
+    }
+
+    // A mobile file on its own stays visible at every width.
+    &:not(:has(.hero-video--desktop)) .hero-video--mobile {
+        display: block;
+    }
+
+    &.has-mobile-video {
         @media (max-width: $tablet) {
-            height: auto;
-            flex-direction: column;
-            align-items: stretch;
-            gap: 0;
+            .hero-video--desktop {
+                display: none;
+            }
+
+            .hero-video--mobile {
+                display: block;
+            }
         }
     }
 
-    .heading-xlarge, p, .scroll-down, .heading-small {
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, $dark-30 0%, $dark-80 100%);
+    }
+
+    .inside {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: min(100% - 168px, 1752px);
+        margin-inline: auto;
+        padding: 48px 0;
+    }
+
+    .heading-xlarge,
+    .heading-small,
+    p,
+    .scroll-down {
         color: $light-100;
+    }
+
+    @media (min-width: $desktop-small) {
+        .heading-xlarge {
+            font-size: 96px;
+        }
+    }
+
+    .heading-small {
+        margin-bottom: 36px;
     }
 
     .content {
         display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
         align-items: flex-end;
+        justify-content: space-between;
         gap: 48px;
+        margin-top: 48px;
+        padding-top: 24px;
+        border-top: 1px solid $light-100;
+    }
 
-        p {
-            width: 100%;
-            max-width: 547px;
-            margin-bottom: 0;   
+    .hero-description {
+        width: 100%;
+        max-width: 547px;
+    }
+    .scroll-down-container {
+        width: 100%;
+        max-width: 417px;
+
+        .scroll-down {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            text-transform: uppercase;
         }
     }
 
-    .heading-container {
-        .heading-small {
-            margin-bottom: 36px;
-        }
-    }
+    @media (max-width: $tablet) {
+        min-height: 100svh;
 
-    &.home-hero {
         .inside {
-            justify-content: flex-end;
-            align-items: stretch;
-            flex-direction: column;
-            height: 100vh;
+            width: min(100% - 48px, 1752px);
+            padding: 32px 0;
         }
 
         .content {
-            display: flex;
-            justify-content: space-between;
-            flex-direction: row;
-            gap: 48px;
-            border-top: 1px solid $light-100;
-            padding-top: 24px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+            margin-top: 32px;
+        }
 
-            p {
-                width: 100%;
-                max-width: 547px;
-                margin-bottom: 0;   
-            }
+        .scroll-down {
+            margin-left: 0;
+            white-space: normal;
+        }
+    }
+
+    @media (max-width: $mobile-large) {
+        .scroll-down-container {
+            max-width: 100%;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .hero-video {
+            display: none;
         }
     }
 }
 
 main:has(.wp-block-acf-hero) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-
     #breadcrumbs {
         @include screen-reader-text;
     }
