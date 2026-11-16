@@ -7,7 +7,7 @@
  * @package Serimetal
  */
 $color      = sanitize_hex_color( (string) get_field( 'page_color', get_the_ID() ) );
-$background = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+$background = get_the_post_thumbnail_url( get_the_ID(), 'medium' );
 ?>
 
 <li class="pole-card"<?php echo $color ? ' style="border-bottom-color: ' . esc_attr( $color ) . ';"' : ''; ?>>

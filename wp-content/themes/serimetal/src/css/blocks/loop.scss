@@ -221,3 +221,210 @@
         }
     }
 }
+
+.block-loop--realisation {
+    .realisation-filters {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 24px;
+    }
+
+    .realisation-filters__tabs {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 8px;
+        padding-bottom: 12px;
+    }
+
+    .realisation-filter:not(.realisation-filters__all) {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 16px;
+        border: 1px solid $light-100;
+        background-color: $metal-900;
+        color: $light-100;
+        font-family: $font-body;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        white-space: nowrap;
+        cursor: pointer;
+
+        &.is-active {
+            border-color: var(--tab-color, #{$orange-300});
+            background-color: var(--tab-color, #{$orange-300});
+            color: $metal-800;
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                bottom: -12px;
+                width: 84px;
+                height: 4px;
+                background-color: var(--tab-color, #{$orange-300});
+                transform: translateX(-50%);
+            }
+        }
+    }
+
+    .loop {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .realisation-card {
+        background-color: $metal-950;
+        border-bottom: 4px solid var(--pole-color, #{$orange-300});
+    }
+
+    .realisation-card__link {
+        position: relative;
+        display: flex;
+        align-items: stretch;
+        gap: 256px;
+        min-height: 425px;
+        padding: 32px;
+        overflow: hidden;
+        color: $light-100;
+        text-decoration: none;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .realisation-card__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, $dark-80 0%, $dark-60 100%);
+        pointer-events: none;
+    }
+
+    .realisation-card__main,
+    .realisation-card__aside {
+        position: relative;
+        z-index: 1;
+        min-width: 0;
+    }
+
+    .realisation-card__main {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    .realisation-card__intro {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .heading-medium,
+    .realisation-card__excerpt,
+    .realisation-card__more,
+    .realisation-card__value,
+    .realisation-card__coords {
+        color: $light-100;
+    }
+
+    .heading-medium,
+    .realisation-card__value {
+        margin: 0;
+    }
+
+    .realisation-card__excerpt {
+        margin: 0;
+    }
+
+    .realisation-card__aside {
+        display: flex;
+        flex: 0 0 433px;
+        flex-direction: column;
+        gap: 8px;
+        width: 433px;
+    }
+
+    .realisation-card__facts,
+    .realisation-card__map {
+        flex: 1 1 0;
+        min-height: 120px;
+    }
+
+    .realisation-card__facts {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 16px;
+        padding: 12px;
+        background-color: $dark-50;
+        backdrop-filter: blur(4px);
+    }
+
+    .realisation-card__fact {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin: 0;
+    }
+
+    .realisation-card__label {
+        @include metric-small;
+        color: $light-100;
+    }
+
+    .realisation-card__map {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        overflow: hidden;
+
+        .map_part {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    }
+
+    .realisation-card--empty {
+        padding: 32px;
+        color: $light-100;
+        border-bottom-color: $metal-400;
+    }
+
+    &.is-loading .loop {
+        opacity: 0.45;
+        pointer-events: none;
+    }
+
+    @media (max-width: $tablet) {
+        .realisation-filters {
+            flex-direction: column;
+        }
+
+        .realisation-card__link {
+            flex-direction: column;
+            gap: 24px;
+            min-height: 0;
+        }
+
+        .realisation-card__aside {
+            flex-basis: auto;
+            width: 100%;
+        }
+
+        .realisation-card__map {
+            min-height: 160px;
+        }
+    }
+}

@@ -54,6 +54,8 @@ class SM_Setup {
         // Breadcrumb
         add_filter('wpseo_breadcrumb_links', array($this, 'add_breadcrumb'));
 
+        add_action('acf/init', array($this, 'acf_init'));
+
         // For dev
         if ( wp_get_environment_type() === 'local' ) {
             // Only allow fields to be edited on development
@@ -193,5 +195,9 @@ class SM_Setup {
         ]);
 
         return $links;
+    }
+
+    public function acf_init() {
+        acf_update_setting('google_api_key', 'AIzaSyCPZcdL2YYiaEsEtOga-pfEyfY9YUJaPqY');
     }
 }

@@ -46,6 +46,14 @@ class SM_Assets {
         wp_enqueue_style('main', SM_THEME_URL . '/assets/main.min.css', array(), SM_THEME_VERSION);
         wp_enqueue_style('blocks', SM_THEME_URL . '/assets/blocks.min.css', array(), SM_THEME_VERSION);
         wp_enqueue_script('bundle', SM_THEME_URL . '/assets/main.js', array('jquery'), SM_THEME_VERSION, true);
+        wp_localize_script(
+            'bundle',
+            'serimetalLoop',
+            array(
+                'ajaxUrl' => admin_url('admin-ajax.php'),
+                'nonce'   => wp_create_nonce('serimetal_realisations'),
+            )
+        );
 
         wp_dequeue_style( 'wp-block-library' );
         wp_dequeue_style( 'wp-block-library-theme' );

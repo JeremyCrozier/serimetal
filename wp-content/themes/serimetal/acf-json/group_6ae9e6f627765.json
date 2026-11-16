@@ -33,6 +33,13 @@
                 "operator": "==",
                 "value": "page"
             }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "pole"
+            }
         ]
     ],
     "menu_order": 0,
@@ -47,5 +54,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1793714575
+    "modified": 1794840650
 }

@@ -19,12 +19,14 @@ define('SM_THEME_URL', get_template_directory_uri());
 require_once SM_THEME_DIR . '/inc/class-setup.php';
 require_once SM_THEME_DIR . '/inc/class-assets.php';
 require_once SM_THEME_DIR . '/inc/class-blocks.php';
+require_once SM_THEME_DIR . '/inc/class-ajax.php';
 require_once SM_THEME_DIR . '/inc/class-menu.php';
 
 // Initialiser le thème
 SM_Setup::get_instance();
 SM_Assets::get_instance();
 SM_Blocks::get_instance();
+SM_Ajax::get_instance();
 SM_Menu::get_instance();
 
 function get_file_icon($file_url) {
