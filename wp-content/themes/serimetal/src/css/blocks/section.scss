@@ -1,7 +1,7 @@
 @use "../config" as *;
 
 .wp-block-acf-section {
-    h2.wp-block-heading {
+    .inside > h2.wp-block-heading {
         position: relative;
         display: flex;
         align-items: center;
@@ -33,12 +33,16 @@
         width: min(100% - 48px, $container-width);
         margin-inline: auto;
 
-        & > div, & > .wp-block-heading,  & > section {
-            margin-bottom: 48px;
+        & > div, & > .wp-block-heading,  & > section, & > .wp-block-paragraph {
+            margin-bottom: 24px;
 
             &:last-child {
                 margin-bottom: 0;
             }
+        }
+
+        .wp-block-paragraph + div, .wp-block-paragraph + .wp-block-heading, .wp-block-paragraph + section {
+            margin-top: 24px;
         }
     }
 }

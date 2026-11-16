@@ -106,3 +106,118 @@
         }
     }
 }
+
+.block-loop--poles {
+    .loop {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+    }
+
+    .pole-card {
+        position: relative;
+        aspect-ratio: 322 / 419;
+        background-color: $light-100;
+        border-bottom: 4px solid $blue-700;
+
+        > a {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 8px 8px 4px;
+            overflow: hidden;
+            text-decoration: none;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-origin: content-box;
+            background-clip: content-box;
+
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 8px;
+                background: linear-gradient(180deg, $dark-80 0%, $dark-10 50%, $dark-0 100%);
+                opacity: 0;
+                transition: opacity 0.35s ease;
+                pointer-events: none;
+            }
+        }
+    }
+
+    .know-more {
+        position: absolute;
+        z-index: 2;
+        top: 20px;
+        right: 16px;
+        opacity: 0;
+        transition: opacity 0.35s ease;
+        pointer-events: none;
+    }
+
+    .pole-card__content {
+        position: relative;
+        z-index: 1;
+        padding: 16px;
+        background-color: $light-100;
+    }
+
+    .heading-small {
+        margin: 0;
+    }
+
+    .pole-card__excerpt {
+        display: grid;
+        grid-template-rows: 0fr;
+        margin-top: 0;
+        transition: grid-template-rows 0.35s ease, margin-top 0.35s ease;
+
+        > * {
+            min-height: 0;
+            overflow: hidden;
+            margin: 0;
+            color: $metal-900;
+        }
+    }
+
+    .pole-card:hover,
+    .pole-card:focus-within {
+        > a::after {
+            opacity: 1;
+        }
+
+        .know-more {
+            opacity: 1;
+        }
+
+        .pole-card__excerpt:has(p) {
+            grid-template-rows: 1fr;
+            margin-top: 8px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .pole-card > a::after,
+        .know-more,
+        .pole-card__excerpt {
+            transition: none;
+        }
+    }
+
+    @media (max-width: $mobile-large) {
+        .pole-card > a::after {
+            opacity: 1;
+        }
+
+        .know-more {
+            opacity: 1;
+        }
+
+        .pole-card__excerpt:has(p) {
+            grid-template-rows: 1fr;
+            margin-top: 8px;
+        }
+    }
+}

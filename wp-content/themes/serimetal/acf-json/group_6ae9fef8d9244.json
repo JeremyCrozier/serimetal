@@ -1,6 +1,6 @@
 {
     "key": "group_6ae9fef8d9244",
-    "title": "Block: loop",
+    "title": "Block: Boucle de contenu",
     "fields": [
         {
             "key": "field_6ae9fef95f3a3",
@@ -51,5 +51,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1793871515
+    "modified": 1794820578
 }

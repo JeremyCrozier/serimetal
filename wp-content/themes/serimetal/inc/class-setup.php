@@ -81,6 +81,9 @@ class SM_Setup {
 
         add_theme_support('block-patterns');
 
+        // Add support for excerpts on pages
+        add_post_type_support( 'page', 'excerpt' );
+
         remove_theme_support('core-block-patterns');
     }
 
