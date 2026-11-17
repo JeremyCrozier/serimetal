@@ -23,6 +23,7 @@ $allowed_blocks = array(
 	'core/list',
 	'acf/button',
 	'acf/blocks',
+	'acf/image-texte',
 );
 
 $wrapper_attributes = ! empty( $is_preview )
@@ -35,6 +36,6 @@ $wrapper_attributes = ! empty( $is_preview )
 ?>
 
 <div <?php echo $wrapper_attributes; ?>>
-	<button class="tab-item" type="button" role="tab" aria-selected="false"><?php echo esc_html( $label ); ?></button>
+	<button class="btn-outline tab-item" type="button" role="tab" aria-selected="false"><?php echo esc_html( $label ); ?></button>
 	<InnerBlocks class="tab-content-item" allowedBlocks="<?php echo esc_attr( wp_json_encode( $allowed_blocks ) ); ?>" />
 </div>

@@ -24,19 +24,13 @@
     }
 
     .tab-item {
-        @include button-outline;
         order: 1;
-
-        &:focus-visible {
-            outline: 2px solid $blue-700;
-            outline-offset: 2px;
-        }
     }
 
     .tab-item.active,
     &:not(.is-ready) .tabs-content > .tab:first-child .tab-item {
         background-color: $blue-700;
-        border-color: $blue-700;
+        border-color: $blue-700 !important;
         color: $light-100;
 
         &:hover,

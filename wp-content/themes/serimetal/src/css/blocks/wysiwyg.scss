@@ -46,7 +46,7 @@
                 left: 0;
                 width: 8px;
                 height: 8px;
-                background-color: $blue-700;
+                background-color: var(--page-color, $blue-700);
             }
         }
     }

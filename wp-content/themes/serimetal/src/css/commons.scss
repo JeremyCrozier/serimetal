@@ -73,7 +73,7 @@ body {
     $exclude: "";
 
     @if $skip-block-items {
-        $exclude: ":not(.block-item *)";
+        $exclude: ":not(.block-item *, .accordion-item *)";
     }
 
     :is(h1, h2, h3, h4, h5, h6, p, li, .wp-block-heading)#{$exclude} {
@@ -87,7 +87,11 @@ body {
         }
     }
 
-    :is(.btn-filled-primary, .btn-ghost-primary, .btn-ghost-secondary)#{$exclude} {
+    :is(.btn-ghost-primary, .btn-ghost-secondary)#{$exclude} {
+        color: $light-100;
+    }
+
+    :is(.btn-filled-primary, .btn-outline)#{$exclude} {
         color: $light-100;
         border-color: $light-100;
     }
@@ -125,7 +129,7 @@ body {
             @include on-dark-foreground(true);
         }
 
-        &.block-item {
+        &.block-item, &.accordion-item  {
             @include on-dark-foreground(false);
         }
     }

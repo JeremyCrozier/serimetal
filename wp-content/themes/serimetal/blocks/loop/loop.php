@@ -85,7 +85,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 						?>
 						<button
 							type="button"
-							class="realisation-filter<?php echo $is_active ? ' is-active' : ''; ?>"
+							class="btn-outline realisation-filter<?php echo $is_active ? ' is-active' : ''; ?>"
 							role="tab"
 							data-term="<?php echo esc_attr( $term->term_id ); ?>"
 							aria-selected="<?php echo $is_active ? 'true' : 'false'; ?>"

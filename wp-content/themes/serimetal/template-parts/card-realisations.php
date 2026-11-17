@@ -63,7 +63,7 @@ $has_facts = $duration || $date;
 				<?php endif; ?>
 
 				<?php if ( $coords ) : ?>
-					<div class="realisation-card__map"<?php echo $map_url ? ' style="background-image: url(' . esc_url( $map_url ) . ');"' : ''; ?>>
+					<div class="realisation-card__map">
 						<iframe id="map"
 						class="map_part"
 						width="400"

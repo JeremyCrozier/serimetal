@@ -2,31 +2,50 @@
 
 .wp-block-acf-section {
     .inside > h2.wp-block-heading {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 32px;
-        width: calc(100vw - 8px);
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
-        padding-left: 0;
-        padding-right: 0;
-        text-align: center;
 
-        &::before,
-        &::after {
-            content: "";
-            flex: 1 1 24px;
-            height: 1px;
-            background: $metal-300;
-            min-width: 24px;
+        &:not(.has-text-align-left) {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            width: calc(100vw - 8px);
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            padding-left: 0;
+            padding-right: 0;
+            text-align: center;
+
+            &::before,
+            &::after {
+                content: "";
+                flex: 1 1 24px;
+                height: 1px;
+                background: $metal-300;
+                min-width: 24px;
+            }
         }
+
+        &.has-text-align-left {
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 23px;
+                left: calc((100% - 100vw) / 2);
+                right: calc(100% + 48px);
+                height: 1px;
+                background: $metal-300;
+                pointer-events: none;
+            }
+        }
+
     }
 
-    .inside {
+    & > .inside {
         display: flex;
         flex-direction: column;
         padding: 48px 0;
