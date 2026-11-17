@@ -43,6 +43,16 @@ function getStyleEntries() {
 }
 
 const styleEntries = getStyleEntries();
+const swiperStyles = path.resolve(__dirname, 'src/css/swiper-entry.js');
+
+// Swiper ships CSS. Keep it on the blocks bundle so the main JS chunk
+// does not also emit main.min.css.
+if (styleEntries.blocks) {
+    const blocksEntry = styleEntries.blocks;
+    styleEntries.blocks = Array.isArray(blocksEntry)
+        ? [...blocksEntry, swiperStyles]
+        : [blocksEntry, swiperStyles];
+}
 
 class RemoveEmptyScriptsPlugin {
     apply(compiler) {
@@ -80,6 +90,16 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.css$/i,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: { url: false },
+                    },
+                ],
+            },
             {
                 test: /\.s[ac]ss$/i,
                 use: [

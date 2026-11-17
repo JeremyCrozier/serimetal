@@ -1,6 +1,6 @@
 @use "../config" as *;
 
-.wp-block-acf-section {
+.block-section {
     .inside > h2.wp-block-heading {
 
         &:not(.has-text-align-left) {

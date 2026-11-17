@@ -86,7 +86,7 @@
             $exclude: ":not(.block-item *)";
         }
 
-        :is(h1, h2, h3, h4, h5, h6, p, li, .wp-block-heading)#{$exclude} {
+        :is(h1, h2, h3, h4, h5, h6, p, li, .wp-block-heading, .heading-small)#{$exclude} {
             color: $light-100;
         }
 
@@ -97,7 +97,11 @@
             }
         }
 
-        :is(.btn-filled-primary, .btn-ghost-primary, .btn-ghost-secondary)#{$exclude} {
+        :is(.btn-ghost-primary, .btn-ghost-secondary)#{$exclude} {
+            color: $light-100;
+        }
+
+        :is(.btn-filled-primary, .btn-outline)#{$exclude} {
             color: $light-100;
             border-color: $light-100;
         }
@@ -111,6 +115,10 @@
             background-color: $light-100;
             border-color: $light-100;
             color: $metal-900;
+        }
+
+        .accordion-item {
+            background: rgba(255, 255, 255, 0.10);
         }
     }
 

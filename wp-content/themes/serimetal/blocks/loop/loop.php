@@ -11,6 +11,7 @@
 
 $allowed_types = array( 'poles', 'realisation', 'recrutement' );
 $type          = get_field( 'type' );
+$taxo          = get_field( 'taxo' ); // only for realisation type
 
 if ( ! in_array( $type, $allowed_types, true ) ) {
 	$type = 'realisation';
@@ -40,17 +41,33 @@ if ( 'poles' === $type ) {
 		),
 	);
 } elseif ( 'realisation' === $type ) {
-	$terms = get_terms(
-		array(
-			'taxonomy'   => 'pole',
-			'hide_empty' => true,
-		)
-	);
+	// Selected pole terms replace the filter tabs with a fixed query.
+	$term_ids = $taxo ? array_filter( array_map( 'absint', (array) $taxo ) ) : array();
 
-	if ( ! is_wp_error( $terms ) ) {
-		$pole_terms  = $terms;
-		$active_term = isset( $pole_terms[0] ) ? $pole_terms[0] : null;
-		$pole_color  = $active_term ? SM_Ajax::pole_color( $active_term ) : '';
+	if ( $term_ids ) {
+		$query_args['post_type'] = 'realisation';
+		$query_args['orderby']   = 'date';
+		$query_args['order']     = 'DESC';
+		$query_args['tax_query'] = array(
+			array(
+				'taxonomy' => 'pole',
+				'field'    => 'term_id',
+				'terms'    => $term_ids,
+			),
+		);
+	} else {
+		$terms = get_terms(
+			array(
+				'taxonomy'   => 'pole',
+				'hide_empty' => true,
+			)
+		);
+
+		if ( ! is_wp_error( $terms ) ) {
+			$pole_terms  = $terms;
+			$active_term = isset( $pole_terms[0] ) ? $pole_terms[0] : null;
+			$pole_color  = $active_term ? SM_Ajax::pole_color( $active_term ) : '';
+		}
 	}
 } else {
 	$query_args['post_type'] = $type;
@@ -58,13 +75,18 @@ if ( 'poles' === $type ) {
 	$query_args['order']     = 'DESC';
 }
 
-$disabled = ! empty( $is_preview ) ? ' style="pointer-events: none"' : '';
-$classes  = array( 'block-loop', 'block-loop--' . $type );
+$disabled  = ! empty( $is_preview ) ? ' style="pointer-events: none"' : '';
+$is_slider = ( 'realisation' === $type && ! empty( $taxo ) );
+$classes   = array( 'block-loop', 'block-loop--' . $type );
+
+if ( $is_slider ) {
+	$classes[] = 'swiper';
+}
 
 if ( 'realisation' === $type && $pole_color ) {
 	$classes[] = 'has-pole-color';
 }
-
+$type = $taxo ? 'realisations-taxo' : $type;
 $wrapper_attributes = get_block_wrapper_attributes(
 	array(
 		'class' => implode( ' ', $classes ),
@@ -110,7 +132,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		$query = new WP_Query( $query_args );
 		?>
 		<?php if ( $query->have_posts() ) : ?>
-			<ul class="loop" <?php echo $disabled; ?>>
+			<ul class="loop<?php echo $is_slider ? ' swiper-wrapper' : ''; ?>" <?php echo $disabled; ?>>
 				<?php
 				while ( $query->have_posts() ) :
 					$query->the_post();
@@ -124,6 +146,13 @@ $wrapper_attributes = get_block_wrapper_attributes(
 				endwhile;
 				?>
 			</ul>
+			<?php if ( $is_slider ) : ?>
+				<div class="swiper-nav">
+					<button type="button" class="swiper-prev btn-filled-secondary btn-icon btn-sm" aria-label="Précédent"><i class="ph ph-caret-left" aria-hidden="true"></i></button>
+					<div class="swiper-pagination"></div>
+					<button type="button" class="swiper-next btn-filled-secondary btn-icon btn-sm" aria-label="Suivant"><i class="ph ph-caret-right" aria-hidden="true"></i></button>
+				</div>
+			<?php endif; ?>
 		<?php endif; ?>
 		<?php wp_reset_postdata(); ?>
 	<?php endif; ?>

@@ -73,10 +73,10 @@ body {
     $exclude: "";
 
     @if $skip-block-items {
-        $exclude: ":not(.block-item *, .accordion-item *)";
+        $exclude: ":not(.block-item *)";
     }
 
-    :is(h1, h2, h3, h4, h5, h6, p, li, .wp-block-heading)#{$exclude} {
+    :is(h1, h2, h3, h4, h5, h6, p, li, .wp-block-heading, .heading-small)#{$exclude} {
         color: $light-100;
     }
 
@@ -106,6 +106,10 @@ body {
         border-color: $light-100;
         color: $metal-900;
     }
+
+    .accordion-item {
+        background: rgba(255, 255, 255, 0.10);
+    }
 }
 
 .bg {
@@ -129,7 +133,7 @@ body {
             @include on-dark-foreground(true);
         }
 
-        &.block-item, &.accordion-item  {
+        &.block-item {
             @include on-dark-foreground(false);
         }
     }

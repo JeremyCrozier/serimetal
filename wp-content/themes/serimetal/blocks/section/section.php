@@ -15,6 +15,7 @@
 
 $background = get_field( 'background' );
 $classes = array(
+	'block-section',
 	'bg--' . $background,
 );
 
