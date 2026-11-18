@@ -1,0 +1,104 @@
+@use "../config" as *;
+
+.about-bis-block {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    container-type: inline-size;
+}
+
+.about-bis__main {
+    display: grid;
+    grid-template-columns: minmax(0, 435fr) minmax(0, 773fr);
+    gap: 128px;
+    align-items: stretch;
+
+    &:not(:has(.about-bis__media)),
+    &:not(:has(.about-bis__copy)) {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.about-bis__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 48px;
+    min-width: 0;
+}
+
+.about-bis__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.about-bis__heading {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: calc((100cqi - 100vw) / 2);
+        width: max(0px, calc((100vw - 100cqi) / 2 - min(64px, (100vw - 100cqi) / 2 - 16px)));
+        height: 1px;
+        background: $metal-300;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+}
+
+.about-bis__media {
+    position: relative;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center bottom;
+    }
+}
+
+.about-bis__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.about-bis__stat {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+    gap: 16px;
+    min-width: 0;
+
+    &::before {
+        content: "";
+        flex: 0 0 3px;
+        width: 3px;
+        height: 48px;
+        background: var(--page-color, $blue-700);
+    }
+}
+
+@media (max-width: $tablet) {
+    .about-bis__main,
+    .about-bis__main:not(:has(.about-bis__media)),
+    .about-bis__main:not(:has(.about-bis__copy)) {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+    }
+
+    .about-bis__heading::before {
+        display: none;
+    }
+
+    .about-bis__stats {
+        flex-direction: column;
+    }
+}

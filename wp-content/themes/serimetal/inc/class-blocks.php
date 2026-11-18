@@ -72,6 +72,7 @@ class SM_Blocks {
         register_block_type(__DIR__ . '/../blocks/small-hero');
         register_block_type(__DIR__ . '/../blocks/accordion');
         register_block_type(__DIR__ . '/../blocks/about');
+        register_block_type(__DIR__ . '/../blocks/about-bis');
         register_block_type(__DIR__ . '/../blocks/form');
         register_block_type(__DIR__ . '/../blocks/gallery');
         register_block_type(__DIR__ . '/../blocks/loop');
@@ -160,6 +161,7 @@ class SM_Blocks {
             'acf/small-hero',
             'acf/accordion',
             'acf/about',
+            'acf/about-bis',
             'acf/form',
             'acf/gallery',
             'acf/loop',

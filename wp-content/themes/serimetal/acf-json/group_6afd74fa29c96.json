@@ -104,7 +104,7 @@
             "layout": "table",
             "pagination": 0,
             "min": 0,
-            "max": 4,
+            "max": 5,
             "collapsed": "",
             "button_label": "Ajouter un élément",
             "rows_per_page": 20,
@@ -139,7 +139,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/about"
+                "value": "acf\/about-bis"
             }
         ]
     ],
@@ -155,5 +155,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1794995533
+    "modified": 1794996305
 }
