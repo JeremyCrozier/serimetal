@@ -198,6 +198,6 @@ class SM_Setup {
     }
 
     public function acf_init() {
-        acf_update_setting('google_api_key', 'AIzaSyCPZcdL2YYiaEsEtOga-pfEyfY9YUJaPqY');
+        acf_update_setting('google_api_key', APIKEY_GOOGLE_MAP);
     }
 }
