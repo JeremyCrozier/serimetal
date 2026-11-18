@@ -40,8 +40,6 @@ if ( $layout ) {
 
 $parallax = !$is_preview && $count < 3 ? 'parallax' : '';
 
-error_log(print_r($parallax, true));
-
 $wrapper_attributes = ! empty( $is_preview )
 	? 'class="' . esc_attr( implode( ' ', $classes ) ) . '"'
 	: get_block_wrapper_attributes(
