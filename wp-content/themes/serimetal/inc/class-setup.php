@@ -42,7 +42,6 @@ class SM_Setup {
         // Configuration du thème
         add_action('after_setup_theme', array($this, 'theme_setup'));
         add_action('after_setup_theme', array($this, 'add_image_sizes'));
-        add_filter('wpcf7_autop_or_not', '__return_false');
         
         // Support SVG
         add_filter('upload_mimes', array($this, 'add_svg_support'));
@@ -54,13 +53,13 @@ class SM_Setup {
         // Breadcrumb
         add_filter('wpseo_breadcrumb_links', array($this, 'add_breadcrumb'));
 
+        // ACF init
         add_action('acf/init', array($this, 'acf_init'));
 
-        // For dev
-        if ( wp_get_environment_type() === 'local' ) {
-            // Only allow fields to be edited on development
-            //add_filter( 'acf/settings/show_admin', '__return_false' );
-            do_action( 'qm/info', wp_get_registered_image_subsizes() );
+        // Hide ACF menu on production
+        if ( wp_get_environment_type() === 'production' ) {
+            add_filter( 'acf/settings/show_admin', '__return_false' );
+            add_action('admin_menu', array($this, 'remove_menu'), 999);
         }
     }
 
@@ -74,19 +73,16 @@ class SM_Setup {
         add_theme_support('title-tag');
         /* Thumbnails */
         add_theme_support('post-thumbnails');
-        /* styles de blocs */
-        add_theme_support('wp-block-styles');
-        // Ajouter le support pour l'éditeur de template parts
-        add_theme_support('block-template-parts');
-        // Ajouter le support pour l'édition complète du site
-        add_theme_support('template-editing');
-
         add_theme_support('block-patterns');
-
         // Add support for excerpts on pages
         add_post_type_support( 'page', 'excerpt' );
 
         remove_theme_support('core-block-patterns');
+    }
+
+    public function remove_menu() {
+        remove_menu_page('edit.php');          // Articles
+        remove_menu_page('edit-comments.php'); // Commentaires
     }
 
     /**

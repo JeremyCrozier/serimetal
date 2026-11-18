@@ -12,6 +12,7 @@
 $allowed_types = array( 'poles', 'realisation', 'recrutement' );
 $type          = get_field( 'type' );
 $taxo          = get_field( 'taxo' ); // only for realisation type
+$page_ids      = get_field( 'page' );
 
 if ( ! in_array( $type, $allowed_types, true ) ) {
 	$type = 'realisation';
@@ -29,17 +30,13 @@ $active_term = null;
 $pole_color  = '';
 
 if ( 'poles' === $type ) {
+	// ACF post object (multiple, return format ID) is a list of page IDs.
+	$page_ids = array_values( array_filter( array_map( 'absint', (array) $page_ids ) ) );
+
 	$query_args['post_type'] = 'page';
-	$query_args['orderby']   = array(
-		'menu_order' => 'ASC',
-		'title'      => 'ASC',
-	);
-	$query_args['tax_query'] = array(
-		array(
-			'taxonomy' => 'pole',
-			'operator' => 'EXISTS',
-		),
-	);
+	$query_args['orderby']   = 'post__in';
+	$query_args['post__in']  = $page_ids ? $page_ids : array( 0 );
+
 } elseif ( 'realisation' === $type ) {
 	// Selected pole terms replace the filter tabs with a fixed query.
 	$term_ids = $taxo ? array_filter( array_map( 'absint', (array) $taxo ) ) : array();

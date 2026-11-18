@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     new SimpleParallax(images, {
         scale: 1.3,
-        delay: 0.1,
+        delay: 0.3,
         orientation: 'up',
         overflow: false
     });
