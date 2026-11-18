@@ -1,6 +1,6 @@
 @use "../config" as *;
 
-.wp-block-acf-about {
+.about-block {
     display: flex;
     flex-direction: column;
     gap: 48px;
@@ -95,7 +95,7 @@
         flex: 0 0 4px;
         align-self: stretch;
         min-height: 84px;
-        background: var(--page-color);
+        background: var(--page-color, $blue-700);
     }
 
     &__copy {
@@ -109,6 +109,56 @@
         font-weight: 600;
         line-height: 0.92;
         text-transform: uppercase;
+    }
+}
+
+.about-solo {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    min-width: 0;
+}
+
+.about-row--solo {
+
+    .about-intro__emphasis {
+        margin-top: 26px;
+        font-weight: 700;
+    }
+
+    .about-card__media {
+        height: 100%;
+    }
+}
+
+.about-stats--compact {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+
+    .about-stat {
+        align-items: center;
+        gap: 16px;
+
+        &::before {
+            flex-basis: 3px;
+            width: 3px;
+            height: 48px;
+            min-height: 0;
+            align-self: center;
+            background: var(--page-color, $blue-700);
+        }
+
+        &__copy {
+            gap: 4px;
+        }
+
+        &__caption {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 22px;
+            text-transform: none;
+        }
     }
 }
 
@@ -126,5 +176,11 @@
 
     .about-card__media {
         min-height: 240px;
+    }
+}
+
+@media (max-width: $mobile) {
+    .about-stats--compact {
+        grid-template-columns: minmax(0, 1fr);
     }
 }

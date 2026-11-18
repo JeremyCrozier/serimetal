@@ -39,12 +39,11 @@
     &::before {
         content: "";
         position: absolute;
-        top: 50%;
-        left: calc((100cqi - 100vw) / 2);
-        width: max(0px, calc((100vw - 100cqi) / 2 - min(64px, (100vw - 100cqi) / 2 - 16px)));
+        top: 23px;
+        left: calc((100% - 100vw) / 2);
+        right: calc(100% + 48px);
         height: 1px;
         background: $metal-300;
-        transform: translateY(-50%);
         pointer-events: none;
     }
 }
