@@ -1,0 +1,20 @@
+{
+    "name": "acf/section",
+    "title": "Section",
+    "description": "Conteneur pour d'autres blocs Gutenberg ou ACF",
+    "style": [],
+    "category": "design",
+    "icon": "align-full-width",
+    "keywords": ["section", "conteneur", "container", "layout"],
+    "acf": {
+        "version": 3,
+        "mode": "preview",
+        "renderTemplate": "section.php"
+    },
+    "supports": {
+        "anchor": true,
+        "align": false,
+        "jsx": true,
+        "mode": false
+    }
+}

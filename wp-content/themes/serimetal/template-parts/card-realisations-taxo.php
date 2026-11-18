@@ -1,0 +1,31 @@
+<?php
+/**
+ * Realisation card.
+ *
+ * The photo is the link background. The active pole color is the bottom border.
+ *
+ * @package Serimetal
+ */
+
+$excerpt    = get_the_excerpt();
+$background = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+?>
+
+<li class="realisation-card swiper-slide">
+	<a class="realisation-card__link" href="<?php echo esc_url( get_permalink() ); ?>"<?php echo $background ? ' style="background-image: url(' . esc_url( $background ) . ');"' : ''; ?>>
+		<span class="realisation-card__overlay" aria-hidden="true"></span>
+
+		<div class="realisation-card__main">
+			<div class="realisation-card__intro">
+				<h3 class="heading-medium"><?php the_title(); ?></h3>
+				<?php if ( $excerpt ) : ?>
+					<p class="realisation-card__excerpt"><?php echo esc_html( $excerpt ); ?></p>
+				<?php endif; ?>
+			</div>
+			<span class="btn-ghost-secondary">
+				<?php echo esc_html( 'En savoir plus' ); ?>
+				<i class="ph ph-plus" aria-hidden="true"></i>
+			</span>
+		</div>
+	</a>
+</li>

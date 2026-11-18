@@ -1,0 +1,67 @@
+@use "../config" as *;
+
+.block-section {
+    .inside > h2.wp-block-heading {
+
+        &:not(.has-text-align-left) {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            width: calc(100vw - 8px);
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            padding-left: 0;
+            padding-right: 0;
+            text-align: center;
+
+            &::before,
+            &::after {
+                content: "";
+                flex: 1 1 24px;
+                height: 1px;
+                background: $metal-300;
+                min-width: 24px;
+            }
+        }
+
+        &.has-text-align-left {
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 23px;
+                left: calc((100% - 100vw) / 2);
+                right: calc(100% + 48px);
+                height: 1px;
+                background: $metal-300;
+                pointer-events: none;
+            }
+        }
+
+    }
+
+    & > .inside {
+        display: flex;
+        flex-direction: column;
+        padding: 48px 0;
+        width: min(100% - 48px, $container-width);
+        margin-inline: auto;
+
+        & > div, & > .wp-block-heading,  & > section, & > .wp-block-paragraph {
+            margin-bottom: 24px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .wp-block-paragraph + div, .wp-block-paragraph + .wp-block-heading, .wp-block-paragraph + section {
+            margin-top: 24px;
+        }
+    }
+}

@@ -1,0 +1,40 @@
+@use "../config" as *;
+
+.wp-block-acf-blocks {
+
+    &.blocks-style-numbers:not(.has-highlighting) {
+        .block-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;  
+        }
+    }
+}
+
+.block-item {
+    padding: 32px;
+    background: $light-100;
+
+    .heading-small, .heading-medium, .block-text {
+        margin-bottom: 16px;
+    }
+
+    &.border {
+        border-bottom: 4px solid $blue-700;
+    }
+
+    .block-number {
+        color: $blue-700;
+    }
+
+    &.block-highlight {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: $metal-800;
+
+        .btn-filled-secondary {
+            margin-top: auto;
+        }
+    }
+}

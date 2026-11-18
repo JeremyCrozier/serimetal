@@ -48,28 +48,28 @@ class SM_Blocks {
         // add_action('init', array($this, 'register_pattern_categories'), 15);
 
         // Filtrer les blocs autorisés
-        //add_filter('allowed_block_types_all', array($this, 'allowed_block_types'), 5, 2);
-
-        //add_filter( 'render_block', array($this, 'render_block'), 5, 2);
-        // Filtrer les arguments des blocs
-        //add_filter('register_block_tySM_args', array($this, 'filter_block_tySM_args'), 10, 2);
-    
+        add_filter('allowed_block_types_all', array($this, 'allowed_block_types'), 5, 2);
     }
 
     /**
      * Enregistrer les blocs ACF
      */
     public function register_acf_blocks() {
-        // register_block_type(__DIR__ . '/../blocks/icon');
-
-        // Enregistrer le style pour l'image
-        // register_block_style(
-        //     'core/image',
-        //     [
-        //         'name'  => 'full-width',
-        //         'label' => 'Largeur 100%'
-        //     ]
-        // );
+        register_block_type(__DIR__ . '/../blocks/button');
+        register_block_type(__DIR__ . '/../blocks/section');
+        register_block_type(__DIR__ . '/../blocks/blocks');
+        register_block_type(__DIR__ . '/../blocks/tabs');
+        register_block_type(__DIR__ . '/../blocks/tab');
+        register_block_type(__DIR__ . '/../blocks/hero');
+        register_block_type(__DIR__ . '/../blocks/small-hero');
+        register_block_type(__DIR__ . '/../blocks/accordion');
+        register_block_type(__DIR__ . '/../blocks/about');
+        register_block_type(__DIR__ . '/../blocks/about-bis');
+        register_block_type(__DIR__ . '/../blocks/form');
+        register_block_type(__DIR__ . '/../blocks/gallery');
+        register_block_type(__DIR__ . '/../blocks/loop');
+        register_block_type(__DIR__ . '/../blocks/savoir-faire');
+        register_block_type(__DIR__ . '/../blocks/image-texte');
     }
 
     /**
@@ -108,6 +108,21 @@ class SM_Blocks {
         return array(
             'wpforms/form-selector',
             'acf/icon',
+            'acf/button',
+            'acf/section',
+            'acf/blocks',
+            'acf/tabs',
+            'acf/tab',
+            'acf/hero',
+            'acf/small-hero',
+            'acf/accordion',
+            'acf/about',
+            'acf/about-bis',
+            'acf/form',
+            'acf/gallery',
+            'acf/loop',
+            'acf/savoir-faire',
+            'acf/image-texte',
             // 'core/legacy-widget',
             // 'core/widget-group',
             // 'core/archives',
@@ -132,12 +147,12 @@ class SM_Blocks {
             // 'core/file',
             // 'core/footnotes',
             // 'core/gallery',
-             'core/heading',
+            'core/heading',
             // 'core/home-link',
-            'core/image',
+            //'core/image',
             // 'core/latest-comments',
             // 'core/latest-posts',
-             'core/list',
+            //'core/list',
             // 'core/loginout',
             // 'core/media-text',
             // 'core/navigation',
@@ -145,7 +160,7 @@ class SM_Blocks {
             // 'core/navigation-submenu',
             // 'core/page-list',
             // 'core/page-list-item',
-            'core/pattern',
+            //'core/pattern',
             // 'core/post-author',
             // 'core/post-author-biography',
             // 'core/post-author-name',
@@ -178,14 +193,14 @@ class SM_Blocks {
             // 'core/audio',
             // 'core/buttons',
             // 'core/code',
-            'core/column',
-            'core/columns',
+            //'core/column',
+            //'core/columns',
             // 'core/details',
-            'core/embed',
+            //'core/embed',
             // 'core/freeform',
-             'core/group',
+            //'core/group',
             // 'core/html',
-             'core/list-item',
+            //'core/list-item',
             // 'core/missing',
             // 'core/more',
             // 'core/nextpage',
@@ -195,7 +210,7 @@ class SM_Blocks {
             // 'core/quote',
             // 'core/separator',
             // 'core/social-links',
-             'core/spacer',
+            //'core/spacer',
             // 'core/table',
             // 'core/text-columns',
             // 'core/verse',
@@ -204,22 +219,4 @@ class SM_Blocks {
             // 'core/post-comments'
         );
     }
-
-    public function filter_block_tySM_args($args, $block_type) {
-        if ( 'core/image' === $block_type ) {
-            unset($args['styles']);
-        }
-        return $args;
-    }
-
-    public function render_block($content, $block) {
-
-        // Security
-        if ( empty( $block['blockName'] ) || empty( $block['attrs'] ) ) {
-            return $content;
-        }
-
-        return $content;
-    }
-
 }

@@ -6,430 +6,194 @@ body {
     }
 }
 
+body:has(.wp-block-acf-hero) {
+    #header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        border: 0;
+        background: transparent;
+
+        .logo-desktop, .logo-mobile {
+            filter: brightness(0) invert(1);
+        }
+    }
+}
+
+#breadcrumbs {
+    padding: 12px 0;
+    width: min(100% - 48px, $container-width);
+    margin-inline: auto;
+    color: $metal-300;
+
+    & > span {
+        display: flex;
+        gap: 8px;
+    }
+
+    a {
+        color: $metal-300;
+        text-decoration: none;
+    }
+
+    .breadcrumb_last {
+        color: $metal-600;
+        font-weight: 700;
+    }
+}
+
 #header {
-    background-color: $slate-50;
-    padding: 0 $spacing-xs;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    border-bottom: 1px solid $slate-200;
+    position: relative;
+    z-index: 2;
+    border-bottom: 1px solid $metal-200;
 
     .inside {
-        max-width: $container-width;
-        margin: 0 auto;
         display: flex;
-        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-between;
-        gap: $spacing-md;
-    }
-
-    .header-left {
-        display: flex;
         align-items: center;
-        gap: $spacing-md;
+        gap: 48px;
+        padding: 24px 0;
+        width: min(100% - 48px, $container-width);
+        margin-inline: auto;
     }
 
-    .logo {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        flex-shrink: 0;
-    }
-
-    .menu {
-        display: flex;
-        align-items: center;
-    }
-
-    .menu-header  {
-
-        @media screen and (min-width: $tablet) {
-
-            > .menu-item {
-                @media screen and (min-width: $desktop-small) {
-                    position: relative;
-                }
-
-                padding: 32px 12px;
-
-                &:hover {
-                    > a {
-                        color: $blue-600;
-                    }
-                }
-
-                &:active {
-                    > a {
-                        color: $blue-800;
-                    }
-                }
-            }
-
-            > .menu-item-has-children {
-
-                > .sub-menu {
-                    position: absolute;
-                    top: calc(100% + 0px);
-                    left: 0;
-                    display: flex;
-                    gap: $spacing-2xs;
-                    background-color: #ffffff;
-                    border: 1px solid $slate-200;
-                    border-radius: 16px;
-                    padding: $spacing-2xs;
-                    z-index: 999;
-                    visibility: hidden;
-                    opacity: 0;
-                    transition: $transition;
-                    transform: translateY(-10px);
-
-                    > .menu-item {
-                        background-color: $slate-50;
-                        padding: $spacing-sm;
-                        border-radius: 6px;
-
-                        &.caption-leve2 {
-                            > a {
-                                color: $blue-600;
-                                @include caption;
-                            }
-                        }
-
-                        &.blue-back {
-                            background-color: $blue-100;
-
-                            > a {
-                                flex-direction: column;
-                            }
-                        }
-
-                        > .sub-menu {
-                            margin-top: $spacing-sm;
-
-                            > .menu-item {
-                                min-width: 200px;
-                                padding: $spacing-2xs;
-
-                                &:not(.menu-item-has-icon-or-description) {
-                                    > a:hover {
-                                        color: $blue-600;
-                                    }
-                                }
-
-                                &:not(.menu-item-has-icon-or-description) {
-                                    > a:active {
-                                        color: $blue-800;
-                                    }
-                                }
-                            }
-
-                            .sub-menu {
-                                display: none;
-                            }
-                        }
-                    }
-                }
-            }
-
-            > .menu-item-has-children:hover > .sub-menu {
-                visibility: visible;
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        > .menu-item-has-children {
-            > a {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: $spacing-xs;
-
-                &:after {
-                    content: '';
-                    display: block;
-                    width: 20px;
-                    height: 20px;
-                    background-image: url( $icons_dir + 'down.svg');
-                    background-size: contain;
-                    transition: $transition;
-                }
-            }
-            
-            &.is-open > a {
-                &:after {
-                    transform: rotate(180deg);
-                }
-            }
-
-            &:hover {
-                > a:after {
-                    background-image: url( $icons_dir + 'down-hover.svg');
-                }
-            }
-
-            .menu-item-type-post_type a {
-                display: flex;
-                gap: $spacing-xs;
-                min-width: 308px;
-
-                .menu-item-thumb-wrap img{
-                    display: block;
-                    border-radius: 6px;
-                }
-            }
-        }
-
-        .menu-item-has-icon-or-description {
-            border-radius: 8px;
-            transition: $transition;
-            > a {
-                display: flex;
-                align-items: center;
-                gap: $spacing-xs;
-            }
-
-            &:hover {
-                background-color: $slate-200;
-            }
-
-            &:active {
-                background-color: $slate-300;
-            }
-
-            &.current-menu-item {
-                background-color: $slate-100;
-            }
-
-            .sub-menu {
-                display: none;
-            }
-        }
-
-        .menu-item-content {
-            width: 228px;
-        }
-
-        .menu-item-icon {
-            width: 40px;
-            height: 40px;
-            flex-shrink: 0;
-        }
-
-        .menu-item-description {
-            display: block;
-            color: $slate-600;
-        }
-
-        .hidden {
-            > a {
-                display: none;
-            }
-            .sub-menu {
-                margin-top: 0 !important;
-            }
-        }
-
-        a {
-            @include body-1;
-            text-decoration: none;
-            transition: $transition;
-        }
-    }
-
-    .menu-cta {
-        display: flex;
-        align-items: center;
-        gap: $spacing-xs;
-    }
-
-    .is-style-outline {
-        a {
-            @include button-outline;
-        }
-    }
-
-    .is-style-default {
-        a {
-            @include button-primary;
-        }
-    }
-
-    .burger-menu-button, .close-menu, .logo-mobile{
+    .burger-menu-button, .logo-mobile {
         display: none;
     }
 
+    .menu-header {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 8px;
+        background-color: $dark-80;
 
-    @media screen and (max-width: $tablet) {
-        padding-top: $spacing-xs;
-        padding-bottom: $spacing-xs;
+        & > li {
+            & > a {
+                @include button-ghost('secondary');
+                color: $light-100;
 
-        .inside {
-            gap: 12px;
-        }
-
-        .logo-desktop, .main-nav {
-            display: none;
-        }
-
-        .header-right {
-            margin-left: auto;
-        }
-
-        .logo-mobile {
-            display: block;
-        }
-
-        .burger-menu-button {
-            display: block;
-            img:not(.close-menu) {display: block;}
-
-            &.is-open {
-                .burger-menu-icon {
-                    display: none;
-                }
-                .close-menu {
-                    display: block;
-                    img {display: block;}
+                &:hover {
+                    color: $light-100;
+                    background-color: $light-10;
                 }
             }
+
+            &.current-menu-parent {
+                & > a {
+                    color: $light-100;
+                    background-color: $light-10;
+                }
+            }
+
+            &.highlight {
+                & > a {
+                    background-color: $blue-700;
+
+                    &:hover {
+                        background-color: $blue-600;
+                    }
+                }
+            }
+
+            &.menu-item-has-children > a {
+                &:after {
+                    content: "\f101";
+                    font-family: "ph";
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 1;
+                }
+            }
+
+            &.menu-item-has-children::before {
+                content: "";
+                position: absolute;
+                z-index: 1;
+                left: 0;
+                right: 0;
+                top: calc(100% - 8px);
+                height: 32px;
+                pointer-events: none;
+            }
+
+            &.menu-item-has-children:hover::before,
+            &.menu-item-has-children.submenu-open::before {
+                pointer-events: auto;
+            }
+
+            // Utilisation d'une classe pour gérer l'état ouvert, plus fluide pour l'animation
+            &:hover > .sub-menu,
+            &.submenu-open > .sub-menu {
+                opacity: 1;
+                pointer-events: auto;
+                transform: translateY(8px);
+            }
         }
-        
-        .main-nav {
+
+        .sub-menu {
             position: absolute;
             top: 100%;
             left: 0;
-            right: 0;
-            height: calc(100vh - 95px);
-            background-color: #ffffff;
-            z-index: 999;
-            padding: 12px 16px;
-            display: none;
+            width: 100%;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(16px);
+            transition: 
+                opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            display: block; // pour que l’animation fonctionne
+            z-index: 3;
 
-            .menu {
-                flex-direction: column;
-                align-items: flex-start;
-                max-height: 100%;
-                overflow-y: auto;
+            & > li {
+                margin-bottom: 8px;
 
-                > .menu-item {
-                    padding: $spacing-xs;
-                    margin-bottom: $spacing-xs;
-                    background-color: $slate-50;
-                    border-radius: 12px;
-                    width: 100%;
-
-                    > a {
-                        &:after {
-                            transform: rotate(270deg);
-                            transition: none;
-                        }
-                    }
-
-                    &:last-child > a {
-                        padding-bottom: 0;
-                    }
-
-                    &:first-child > a {
-                        padding-top: 0;
-                    }
-
-                    > .sub-menu {
-                        display: none;
-
-                        > .menu-item {
-                            padding: $spacing-md;
-
-                            .menu-item {
-                                padding: $spacing-2xs;
-                            }
-
-                            &.blue-back {
-                                padding: $spacing-xs;
-                                background-color: $blue-100;
-                                border-radius: 6px;
-                            }
-
-                            &:not(.blue-back) {
-                                > a {
-                                    @include caption;
-                                    display: block;
-                                    color: $blue-600;
-                                    margin-bottom: $spacing-2xs;
-                                }
-                            }
-                        }
-                    }
-
-                    &.is-open {
-                        > a {
-                            color: $blue-600;
-                            &:after {
-                                transform: rotate(0deg);
-                                background-image: url( $icons_dir + 'down-hover.svg');
-                            }
-                        }
-                    }
-                }
-            }
-
-            &.is-open {
-                display: block;
-            }
-
-            .menu-item-content {
-                width: 100%;
-            }
-
-            .menu-item-object-post {
-
-                .menu-item-thumb-wrap img {
-                    width: 84px;
-                    height: 101px;
-                    object-fit: cover;
-                }
-
-                .menu-item-content {
+                & > a {
                     display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    gap: $spacing-3xs;
+                    align-items: center;
+                    padding: 8px;
+                    color: $light-100;
+                    background-color: $dark-80;
+                    text-transform: uppercase;
+                    transition: background-color 0.3s ease;
+
+                    img {
+                        width: 128px;
+                        height: 84px;
+                        object-fit: cover;
+                        margin-right: 32px;
+                    }
+
+                    i {
+                        margin-left: auto;
+                        margin-right: 16px;
+                    }
+
+                    &:hover {
+                        background-color: #3E3E42;
+                    }
+                }
+
+                &.current-menu-item {
+                    & > a { 
+                        background-color: $dark-80;
+                    }
                 }
             }
         }
+    }
+}
 
-        .menu-cta {
-            .only-icon-for-mobile {
-                a {
-                    display: block;
-                    font-size: 0;
-                    line-height: 0;
-                    border-radius: 100px;
-                    padding: 10px;
-
-                    .button-icon {
-                        display: block;
-                        width: 20px;
-                        height: 20px;
-                        font-size: initial;
-                        line-height: initial;
-                    }
-                }
-            }
-
-            .menu-item:not(.only-icon-for-mobile) {
-                a {
-                    .button-icon {
-                        display: none;
-                    }
-                }
-            }
-
-            .is-style-outline, .is-style-subtle {
-                a {
-                    padding: 10px 16px;
-                }
-            }
+.menu {
+    li {
+        a {
+            @include body-medium;
+            text-decoration: none;
         }
     }
 }

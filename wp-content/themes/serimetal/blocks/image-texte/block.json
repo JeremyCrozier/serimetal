@@ -1,0 +1,18 @@
+{
+    "name": "acf/image-texte",
+    "title": "Image & Texte",
+    "description": "Image & Texte en bloc",
+    "style": [],
+    "category": "design",
+    "icon": "format-image",
+    "keywords": ["image", "texte", "bloc"],
+    "acf": {
+        "version": 3,
+        "mode": "preview",
+        "renderTemplate": "image-texte.php"
+    },
+    "supports": {
+        "anchor": true,
+        "align": false
+    }
+}

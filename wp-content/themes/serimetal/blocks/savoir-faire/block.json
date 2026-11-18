@@ -1,0 +1,18 @@
+{
+    "name": "acf/savoir-faire",
+    "title": "Savoir faire",
+    "description": "Bloc savoir-faire pour afficher du contenu",
+    "style": [],
+    "category": "design",
+    "icon": "lightbulb",
+    "keywords": ["savoir-faire", "liste", "contenu"],
+    "acf": {
+        "version": 3,
+        "mode": "preview",
+        "renderTemplate": "savoir-faire.php"
+    },
+    "supports": {
+        "anchor": true,
+        "align": false
+    }
+}

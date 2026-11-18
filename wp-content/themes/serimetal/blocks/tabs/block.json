@@ -1,0 +1,20 @@
+{
+    "name": "acf/tabs",
+    "title": "Onglets",
+    "description": "Onglets de contenu",
+    "style": [],
+    "category": "design",
+    "icon": "align-full-width",
+    "keywords": ["tabs", "table", "content"],
+    "acf": {
+        "version": 3,
+        "mode": "preview",
+        "renderTemplate": "tabs.php"
+    },
+    "supports": {
+        "anchor": true,
+        "align": false,
+        "jsx": true,
+        "mode": false
+    }
+}

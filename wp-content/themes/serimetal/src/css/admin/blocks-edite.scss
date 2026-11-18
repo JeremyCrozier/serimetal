@@ -1,0 +1,49 @@
+@use "../config" as *;
+
+.editor-visual-editor__post-title-wrapper {
+    margin-bottom: 48px;
+}
+
+.wp-block-acf-section {
+    margin-block-start: 0 !important;
+    max-width: 100% !important;
+}
+
+// Keep every panel visible while editing.
+.acf-block-preview .block-tabs,
+.editor-styles-wrapper .block-tabs {
+
+    .tabs-content {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .acf-block-component {
+        width: 100%;
+    }
+
+    .tab-content-item {
+        display: flex;
+        opacity: 1;
+        transform: none;
+        margin-top: 16px;
+    }
+
+    .tabs-indicator {
+        display: none;
+    }
+}
+
+.acf-block-preview {
+
+    &.wp-block-acf-hero {
+        max-width: 100% !important;
+    }
+
+    &.wp-block-acf-form {
+        .form-panel {
+            pointer-events: none;
+        }
+    }
+}

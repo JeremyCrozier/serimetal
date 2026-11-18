@@ -1,0 +1,466 @@
+@use "../config" as *;
+
+.block-loop,
+.wp-block-acf-loop {
+    width: 100%;
+
+    .loop-item__link {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        height: 100%;
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .loop-item__media {
+        margin: 0;
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .loop-item__excerpt {
+        color: $metal-600;
+    }
+}
+
+.block-loop--recrutement {
+    .loop:not(.swiper-wrapper) {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .job-card {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 32px;
+        background-color: $light-100;
+        border-bottom: 4px solid $blue-700;
+    }
+
+    .job-card__content {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+    }
+
+    .job-card__category {
+        margin: 0 0 4px;
+        color: $blue-700;
+        font-family: $font-body;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: 0;
+        text-transform: uppercase;
+    }
+
+    .heading-small {
+        margin: 0;
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+
+    .job-card__meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+        margin: 12px 0 0;
+        @include body-medium;
+
+        span {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        span:not(:last-child)::after {
+            content: "";
+            flex: 0 0 8px;
+            width: 8px;
+            height: 8px;
+            background-color: $blue-700;
+        }
+    }
+
+    .btn-filled-primary {
+        flex: 0 0 auto;
+    }
+
+    @media (max-width: $mobile-large) {
+        .job-card {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+}
+
+.block-loop--poles {
+    .loop {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+    }
+
+    .pole-card {
+        position: relative;
+        aspect-ratio: 322 / 419;
+        background-color: $light-100;
+        border-bottom: 4px solid $blue-700;
+
+        > a {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 8px 8px 4px;
+            overflow: hidden;
+            text-decoration: none;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-origin: content-box;
+            background-clip: content-box;
+
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 8px;
+                background: linear-gradient(180deg, $dark-80 0%, $dark-10 50%, $dark-0 100%);
+                opacity: 0;
+                transition: opacity 0.35s ease;
+                pointer-events: none;
+            }
+        }
+    }
+
+    .know-more {
+        position: absolute;
+        z-index: 2;
+        top: 20px;
+        right: 16px;
+        opacity: 0;
+        transition: opacity 0.35s ease;
+        pointer-events: none;
+        color: $light-100;
+    }
+
+    .pole-card__content {
+        position: relative;
+        z-index: 1;
+        padding: 16px;
+        background-color: $light-100;
+    }
+
+    .heading-small {
+        margin: 0;
+    }
+
+    .pole-card__excerpt {
+        display: grid;
+        grid-template-rows: 0fr;
+        margin-top: 0;
+        transition: grid-template-rows 0.35s ease, margin-top 0.35s ease;
+
+        > * {
+            min-height: 0;
+            overflow: hidden;
+            margin: 0;
+            color: $metal-900;
+        }
+    }
+
+    .pole-card:hover,
+    .pole-card:focus-within {
+        > a::after {
+            opacity: 1;
+        }
+
+        .know-more {
+            opacity: 1;
+        }
+
+        .pole-card__excerpt:has(p) {
+            grid-template-rows: 1fr;
+            margin-top: 8px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .pole-card > a::after,
+        .know-more,
+        .pole-card__excerpt {
+            transition: none;
+        }
+    }
+
+    @media (max-width: $mobile-large) {
+        .pole-card > a::after {
+            opacity: 1;
+        }
+
+        .know-more {
+            opacity: 1;
+        }
+
+        .pole-card__excerpt:has(p) {
+            grid-template-rows: 1fr;
+            margin-top: 8px;
+        }
+    }
+}
+
+.block-loop--realisation {
+    .realisation-filters {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 24px;
+    }
+
+    .realisation-filters__tabs {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 8px;
+        padding-bottom: 12px;
+    }
+
+    .realisation-filters__indicator {
+        position: absolute;
+        height: 4px;
+        background-color: var(--tab-color, #{$orange-300});
+        pointer-events: none;
+        opacity: 0;
+        transition: left 0.35s ease, width 0.35s ease, top 0.35s ease, background-color 0.35s ease, opacity 0.35s ease;
+
+        &.is-visible {
+            opacity: 1;
+        }
+    }
+
+    .realisation-filters__tabs .realisation-filter.is-active {
+        border-color: var(--tab-color, #{$orange-300});
+        background-color: var(--tab-color, #{$orange-300});
+        color: $metal-800;
+
+        &:hover,
+        &:active {
+            border-color: var(--tab-color, #{$orange-300});
+            background-color: var(--tab-color, #{$orange-300});
+            color: $metal-800;
+        }
+    }
+
+    .loop:not(.swiper-wrapper) {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        transition: opacity 0.35s ease, transform 0.35s ease;
+
+        &.is-fading {
+            opacity: 0;
+            transform: translateY(12px);
+            pointer-events: none;
+        }
+    }
+
+    .realisation-card {
+        background-color: $metal-950;
+        border-bottom: 4px solid var(--pole-color, #{$orange-300});
+    }
+
+    .realisation-card__link {
+        position: relative;
+        display: flex;
+        align-items: stretch;
+        gap: 256px;
+        min-height: 425px;
+        padding: 32px;
+        overflow: hidden;
+        color: $light-100;
+        text-decoration: none;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .swiper-slide {
+        .realisation-card__link {
+            min-height: 419px;
+        }
+    }
+
+    .realisation-card__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, $dark-80 0%, $dark-60 100%);
+        pointer-events: none;
+    }
+
+    .realisation-card__main,
+    .realisation-card__aside {
+        position: relative;
+        z-index: 1;
+        min-width: 0;
+    }
+
+    .realisation-card__main {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    .realisation-card__intro {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .heading-medium,
+    .realisation-card__excerpt,
+    .realisation-card__more,
+    .realisation-card__value,
+    .realisation-card__coords {
+        color: $light-100;
+    }
+
+    .realisation-card__aside {
+        display: flex;
+        flex: 0 0 433px;
+        flex-direction: column;
+        gap: 8px;
+        width: 433px;
+    }
+
+    .realisation-card__facts {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 16px;
+        padding: 12px;
+        background-color: $dark-50;
+        backdrop-filter: blur(4px);
+    }
+
+    .realisation-card__fact {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin: 0;
+    }
+
+    .realisation-card__label {
+        @include metric-small;
+        color: $light-100;
+    }
+
+    .realisation-card__map {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        overflow: hidden;
+
+        .map_part {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    }
+
+    .realisation-card--empty {
+        padding: 32px;
+        color: $light-100;
+        border-bottom-color: $metal-400;
+    }
+
+    .swiper-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 48px;
+        
+        .swiper-pagination {
+            position: relative;
+            width: 100%;
+            max-width: 564px;
+            height: 4px;
+            background-color: $light-100;
+            overflow: hidden;
+
+            .swiper-pagination-progressbar-fill {
+                height: 100%;
+                left: 0;
+                position: absolute;
+                top: 0;
+                transform: scale(0);
+                transform-origin: left top;
+                width: 100%;
+                background-color: $blue-700;
+            }
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .realisation-filters__indicator,
+        .loop {
+            transition: none;
+        }
+    }
+
+    @media (max-width: $tablet) {
+        .realisation-filters {
+            flex-direction: column;
+        }
+
+        .realisation-card__link {
+            flex-direction: column;
+            gap: 24px;
+            min-height: 0;
+        }
+
+        .realisation-card__aside {
+            flex-basis: auto;
+            width: 100%;
+        }
+
+        .realisation-card__map {
+            min-height: 160px;
+        }
+    }
+
+    @media (max-width: $mobile-large) {
+        .realisation-filters__tabs {
+            width: 100%;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 16px;
+        }
+
+        .swiper-slide .realisation-card__link {
+            height: 100%;
+            min-height: 100%;
+        }
+    }
+}
