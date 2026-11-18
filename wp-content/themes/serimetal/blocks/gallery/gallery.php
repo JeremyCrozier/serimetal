@@ -38,6 +38,10 @@ if ( $layout ) {
 	$classes[] = 'gallery--' . $layout;
 }
 
+$parallax = !$is_preview && $count < 3 ? 'parallax' : '';
+
+error_log(print_r($parallax, true));
+
 $wrapper_attributes = ! empty( $is_preview )
 	? 'class="' . esc_attr( implode( ' ', $classes ) ) . '"'
 	: get_block_wrapper_attributes(
@@ -52,7 +56,7 @@ $wrapper_attributes = ! empty( $is_preview )
 		<div class="gallery">
 			<?php foreach ( $ids as $id ) : ?>
 				<figure class="gallery-item">
-					<?php echo wp_get_attachment_image( $id, 'medium' ); ?>
+					<?php echo wp_get_attachment_image( $id, 'large', false, array( 'class' => $parallax ) ); ?>
 				</figure>
 			<?php endforeach; ?>
 		</div>
@@ -62,7 +66,7 @@ $wrapper_attributes = ! empty( $is_preview )
 		<div class="gallery-more">
 			<?php foreach ( $extra as $id ) : ?>
 				<figure class="gallery-item">
-					<?php echo wp_get_attachment_image( $id, 'medium' ); ?>
+					<?php echo wp_get_attachment_image( $id, 'large' ); ?>
 				</figure>
 			<?php endforeach; ?>
 		</div>

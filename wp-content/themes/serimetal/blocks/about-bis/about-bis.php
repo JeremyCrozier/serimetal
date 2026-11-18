@@ -56,7 +56,7 @@ $wrapper_attributes = ! empty( $is_preview )
 
 			<?php if ( $image ) : ?>
 				<figure class="about-bis__media">
-					<?php echo wp_get_attachment_image( (int) $image, 'small-hero' ); ?>
+					<?php echo wp_get_attachment_image( (int) $image, 'small-hero', false, array( 'class' => 'parallax' ) ); ?>
 				</figure>
 			<?php endif; ?>
 		</div>

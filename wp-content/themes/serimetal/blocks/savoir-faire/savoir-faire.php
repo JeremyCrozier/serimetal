@@ -53,7 +53,7 @@ $wrapper_attributes = ! empty( $is_preview )
 		<div class="savoir-faire-aside">
 			<?php if ( $image_id ) : ?>
 				<figure class="savoir-faire-media">
-					<?php echo wp_get_attachment_image( $image_id, 'large' ); ?>
+					<?php echo wp_get_attachment_image( $image_id, 'large', false, array( 'class' => 'parallax' ) ); ?>
 				</figure>
 			<?php endif; ?>
 

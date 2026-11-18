@@ -12,7 +12,7 @@ $background = get_the_post_thumbnail_url( get_the_ID(), 'medium' );
 
 <li class="pole-card"<?php echo $color ? ' style="border-bottom-color: ' . esc_attr( $color ) . ';"' : ''; ?>>
 	<a href="<?php the_permalink(); ?>"<?php echo $background ? ' style="background-image: url(' . esc_url( $background ) . ');"' : ''; ?>>
-		<span class="know-more btn-outline">en savoir plus <i class="ph ph-caret-right"></i></span>
+		<span class="know-more btn-ghost-secondary">en savoir plus <i class="ph ph-caret-right"></i></span>
 		<div class="pole-card__content">
 			<h3 class="heading-small">
 				<?php the_title(); ?>

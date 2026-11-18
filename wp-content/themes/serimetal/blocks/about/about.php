@@ -55,7 +55,7 @@ if ( ! function_exists( 'serimetal_about_panel' ) ) {
 
 			<?php if ( $image ) : ?>
 				<figure class="about-card__media">
-					<?php echo wp_get_attachment_image( $image, 'medium'); ?>
+					<?php echo wp_get_attachment_image( $image, 'medium', false, array( 'class' => 'parallax' ) ); ?>
 				</figure>
 			<?php endif; ?>
 		</div>
