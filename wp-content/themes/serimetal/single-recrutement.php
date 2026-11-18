@@ -43,7 +43,7 @@
 	</div>
 </header>
 
-<section id="recrutement-content" class="wp-block-acf-section">
+<section id="recrutement-content" class="wp-block-acf-section block-section">
     <div class="inside">
 		<div class="wysiwyg">
 			<?php the_content(); ?>
@@ -61,7 +61,7 @@
 $images = get_field('images');
 
 if ( $images ) {
-	echo '<section class="wp-block-acf-section">';
+	echo '<section class="wp-block-acf-section block-section">';
 	echo '<div class="inside">';
 	echo render_block([
 		'blockName'    => 'acf/gallery',

@@ -20,11 +20,11 @@
     }
 
     &.border {
-        border-bottom: 4px solid var(--page-color);
+        border-bottom: 4px solid $blue-700;
     }
 
     .block-number {
-        color: var(--page-color);
+        color: $blue-700;
     }
 
     &.block-highlight {

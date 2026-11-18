@@ -1,6 +1,11 @@
 @use "./config" as *;
 
 #recrutement-hero {
+
+    .inside {
+        grid-template-columns: minmax(0, 547fr) minmax(0, 773fr);
+    }
+
     .tag {
         color: $blue-700;
         text-transform: uppercase;

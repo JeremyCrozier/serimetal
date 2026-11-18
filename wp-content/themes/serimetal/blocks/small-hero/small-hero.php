@@ -15,6 +15,8 @@ if ( ! $image_id ) {
 }
 $image_id = $image_id ? (int) $image_id : 0;
 
+$overtitle = get_field( 'overtitle' );
+
 $heading = get_field( 'heading' );
 if ( ! $heading ) {
 	$heading = get_the_title( get_the_ID() );
@@ -39,8 +41,17 @@ $wrapper_attributes = ! empty( $is_preview )
 
 <header <?php echo $wrapper_attributes; ?>>
 	<div class="inside">
+		<?php if ( $image_id ) : ?>
+			<div class="image">
+				<?php echo wp_get_attachment_image( $image_id, 'small-hero' ); ?>
+			</div>
+		<?php endif; ?>
 		<div class="content">
 			<div class="hero-copy">
+				<?php if ( $overtitle ) : ?>
+					<p class="heading-small"><?php echo esc_html( $overtitle ); ?></p>
+				<?php endif; ?>
+
 				<?php if ( $heading ) : ?>
 					<h1 class="heading-large"><?php echo esc_html( $heading ); ?></h1>
 				<?php endif; ?>
@@ -56,11 +67,5 @@ $wrapper_attributes = ! empty( $is_preview )
 				</a>
 			<?php endif; ?>
 		</div>
-
-		<?php if ( $image_id ) : ?>
-			<div class="image">
-				<?php echo wp_get_attachment_image( $image_id, 'small-hero' ); ?>
-			</div>
-		<?php endif; ?>
 	</div>
 </header>

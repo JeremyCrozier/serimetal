@@ -3,6 +3,27 @@
     "title": "Block: Page Hero",
     "fields": [
         {
+            "key": "field_6afc7fab3f0ff",
+            "label": "Surtitre",
+            "name": "overtitle",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_6ae0c98eb2e13",
             "label": "Titre",
             "name": "heading",
@@ -109,5 +130,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1793119733
+    "modified": 1794932744
 }

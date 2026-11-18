@@ -6,7 +6,7 @@
 
     .inside {
         display: grid;
-        grid-template-columns: minmax(0, 547fr) minmax(0, 773fr);
+        grid-template-columns: minmax(0, 773fr) minmax(0, 547fr);
         gap: 16px;
         align-items: stretch;
         width: min(100% - 48px, $container-width);
@@ -31,11 +31,15 @@
     .hero-copy {
         display: flex;
         flex-direction: column;
-        gap: 24px;
+    }
+
+    .heading-small {
+        margin-bottom: 8px;
+        color: var(--page-color);
     }
 
     .heading-large {
-        margin: 0;
+        margin-bottom: 24px;
     }
 
     .wysiwyg {
