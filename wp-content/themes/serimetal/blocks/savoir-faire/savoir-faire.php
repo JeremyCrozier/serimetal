@@ -34,7 +34,7 @@ $wrapper_attributes = ! empty( $is_preview )
 	<?php if ( $has_main ) : ?>
 		<div class="savoir-faire-main">
 			<?php if ( $title ) : ?>
-				<h2 class="heading-large"><?php echo esc_html( $title ); ?></h2>
+				<h2 class="heading-large title-divider"><?php echo esc_html( $title ); ?></h2>
 			<?php endif; ?>
 
 			<?php if ( $text ) : ?>

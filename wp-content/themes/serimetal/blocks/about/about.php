@@ -121,7 +121,7 @@ $wrapper_attributes = ! empty( $is_preview )
 					<?php if ( $has_intro ) : ?>
 						<div class="about-intro">
 							<?php if ( $intro_heading ) : ?>
-								<h2 class="heading-large"><?php echo esc_html( $intro_heading ); ?></h2>
+								<h2 class="heading-large title-divider"><?php echo esc_html( $intro_heading ); ?></h2>
 							<?php endif; ?>
 							<?php echo wp_kses_post( $intro_text ); ?>
 						</div>
@@ -154,7 +154,7 @@ $wrapper_attributes = ! empty( $is_preview )
 				<?php if ( $has_intro ) : ?>
 					<div class="about-intro">
 						<?php if ( $intro_heading ) : ?>
-							<h2 class="heading-large"><?php echo esc_html( $intro_heading ); ?></h2>
+							<h2 class="heading-large title-divider"><?php echo esc_html( $intro_heading ); ?></h2>
 						<?php endif; ?>
 						<?php if ( $intro_text ) : ?>
 							<?php echo wp_kses_post( $intro_text ); ?>

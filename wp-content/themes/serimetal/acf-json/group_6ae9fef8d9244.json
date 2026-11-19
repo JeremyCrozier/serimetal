@@ -8,7 +8,7 @@
             "name": "type",
             "aria-label": "",
             "type": "radio",
-            "instructions": "",
+            "instructions": "Itération de contenu automatique",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -122,5 +122,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1795020012
+    "modified": 1795075625
 }

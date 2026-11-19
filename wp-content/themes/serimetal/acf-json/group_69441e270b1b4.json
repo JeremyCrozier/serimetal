@@ -1,6 +1,6 @@
 {
     "key": "group_69441e270b1b4",
-    "title": "Block: button",
+    "title": "Block: Bouton",
     "fields": [
         {
             "key": "field_69441e2785a61",
@@ -70,5 +70,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1792051874
+    "modified": 1795076159
 }

@@ -3,7 +3,7 @@ import SimpleParallax from 'simple-parallax-js/vanilla';
 document.addEventListener('DOMContentLoaded', () => {
     const images = document.querySelectorAll('img.parallax');
 
-    if (!images.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (!images.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 1024) {
         return;
     }
 

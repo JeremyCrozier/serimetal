@@ -1,6 +1,6 @@
 {
     "key": "group_68f0a1b2c3d4e",
-    "title": "Block: section",
+    "title": "Block: Section",
     "fields": [
         {
             "key": "field_68f0a1b2c3d4f",
@@ -19,8 +19,8 @@
             "choices": {
                 "default": "Aucun",
                 "gradient": "Avec Fond sombre",
-                "top-gradient": "Fond sombre en haut",
-                "bottom-gradient": "Fond sombre en bas"
+                "bottom-gradient": "Fond sombre en bas",
+                "top-gradient": "Fond sombre en haut"
             },
             "default_value": "default",
             "return_format": "value",
@@ -52,5 +52,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1793716547
+    "modified": 1795076098
 }

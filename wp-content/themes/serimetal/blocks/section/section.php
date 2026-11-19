@@ -13,7 +13,7 @@
  * @link https://www.advancedcustomfields.com/resources/acf-blocks-using-innerblocks-and-parent-child-relationships/
  */
 
-$background = get_field( 'background' );
+$background = get_field( 'background' ) ?? 'default';
 $classes = array(
 	'block-section',
 	'bg--' . $background,

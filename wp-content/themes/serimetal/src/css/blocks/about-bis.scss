@@ -33,21 +33,6 @@
     gap: 24px;
 }
 
-.about-bis__heading {
-    position: relative;
-
-    &::before {
-        content: "";
-        position: absolute;
-        top: 23px;
-        left: calc((100% - 100vw) / 2);
-        right: calc(100% + 48px);
-        height: 1px;
-        background: $metal-300;
-        pointer-events: none;
-    }
-}
-
 .about-bis__media {
     position: relative;
     margin: 0;

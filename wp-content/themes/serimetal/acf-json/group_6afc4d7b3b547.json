@@ -42,7 +42,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "<h3>Charpente métallique<\/h3>\r\n<p>L’acier est le matériau utilisé pour l’ensemble de nos ossatures, et ce n’est pas un hasard :<\/p>\r\n<p>&nbsp;<\/p>\r\n<ul>\r\n<li>De grandes portées : l’acier franchit de grandes distances et libère l’espace intérieur pour vos équipements, vos flux de production, vos bureaux ou vos zones de stockage.<\/li>\r\n<li>Pérennité : une charpente en acier durable demande un entretien minimal tout au long de son cycle de vie.<\/li>\r\n<li>Liberté architecturale : la finesse de l’acier offre de très nombreuses possibilités de conception.<\/li>\r\n<li>Rapidité de chantier : les éléments préfabriqués en atelier réduisent le temps de pose sur site et limitent l’emprise au sol pendant les travaux.<\/li>\r\n<li>Évolutivité : l’acier offre un ouvrage entièrement réparable, que l’on peut modifier, renforcer ou agrandir (extension) au fil du développement de votre activité.<\/li>\r\n<li>Faible empreinte écologique : ce matériau est recyclable à l’infini, son taux de chute est très faible et nos déchets, copeaux d’usinage compris, sont systématiquement revalorisés. En cas de déconstruction, 100 % de la structure est valorisable.<\/li>\r\n<\/ul>",
             "allow_in_bindings": 0,
             "tabs": "all",
             "toolbar": "full",
@@ -71,5 +71,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1794920153
+    "modified": 1795075774
 }

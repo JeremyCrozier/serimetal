@@ -15,7 +15,6 @@
 }
 
 .editor-styles-wrapper {
-
     @include body-medium;
     background-color: $metal-100;
 
@@ -117,7 +116,7 @@
             color: $metal-900;
         }
 
-        .accordion-item {
+        .accordion-item, .about-card {
             background: rgba(255, 255, 255, 0.10);
         }
     }
@@ -191,23 +190,33 @@
         @include body-xsmall;
     }
 
-    .metric-large {
-        @include metric-large;
-    }
-
-    .metric-medium {
-        @include metric-medium;
-    }
-
-    .metric-small {
-        @include metric-small;
-    }
-
     .has-text-align-center {
         text-align: center;
     }
 
     .has-text-align-right {
         text-align: right;
+    }
+
+    @media (min-width: $tablet) {
+        .title-divider, .has-text-align-left {
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 23px;
+                left: calc((100% - 100vw) / 2);
+                right: calc(100% + 48px);
+                height: 1px;
+                background: $metal-300;
+                pointer-events: none;
+            }
+        }
+    }
+
+    .simpleParallax {
+        width: 100%;
+        height: 100%;
     }
 }

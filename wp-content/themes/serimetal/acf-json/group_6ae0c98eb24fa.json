@@ -29,7 +29,7 @@
             "name": "heading",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Remplacement du titre automatique",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -88,7 +88,7 @@
             "name": "image",
             "aria-label": "",
             "type": "image",
-            "instructions": "",
+            "instructions": "Remplacement de l'image automatique",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -130,5 +130,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1794932744
+    "modified": 1795075924
 }

@@ -1,6 +1,6 @@
 {
     "key": "group_6ad0a4b7c1cf4",
-    "title": "Block: blocs",
+    "title": "Block: Blocs",
     "fields": [
         {
             "key": "field_6ad0a4b870c6d",
@@ -17,8 +17,8 @@
                 "id": ""
             },
             "choices": {
-                "default": "Default",
-                "numbers": "Numbers"
+                "default": "Défaut",
+                "numbers": "Avec chiffre"
             },
             "default_value": "default",
             "return_format": "value",
@@ -57,7 +57,7 @@
             "name": "highlighting",
             "aria-label": "",
             "type": "group",
-            "instructions": "",
+            "instructions": "Bloc de mise en avant, non obligatoire",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -164,7 +164,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
+                    "default_value": "Titre",
                     "maxlength": "",
                     "allow_in_bindings": 0,
                     "placeholder": "",
@@ -174,7 +174,7 @@
                 },
                 {
                     "key": "field_6ad0a5ad70c70",
-                    "label": "Texts",
+                    "label": "Texte",
                     "name": "text",
                     "aria-label": "",
                     "type": "textarea",
@@ -186,7 +186,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
+                    "default_value": "Suspendisse potenti. Vivamus non arcu tincidunt, congue massa at, porttitor velit.",
                     "maxlength": "",
                     "allow_in_bindings": 0,
                     "rows": 4,
@@ -218,5 +218,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1792155066
+    "modified": 1795076176
 }

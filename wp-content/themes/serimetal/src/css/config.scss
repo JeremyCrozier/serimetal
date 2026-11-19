@@ -199,38 +199,6 @@ $font-body: 'IBM Plex', 'Inter', sans-serif;
     line-height: 16px;
 }
 
-// Metric
-@mixin metric-large {
-    font-family: $font-heading;
-    font-weight: 600;
-    font-style: normal;
-    font-size: 48px;
-    line-height: 52px;
-    letter-spacing: 0;
-    color: $metal-800;
-}
-
-@mixin metric-medium {
-    font-family: $font-heading;
-    font-weight: 600;
-    font-style: normal;
-    font-size: 32px;
-    line-height: 36px;
-    letter-spacing: 0;
-    color: $metal-800;
-}
-
-@mixin metric-small {
-    font-family: $font-heading;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0;
-    color: $metal-800;
-}
-
-
 // BUTTON MIXINS
 // Figma component Button, node 255:13439
 // Styles: filled, outline (secondary only), ghost

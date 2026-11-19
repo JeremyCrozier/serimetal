@@ -4,7 +4,7 @@
     "description": "Image & Texte en bloc",
     "style": [],
     "category": "design",
-    "icon": "format-image",
+    "icon": "align-left",
     "keywords": ["image", "texte", "bloc"],
     "acf": {
         "version": 3,

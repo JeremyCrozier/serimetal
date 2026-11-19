@@ -4,7 +4,7 @@
     "description": "Conteneur pour d'autres blocs Gutenberg ou ACF",
     "style": [],
     "category": "design",
-    "icon": "align-full-width",
+    "icon": "align-wide",
     "keywords": ["section", "conteneur", "container", "layout"],
     "acf": {
         "version": 3,

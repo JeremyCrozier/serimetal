@@ -1,6 +1,6 @@
 {
     "key": "group_6ae0a233d1c85",
-    "title": "Block: Form",
+    "title": "Block: Formulaire",
     "fields": [
         {
             "key": "field_6ae0a233d2c1f",
@@ -18,7 +18,7 @@
             },
             "choices": {
                 "default": "Aucun",
-                "dark": "Dark"
+                "dark": "Sombre"
             },
             "default_value": "default",
             "return_format": "value",
@@ -163,5 +163,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1793797429
+    "modified": 1795075673
 }

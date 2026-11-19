@@ -4,7 +4,7 @@
     "description": "Onglets de contenu",
     "style": [],
     "category": "design",
-    "icon": "align-full-width",
+    "icon": "table-row-after",
     "keywords": ["tabs", "table", "content"],
     "acf": {
         "version": 3,

@@ -27,22 +27,6 @@
                 min-width: 24px;
             }
         }
-
-        &.has-text-align-left {
-            position: relative;
-
-            &::before {
-                content: "";
-                position: absolute;
-                top: 23px;
-                left: calc((100% - 100vw) / 2);
-                right: calc(100% + 48px);
-                height: 1px;
-                background: $metal-300;
-                pointer-events: none;
-            }
-        }
-
     }
 
     & > .inside {
@@ -62,6 +46,10 @@
 
         .wp-block-paragraph + div, .wp-block-paragraph + .wp-block-heading, .wp-block-paragraph + section {
             margin-top: 24px;
+        }
+
+        .block-section .inside {
+            width: 100%;
         }
     }
 }

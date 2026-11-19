@@ -12,20 +12,13 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    &.has-intro:not(.has-media),
     &.has-media:not(.has-intro) {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    &.has-title::before {
-        content: "";
-        position: absolute;
-        top: 23px;
-        left: calc((100% - 100vw) / 2);
-        right: calc(100% + 48px);
-        height: 1px;
-        background: $metal-300;
-        pointer-events: none;
+    &.has-intro:not(.has-media) {
+        grid-template-columns: 435px 1fr;
+        gap: 128px;
     }
 }
 
@@ -116,6 +109,7 @@
         &.has-intro:not(.has-media),
         &.has-media:not(.has-intro) {
             grid-template-columns: minmax(0, 1fr);
+            gap: 36px;
         }
 
         &.has-title::before {

@@ -37,7 +37,7 @@ $wrapper_attributes = ! empty( $is_preview )
 					<?php if ( $heading || $text ) : ?>
 						<div class="about-bis__intro">
 							<?php if ( $heading ) : ?>
-								<h2 class="about-bis__heading heading-small"><?php echo esc_html( $heading ); ?></h2>
+								<h2 class="about-bis__heading heading-small title-divider"><?php echo esc_html( $heading ); ?></h2>
 							<?php endif; ?>
 							<?php if ( $text ) : ?>
 								<p class="about-bis__text"><?php echo nl2br( esc_html( $text ) ); ?></p>

@@ -370,11 +370,6 @@
         margin: 0;
     }
 
-    .realisation-card__label {
-        @include metric-small;
-        color: $light-100;
-    }
-
     .realisation-card__map {
         position: relative;
         display: flex;

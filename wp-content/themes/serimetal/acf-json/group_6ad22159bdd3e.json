@@ -1,6 +1,6 @@
 {
     "key": "group_6ad22159bdd3e",
-    "title": "Block: Tab",
+    "title": "Block: Onglets",
     "fields": [
         {
             "key": "field_6ad221a6246f9",
@@ -45,5 +45,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1792158040
+    "modified": 1795076141
 }

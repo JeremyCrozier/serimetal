@@ -16,7 +16,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "Titre",
             "maxlength": "",
             "allow_in_bindings": 0,
             "placeholder": "",
@@ -37,7 +37,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "<p><strong>Spécialisée dans la construction métallique depuis 1986, SERIMETAL accompagne les professionnels dans une grande variété de projets de bâtiments et d’ouvrages, et ce de la conception sur mesure à la pose.<\/strong><\/p>\r\n<p>Parce qu’une construction métallique réussie ne se résume pas à assembler des poutres en acier. Chaque ouvrage doit reprendre ses charges, s’intégrer à son site, durer dans le temps et répondre aux besoins de celui qui l’exploite.<\/p>\r\n<ul>\r\n<li><strong>La charpente métallique,<\/strong><\/li>\r\n<li>la couverture et le bardage de bâtiments industriels, commerciaux et<\/li>\r\n<\/ul>\r\n<p>Pour chaque projet, la même ambition : une réponse technique juste, un savoir-faire éprouvé, une réalisation maîtrisée et la réactivité qu’attendent les professionnels.<\/p>",
             "allow_in_bindings": 0,
             "tabs": "all",
             "toolbar": "basic",
@@ -101,7 +101,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "<ul>\r\n<li><strong>La charpente métallique,<\/strong><\/li>\r\n<li>la couverture et le bardage de bâtiments industriels, commerciaux et agricoles,<\/li>\r\n<li>la serrurerie-métallerie,<\/li>\r\n<li>Les structures métalliques spécifiques pour l’industrie (manutention, levage, accès aux équipements),<\/li>\r\n<li>Les charpentes de postes électriques pour RTE,<\/li>\r\n<li>La fourniture d’aciers sur mesure.<\/li>\r\n<\/ul>",
             "allow_in_bindings": 0,
             "tabs": "all",
             "toolbar": "basic",
@@ -130,5 +130,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1794588278
+    "modified": 1795076038
 }
