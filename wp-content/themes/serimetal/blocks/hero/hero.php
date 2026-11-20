@@ -78,9 +78,9 @@ $poster      = $image_url ? ' poster="' . esc_url( $image_url ) . '"' : '';
 						<i class="ph ph-caret-down" aria-hidden="true"></i>
 					</a>
 				<?php else : ?>
-					<div class="scroll-down-container">
+					<a href="#first-section" aria-label="Scroll pour découvrir" aria-hidden="true" class="scroll-down-container">
 						<span class="scroll-down">Scroll pour découvrir <i class="ph ph-caret-down" aria-hidden="true"></i></span>
-					</div>
+					</a>
 				<?php endif; ?>
 			</div>
 		<?php endif; ?>
