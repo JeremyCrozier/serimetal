@@ -1,23 +1,33 @@
 @use "./config" as *;
 
+$submenu-ease: cubic-bezier(0.22, 1, 0.36, 1);
+$submenu-duration: 0.52s;
+$submenu-stagger: 0.1s;
+$submenu-count: 12;
+
+@mixin submenu-item-revealed {
+    grid-template-rows: 1fr;
+    margin-bottom: 8px;
+    opacity: 1;
+}
+
+@mixin submenu-item-stagger($step: $submenu-stagger) {
+    @for $i from 1 through $submenu-count {
+        > .sub-menu > li:nth-child(#{$i}) {
+            transition-delay: ($i - 1) * $step;
+        }
+    }
+}
+
 body {
     &.menu-open {
         overflow-y: hidden;
     }
 }
 
-body:has(.wp-block-acf-hero) {
-    #header {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        border: 0;
-        background: transparent;
-
-        .logo-desktop, .logo-mobile {
-            filter: brightness(0) invert(1);
-        }
+body:not(:has(.wp-block-acf-hero)) {
+    main {
+        padding-top: 116px;
     }
 }
 
@@ -44,9 +54,12 @@ body:has(.wp-block-acf-hero) {
 }
 
 #header {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 2;
-    border-bottom: 1px solid $metal-200;
+    padding-top: 24px;
 
     .inside {
         display: flex;
@@ -55,13 +68,18 @@ body:has(.wp-block-acf-hero) {
         justify-content: space-between;
         align-items: center;
         gap: 48px;
-        padding: 24px 0;
+        padding: 12px;
         width: min(100% - 48px, $container-width);
         margin-inline: auto;
+        background-color: $dark-80;
     }
 
     .burger-menu-button, .logo-mobile {
         display: none;
+    }
+
+    .logo-desktop {
+        display: block;
     }
 
     .menu-header {
@@ -70,8 +88,6 @@ body:has(.wp-block-acf-hero) {
         flex-direction: row;
         flex-wrap: wrap;
         margin: 0;
-        padding: 8px;
-        background-color: $dark-80;
 
         & > li {
             & > a {
@@ -127,12 +143,23 @@ body:has(.wp-block-acf-hero) {
                 pointer-events: auto;
             }
 
-            // Utilisation d'une classe pour gérer l'état ouvert, plus fluide pour l'animation
+            // The panel itself only fades. Each item unfolds on its own delay.
             &:hover > .sub-menu,
             &.submenu-open > .sub-menu {
                 opacity: 1;
                 pointer-events: auto;
-                transform: translateY(8px);
+                transform: translateY(20px);
+                transition: opacity 0.08s linear;
+            }
+
+            &:hover > .sub-menu > li,
+            &.submenu-open > .sub-menu > li {
+                @include submenu-item-revealed;
+            }
+
+            &:hover,
+            &.submenu-open {
+                @include submenu-item-stagger;
             }
         }
 
@@ -140,22 +167,30 @@ body:has(.wp-block-acf-hero) {
             position: absolute;
             top: 100%;
             left: 0;
-            width: 100%;
+            width: calc(100% + 12px);
             opacity: 0;
             pointer-events: none;
-            transform: translateY(16px);
-            transition: 
-                opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
-                transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            display: block; // pour que l’animation fonctionne
+            transform: translateY(20px);
+            // Hide the panel quickly on leave so the next submenu can stagger in cleanly.
+            transition: opacity 0.16s ease;
+            display: block;
             z-index: 3;
 
             & > li {
-                margin-bottom: 8px;
+                display: grid;
+                grid-template-rows: 0fr;
+                margin-bottom: 0;
+                opacity: 0;
+                transition:
+                    grid-template-rows $submenu-duration $submenu-ease,
+                    margin-bottom $submenu-duration $submenu-ease,
+                    opacity 0.4s $submenu-ease;
 
                 & > a {
                     display: flex;
                     align-items: center;
+                    min-height: 0;
+                    overflow: hidden;
                     padding: 8px;
                     color: $light-100;
                     background-color: $dark-80;
@@ -195,5 +230,244 @@ body:has(.wp-block-acf-hero) {
             @include body-medium;
             text-decoration: none;
         }
+    }
+}
+
+@media (max-width: $tablet) {
+    body:not(:has(.wp-block-acf-hero)) main {
+        padding-top: 92px;
+    }
+
+    #header {
+        padding-top: 16px;
+
+        .inside {
+            position: relative;
+            z-index: 2;
+            flex-wrap: nowrap;
+            gap: 12px;
+            width: min(100% - 32px, $container-width);
+            min-height: 60px;
+            padding: 12px;
+        }
+
+        .logo {
+            position: relative;
+            z-index: 2;
+            padding: 6px;
+        }
+
+        .logo-desktop {
+            display: block;
+            width: auto;
+            height: 24px;
+        }
+
+        .burger-menu-button {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            padding: 10px;
+            border: 0;
+            background: transparent;
+            color: $light-100;
+            cursor: pointer;
+
+            .close-menu {
+                display: none;
+            }
+
+            &.is-open {
+                .burger-menu-icon:not(.close-menu) {
+                    display: none;
+                }
+
+                .close-menu {
+                    display: block;
+                }
+            }
+        }
+
+        .main-nav {
+            display: none;
+        }
+    }
+
+    body.menu-open {
+        #header {
+            .main-nav {
+                position: fixed;
+                inset: 0;
+                z-index: 1;
+                display: block;
+                padding: 84px 16px 16px;
+                overflow-y: auto;
+                background: $dark-80;
+                backdrop-filter: blur(8px);
+            }
+
+            .inside {
+                background: none;
+            }
+
+            .menu-header {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 8px;
+            width: 100%;
+
+            > li {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                width: 100%;
+
+                &:not(.is-open) {
+                    gap: 0;
+                }
+
+                &::before {
+                    display: none;
+                }
+
+                > a {
+                    justify-content: flex-start;
+                    gap: 12px;
+                    width: 100%;
+                    padding: 24px;
+                    border: 0;
+                    background: transparent;
+                    color: $light-100;
+                    font-size: 16px;
+                    line-height: 1;
+                    white-space: nowrap;
+
+                    &:hover {
+                        background: transparent;
+                        color: $light-100;
+                    }
+                }
+
+                &.menu-item-has-children > a::after {
+                    display: inline-flex;
+                    transition: transform 0.2s ease;
+                }
+
+                &.is-open > a {
+                    background: $light-30;
+                }
+
+                &.is-open > a::after {
+                    transform: scaleY(-1);
+                }
+
+                &:hover > .sub-menu,
+                &.submenu-open > .sub-menu {
+                    opacity: 0;
+                    pointer-events: none;
+                    transform: none;
+                }
+
+                // Desktop hover would reveal every item. Keep them collapsed until the tap.
+                &:hover > .sub-menu > li,
+                &.submenu-open > .sub-menu > li {
+                    grid-template-rows: 0fr;
+                    margin-bottom: 0;
+                    opacity: 0;
+                    transition-delay: 0s;
+                }
+
+                &.is-open > .sub-menu {
+                    opacity: 1;
+                    pointer-events: auto;
+                    transform: none;
+                }
+
+                &.is-open > .sub-menu > li {
+                    @include submenu-item-revealed;
+                }
+
+                &.is-open > .sub-menu > li:last-child {
+                    margin-bottom: 0;
+                }
+
+                &.is-open {
+                    @include submenu-item-stagger;
+                }
+
+                &.highlight {
+                    margin-top: 16px;
+
+                    > a,
+                    > a:hover {
+                        background: $blue-600;
+                        color: $light-100;
+                    }
+                }
+            }
+
+            .sub-menu {
+                position: static;
+                top: auto;
+                left: auto;
+                display: block;
+                width: 100%;
+                margin: 0;
+                opacity: 1;
+                pointer-events: auto;
+                transform: none;
+                transition: none;
+
+                > li {
+                    margin-bottom: 0;
+
+                    > a {
+                        gap: 12px;
+                        padding: 4px;
+                        background: $light-4;
+                        color: $light-100;
+                        font-size: 14px;
+                        line-height: 16px;
+                        text-transform: uppercase;
+
+                        img {
+                            flex: 0 0 64px;
+                            width: 64px;
+                            height: 64px;
+                            margin: 0;
+                            object-fit: cover;
+                        }
+
+                        .menu-item-title {
+                            flex: 1 1 auto;
+                            min-width: 0;
+                            padding: 10px 0;
+                            white-space: normal;
+                        }
+
+                        i {
+                            flex: 0 0 16px;
+                            margin: 0 10px 0 0;
+                            font-size: 16px;
+                        }
+
+                        &:hover {
+                            background: $light-10;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #header .menu-header .sub-menu > li {
+        transition: none;
     }
 }
