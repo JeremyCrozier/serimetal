@@ -1,6 +1,7 @@
 @use "../config" as *;
 
 .block-section {
+
     .inside > h2.wp-block-heading {
 
         &:not(.has-text-align-left) {
@@ -17,14 +18,16 @@
             padding-left: 0;
             padding-right: 0;
             text-align: center;
-
-            &::before,
-            &::after {
-                content: "";
-                flex: 1 1 24px;
-                height: 1px;
-                background: $metal-300;
-                min-width: 24px;
+            
+            @media (min-width: $tablet) {    
+                &::before,
+                &::after {
+                    content: "";
+                    flex: 1 1 24px;
+                    height: 1px;
+                    background: $metal-300;
+                    min-width: 24px;
+                }
             }
         }
     }
@@ -33,7 +36,7 @@
         display: flex;
         flex-direction: column;
         padding: 48px 0;
-        width: min(100% - 48px, $container-width);
+        width: $container-width;
         margin-inline: auto;
 
         & > div, & > .wp-block-heading,  & > section, & > .wp-block-paragraph {

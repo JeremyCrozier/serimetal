@@ -9,7 +9,7 @@
         grid-template-columns: minmax(0, 773fr) minmax(0, 547fr);
         gap: 16px;
         align-items: stretch;
-        width: min(100% - 48px, $container-width);
+        width: $container-width;
         margin-inline: auto;
     }
 
@@ -79,6 +79,14 @@
     @media (max-width: $tablet) {
         .inside {
             grid-template-columns: minmax(0, 1fr);
+
+            .image {
+                order: 2;
+            }
+
+            .content {
+                order: 1;
+            }
         }
 
         .content,

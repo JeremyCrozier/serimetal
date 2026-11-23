@@ -37,4 +37,8 @@
             margin-top: auto;
         }
     }
+
+    @media (max-width: $mobile-large) {
+        padding: 24px;
+    }
 }

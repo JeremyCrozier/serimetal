@@ -32,7 +32,7 @@
 
 #recrutement-content {
     .inside {
-        width: min(100% - 48px, $container-width-small);
+        width: $container-width-small;
     }
 
     .form-panel {
@@ -45,6 +45,6 @@
 }
 
 .recrutement-gallery {
-    width: min(100% - 48px, $container-width);
+    width: $container-width;
     margin: 48px auto;
 }

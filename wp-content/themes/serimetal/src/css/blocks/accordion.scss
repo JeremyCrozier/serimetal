@@ -42,6 +42,10 @@
 .accordion-item {
     padding: 32px;
     background: $light-100;
+
+    @media (max-width: $mobile-large) {
+        padding: 24px;
+    }
 }
 
 .accordion-title {

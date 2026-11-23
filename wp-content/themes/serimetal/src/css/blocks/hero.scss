@@ -58,7 +58,7 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        width: min(100% - 168px, 1752px);
+        width: $wide-size;
         margin-inline: auto;
         padding: 48px 0;
     }
@@ -72,7 +72,7 @@
 
     @media (min-width: $desktop-small) {
         .heading-xlarge {
-            font-size: 96px;
+            font-size: 5vw;
         }
     }
 
@@ -112,7 +112,7 @@
         min-height: 100svh;
 
         .inside {
-            width: min(100% - 48px, 1752px);
+            width: $wide-size;
             padding: 32px 0;
         }
 

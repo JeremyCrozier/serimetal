@@ -11,9 +11,9 @@ $tablet: 992px;
 $mobile-large: 768px;
 $mobile: 480px;
 
-$container-width: 1336px;
-$container-width-small: 824px;
-$wide-size: 1920px;
+$container-width: min(100% - 32px, 1336px);
+$container-width-small: min(100% - 32px, 824px);
+$wide-size: min(100% - 32px, 1752px);
 
 /* COLORS */
 /* Primitive colors — Figma node 253:5177 */
@@ -253,6 +253,10 @@ $font-body: 'IBM Plex', 'Inter', sans-serif;
     transition: $transition;
 
     @include button-size($size, $icon-only);
+
+    @media (max-width: $mobile-large) {
+        width: 100%;
+    }
 }
 
 @mixin button-filled($color: 'primary', $size: 'lg', $icon-only: false) {

@@ -13,7 +13,7 @@
         align-items: flex-start;
         justify-content: space-between;
         gap: 48px;
-        width: min(100% - 48px, $container-width);
+        width: $container-width;
         margin-inline: auto;
     }
 
@@ -73,7 +73,7 @@
 }
 
 .footer-tagline {
-    width: min(100% - 168px, 1752px);
+    width: $wide-size;
     margin: 0 auto;
     font-family: $font-heading;
     font-weight: 600;
@@ -107,7 +107,7 @@
     }
 
     .footer-tagline {
-        width: min(100% - 48px, 1752px);
+        width: $wide-size;
         font-size: clamp(28px, 8vw, 48px);
         line-height: 1;
         white-space: normal;

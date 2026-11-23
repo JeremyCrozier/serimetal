@@ -7,7 +7,7 @@ $submenu-count: 12;
 
 @mixin submenu-item-revealed {
     grid-template-rows: 1fr;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     opacity: 1;
 }
 
@@ -33,7 +33,7 @@ body:not(:has(.wp-block-acf-hero)) {
 
 #breadcrumbs {
     padding: 12px 0;
-    width: min(100% - 48px, $container-width);
+    width: $container-width;
     margin-inline: auto;
     color: $metal-300;
 
@@ -69,13 +69,17 @@ body:not(:has(.wp-block-acf-hero)) {
         align-items: center;
         gap: 48px;
         padding: 12px;
-        width: min(100% - 48px, $container-width);
+        width: $wide-size;
         margin-inline: auto;
         background-color: $dark-80;
     }
 
     .burger-menu-button, .logo-mobile {
         display: none;
+    }
+
+    .logo {
+        padding: 6px 12px;
     }
 
     .logo-desktop {
@@ -148,7 +152,7 @@ body:not(:has(.wp-block-acf-hero)) {
             &.submenu-open > .sub-menu {
                 opacity: 1;
                 pointer-events: auto;
-                transform: translateY(20px);
+                transform: translateY(16px);
                 transition: opacity 0.08s linear;
             }
 

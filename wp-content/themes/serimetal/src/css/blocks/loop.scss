@@ -158,6 +158,7 @@
         transition: opacity 0.35s ease;
         pointer-events: none;
         color: $light-100;
+        width: auto;
     }
 
     .pole-card__content {
@@ -231,7 +232,7 @@
         align-items: flex-start;
         justify-content: space-between;
         gap: 24px;
-        margin-bottom: 24px;
+        margin-bottom: 30px;
     }
 
     .realisation-filters__tabs {
@@ -240,7 +241,6 @@
         flex-wrap: wrap;
         align-items: flex-start;
         gap: 8px;
-        padding-bottom: 12px;
     }
 
     .realisation-filters__indicator {
@@ -329,6 +329,10 @@
         justify-content: space-between;
         align-items: flex-start;
         gap: 24px;
+
+        .btn-ghost-secondary {
+            width: auto;
+        }
     }
 
     .realisation-card__intro {
@@ -450,7 +454,7 @@
             width: 100%;
             flex-direction: column;
             align-items: stretch;
-            gap: 16px;
+            gap: 24px;
         }
 
         .swiper-slide .realisation-card__link {
