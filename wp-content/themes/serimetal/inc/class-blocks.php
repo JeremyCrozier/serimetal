@@ -73,6 +73,7 @@ class SM_Blocks {
         register_block_type(__DIR__ . '/../blocks/image-texte');
         register_block_type(__DIR__ . '/../blocks/timeline');
         register_block_type(__DIR__ . '/../blocks/image-texte-col');
+        register_block_type(__DIR__ . '/../blocks/team');
     }
 
     /**
@@ -109,7 +110,7 @@ class SM_Blocks {
     public function allowed_block_types($allowed_blocks, $editor_context) {
 
         return array(
-            'wpforms/form-selector',
+            //'wpforms/form-selector',
             'acf/icon',
             'acf/button',
             'acf/section',
@@ -129,6 +130,7 @@ class SM_Blocks {
             'acf/image-texte',
             'acf/image-texte-col',
             'acf/timeline',
+            'acf/team',
             // 'core/legacy-widget',
             // 'core/widget-group',
             // 'core/archives',

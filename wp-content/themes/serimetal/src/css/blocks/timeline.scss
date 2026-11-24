@@ -35,7 +35,6 @@ $timeline-gutter: 16px;
 }
 
 .timeline-viewport {
-    overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-padding-inline: var(--timeline-pad);
     scrollbar-width: none;
@@ -153,7 +152,7 @@ $timeline-gutter: 16px;
 }
 
 .block-timeline.is-pinned .timeline-viewport {
-    overflow: hidden;
+    //overflow: hidden;
     scroll-snap-type: none;
 }
 

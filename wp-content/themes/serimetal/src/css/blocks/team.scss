@@ -1,0 +1,142 @@
+@use "../config" as *;
+
+.block-team {
+    container-type: inline-size;
+}
+
+.team-main {
+    display: flex;
+    align-items: stretch;
+    gap: 128px;
+}
+
+.team-intro {
+    display: flex;
+    flex: 435 1 0;
+    flex-direction: column;
+    gap: 48px;
+    min-width: 0;
+}
+
+.team-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.team-heading.title-divider::before {
+    left: calc((100cqi - 100vw) / 2);
+    right: auto;
+    width: max(0px, calc((100vw - 100cqi) / 2 - 48px));
+}
+
+.team-text > :last-child {
+    margin-bottom: 0;
+}
+
+.team-content {
+    display: flex;
+    flex: 773 1 0;
+    flex-direction: column;
+    gap: 48px;
+    min-width: 0;
+}
+
+.team-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 435fr) minmax(0, 322fr);
+    align-items: stretch;
+    gap: 16px;
+}
+
+.team-card {
+    min-width: 0;
+    padding: 32px;
+    background: $light-100;
+
+    ul {
+        margin: 0;
+    }
+
+    li {
+        margin-bottom: 12px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.team-media {
+    position: relative;
+    overflow: hidden;
+
+    img {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.team-intro__media {
+    flex: 1 1 auto;
+    min-height: 280px;
+}
+
+.team-panel__media {
+    min-width: 0;
+    min-height: 336px;
+}
+
+.team-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 48px;
+}
+
+.team-main:not(:has(.team-content)) .team-intro,
+.team-main:not(:has(.team-intro)) .team-content {
+    flex: 1 1 auto;
+}
+
+@media (max-width: $tablet) {
+    .team-main {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .team-intro,
+    .team-content,
+    .team-main:not(:has(.team-content)) .team-intro,
+    .team-main:not(:has(.team-intro)) .team-content {
+        flex: none;
+        width: 100%;
+    }
+
+    .team-heading.title-divider::before {
+        display: none;
+    }
+
+    .team-panel {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .team-card,
+    .team-panel__media {
+        width: 100%;
+    }
+
+    .team-intro__media,
+    .team-panel__media {
+        min-height: 0;
+        aspect-ratio: 16 / 10;
+    }
+
+    .team-footer {
+        gap: 32px;
+    }
+}
