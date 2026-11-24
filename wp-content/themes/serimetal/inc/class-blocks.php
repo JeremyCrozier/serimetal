@@ -72,6 +72,7 @@ class SM_Blocks {
         register_block_type(__DIR__ . '/../blocks/savoir-faire');
         register_block_type(__DIR__ . '/../blocks/image-texte');
         register_block_type(__DIR__ . '/../blocks/timeline');
+        register_block_type(__DIR__ . '/../blocks/image-texte-col');
     }
 
     /**
@@ -126,6 +127,7 @@ class SM_Blocks {
             'acf/loop',
             'acf/savoir-faire',
             'acf/image-texte',
+            'acf/image-texte-col',
             'acf/timeline',
             // 'core/legacy-widget',
             // 'core/widget-group',

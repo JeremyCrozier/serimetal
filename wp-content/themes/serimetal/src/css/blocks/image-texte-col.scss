@@ -1,0 +1,70 @@
+@use "../config" as *;
+
+.image-texte-col__grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 48px;
+}
+
+.image-texte-col__col.col-1,
+.image-texte-col__col.col-2 {
+    flex-grow: 1;
+    flex-shrink: 1;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.image-texte-col__col.col-1 {
+    flex-basis: 660px;
+}
+
+.image-texte-col__col.col-2 {
+    flex-basis: 547px;
+
+    @media (max-width: $tablet) {
+        flex-direction: column-reverse;
+    }
+}
+
+.image-texte-col__col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 0;
+}
+
+.image-texte-col__text > :last-child {
+    margin-bottom: 0;
+}
+
+.image-texte-col__media {
+    position: relative;
+    height: 364px;
+    overflow: hidden;
+
+    img {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: $tablet) {
+
+    .image-texte-col__grid {
+        flex-direction: column;
+    }
+
+    .image-texte-col__col.col-1,
+    .image-texte-col__col.col-2 {
+        flex-basis: 100%;
+    }
+
+    .image-texte-col__media {
+        height: auto;
+        aspect-ratio: 660 / 364;
+    }
+}

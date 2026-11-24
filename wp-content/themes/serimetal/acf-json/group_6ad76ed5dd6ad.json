@@ -128,7 +128,7 @@
                     "label": "Réponse",
                     "name": "answer",
                     "aria-label": "",
-                    "type": "textarea",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -137,12 +137,12 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "Texte de la réponse",
-                    "maxlength": "",
+                    "default_value": "",
                     "allow_in_bindings": 0,
-                    "rows": 4,
-                    "placeholder": "",
-                    "new_lines": "",
+                    "tabs": "all",
+                    "toolbar": "basic",
+                    "media_upload": 0,
+                    "delay": 0,
                     "parent_repeater": "field_6ad76ed5ddf53"
                 }
             ]
@@ -171,7 +171,7 @@
             "max_size": "",
             "mime_types": "",
             "allow_in_bindings": 0,
-            "preview_size": "thumbnail"
+            "preview_size": "medium"
         }
     ],
     "location": [
@@ -195,5 +195,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1792508170
+    "modified": 1795529274
 }

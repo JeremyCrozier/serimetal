@@ -4,20 +4,11 @@ $timeline-max: 1336px;
 $timeline-gutter: 16px;
 
 .block-timeline {
-    container-type: inline-size;
     --timeline-pad: max(#{$timeline-gutter}, calc((100cqi - #{$timeline-max}) / 2));
     display: flex;
     flex-direction: column;
     gap: 48px;
-    padding: 84px 0;
-    background: $metal-100;
     box-sizing: border-box;
-
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-    }
 }
 
 .timeline-intro {
@@ -185,7 +176,6 @@ $timeline-gutter: 16px;
 @media (max-width: $tablet) {
     .block-timeline {
         gap: 32px;
-        padding: 48px 0;
     }
 
     .timeline-intro,
