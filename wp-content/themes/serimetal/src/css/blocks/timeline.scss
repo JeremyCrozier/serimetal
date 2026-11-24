@@ -1,0 +1,227 @@
+@use "../config" as *;
+
+$timeline-max: 1336px;
+$timeline-gutter: 16px;
+
+.block-timeline {
+    container-type: inline-size;
+    --timeline-pad: max(#{$timeline-gutter}, calc((100cqi - #{$timeline-max}) / 2));
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding: 84px 0;
+    background: $metal-100;
+    box-sizing: border-box;
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+}
+
+.timeline-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 435fr) minmax(0, 773fr);
+    gap: 128px;
+    align-items: start;
+    width: 100%;
+    margin-inline: auto;
+
+    &:not(:has(.timeline-copy)),
+    &:not(:has(.timeline-heading)) {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.timeline-runway {
+    position: relative;
+}
+
+.timeline-sticky {
+    position: sticky;
+    top: var(--timeline-top, 112px);
+}
+
+.timeline-viewport {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--timeline-pad);
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.timeline-track {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.timeline-slide {
+    display: flex;
+    flex: 0 0 435px;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 435px;
+    height: 566px;
+    padding: 8px;
+    scroll-snap-align: start;
+    background: $light-100;
+    border-bottom: 4px solid $blue-700;
+
+    .timeline-caption {
+        padding: 16px;
+    }
+}
+
+.timeline-slide--alt {
+    padding: 0;
+    background: transparent;
+    border-bottom: 0;
+
+    .timeline-caption {
+        padding: 0;
+    }
+
+    .timeline-media {
+        flex: 0 0 auto;
+        height: 324px;
+    }
+}
+
+.timeline-media {
+    display: flex;
+    flex: 1 1 auto;
+    gap: 16px;
+    align-items: stretch;
+    width: 100%;
+    min-height: 0;
+}
+
+.timeline-photo {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+
+    img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.timeline-photo--full,
+.timeline-photo--tall {
+    flex: 1 1 0;
+    align-self: stretch;
+    width: auto;
+    min-width: 0;
+    min-height: 0;
+}
+
+.timeline-photo--full {
+    width: 100%;
+}
+
+.timeline-photo--short {
+    flex: 1 1 0;
+    align-self: flex-start;
+    height: 128px;
+    min-width: 0;
+}
+
+.timeline-caption {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.timeline-caption__head {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.timeline-label {
+    font-weight: 500;
+}
+
+.timeline-year {
+    margin: 0;
+    font-family: $font-heading;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 36px;
+    color: $blue-700;
+}
+
+.block-timeline.is-pinned .timeline-viewport {
+    overflow: hidden;
+    scroll-snap-type: none;
+}
+
+.block-timeline.is-preview {
+    .timeline-sticky {
+        position: static;
+    }
+
+    .timeline-track {
+        transform: none !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .timeline-track {
+        transition: none;
+    }
+}
+
+@media (max-width: $tablet) {
+    .block-timeline {
+        gap: 32px;
+        padding: 48px 0;
+    }
+
+    .timeline-intro,
+    .timeline-intro:not(:has(.timeline-copy)),
+    .timeline-intro:not(:has(.timeline-heading)) {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .timeline-heading.title-divider::before {
+        display: none;
+    }
+
+    .timeline-runway {
+        height: auto !important;
+    }
+
+    .timeline-sticky {
+        position: static;
+    }
+
+    .timeline-track {
+        transform: none !important;
+    }
+
+    .timeline-slide {
+        flex-basis: min(420px, 78vw);
+        width: min(420px, 78vw);
+        height: 520px;
+    }
+
+    .timeline-slide--alt .timeline-media {
+        height: 240px;
+    }
+
+    .timeline-photo--short {
+        height: 96px;
+    }
+}

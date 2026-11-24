@@ -4,7 +4,9 @@
     position: relative;
     display: flex;
     align-items: flex-end;
-    min-height: 717px;
+    height: 70vh;
+    min-height: 400px;
+    max-height: 750px;
     overflow: hidden;
 
     .hero-media {

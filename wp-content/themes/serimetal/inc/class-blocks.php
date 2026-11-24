@@ -71,6 +71,7 @@ class SM_Blocks {
         register_block_type(__DIR__ . '/../blocks/loop');
         register_block_type(__DIR__ . '/../blocks/savoir-faire');
         register_block_type(__DIR__ . '/../blocks/image-texte');
+        register_block_type(__DIR__ . '/../blocks/timeline');
     }
 
     /**
@@ -125,6 +126,7 @@ class SM_Blocks {
             'acf/loop',
             'acf/savoir-faire',
             'acf/image-texte',
+            'acf/timeline',
             // 'core/legacy-widget',
             // 'core/widget-group',
             // 'core/archives',
@@ -201,7 +203,7 @@ class SM_Blocks {
             //'core/embed',
             // 'core/freeform',
             //'core/group',
-            // 'core/html',
+             'core/html',
             //'core/list-item',
             // 'core/missing',
             // 'core/more',
