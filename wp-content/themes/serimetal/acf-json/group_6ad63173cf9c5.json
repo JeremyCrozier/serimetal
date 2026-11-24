@@ -1,6 +1,6 @@
 {
     "key": "group_6ad63173cf9c5",
-    "title": "Block: Hero",
+    "title": "Block: Hero Home",
     "fields": [
         {
             "key": "field_6aec91444f432",
@@ -68,7 +68,7 @@
             "max_size": "",
             "mime_types": "",
             "allow_in_bindings": 0,
-            "preview_size": "medium"
+            "preview_size": "thumbnail"
         },
         {
             "key": "field_6af72a5c14a81",
@@ -172,5 +172,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1794583243
+    "modified": 1795511774
 }

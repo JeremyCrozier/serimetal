@@ -7,7 +7,6 @@
     min-height: 100vh;
     margin-bottom: 48px;
     overflow: hidden;
-    background-color: $metal-950;
 
     .hero-media {
         position: absolute;
@@ -63,13 +62,6 @@
         padding: 48px 0;
     }
 
-    .heading-xlarge,
-    .heading-small,
-    p,
-    .scroll-down {
-        color: $light-100;
-    }
-
     @media (min-width: $desktop-small) {
         .heading-xlarge {
             font-size: 5vw;
@@ -105,11 +97,12 @@
             justify-content: space-between;
             gap: 8px;
             text-transform: uppercase;
+            color: $light-100;
         }
     }
 
     @media (max-width: $tablet) {
-        min-height: 100svh;
+        min-height: 100vh;
 
         .inside {
             width: $wide-size;

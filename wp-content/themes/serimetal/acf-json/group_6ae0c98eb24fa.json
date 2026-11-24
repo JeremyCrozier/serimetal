@@ -1,6 +1,6 @@
 {
     "key": "group_6ae0c98eb24fa",
-    "title": "Block: Page Hero",
+    "title": "Block: Hero Pôle",
     "fields": [
         {
             "key": "field_6afc7fab3f0ff",
@@ -106,7 +106,7 @@
             "max_size": "",
             "mime_types": "",
             "allow_in_bindings": 0,
-            "preview_size": "medium"
+            "preview_size": "thumbnail"
         }
     ],
     "location": [
@@ -130,5 +130,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1795075924
+    "modified": 1795512585
 }

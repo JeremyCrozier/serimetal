@@ -220,6 +220,12 @@ h4.wp-block-heading, .wp-block-heading.is-style-h4, .heading-small {
     }
 }
 
+main:has(.wp-block-acf-hero, .wp-block-acf-hero-bis) {
+    #breadcrumbs {
+        @include screen-reader-text;
+    }
+}
+
 .simpleParallax {
     width: 100%;
     height: 100%;

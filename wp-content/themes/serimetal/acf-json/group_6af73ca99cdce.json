@@ -85,7 +85,7 @@
             "max_size": "",
             "mime_types": "",
             "allow_in_bindings": 0,
-            "preview_size": "medium"
+            "preview_size": "thumbnail"
         },
         {
             "key": "field_6af73cf4bcd43",

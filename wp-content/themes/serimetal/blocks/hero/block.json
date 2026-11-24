@@ -1,7 +1,7 @@
 {
     "name": "acf/hero",
-    "title": "Hero",
-    "description": "Bloc Hero principal",
+    "title": "Hero Home",
+    "description": "Bloc Hero pour la page d'accueil",
     "style": [],
     "category": "design",
     "icon": "cover-image",

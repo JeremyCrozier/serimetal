@@ -139,7 +139,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/about"
+                "value": "acf\/about-bis"
             }
         ]
     ],
@@ -155,5 +155,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1795075344
+    "modified": 1795518196
 }

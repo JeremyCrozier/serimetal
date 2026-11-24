@@ -137,7 +137,7 @@
                     "max_size": "",
                     "mime_types": "",
                     "allow_in_bindings": 0,
-                    "preview_size": "medium"
+                    "preview_size": "thumbnail"
                 }
             ]
         }

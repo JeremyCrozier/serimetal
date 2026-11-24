@@ -14,6 +14,12 @@
     width: 1px;
 }
 
+#nav-menu-footer {
+    .delete-action {
+        display: none;
+    }
+}
+
 .editor-styles-wrapper {
     @include body-medium;
     background-color: $metal-100;

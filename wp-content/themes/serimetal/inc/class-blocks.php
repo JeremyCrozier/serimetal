@@ -61,6 +61,7 @@ class SM_Blocks {
         register_block_type(__DIR__ . '/../blocks/tabs');
         register_block_type(__DIR__ . '/../blocks/tab');
         register_block_type(__DIR__ . '/../blocks/hero');
+        register_block_type(__DIR__ . '/../blocks/hero-bis');
         register_block_type(__DIR__ . '/../blocks/small-hero');
         register_block_type(__DIR__ . '/../blocks/accordion');
         register_block_type(__DIR__ . '/../blocks/about');
@@ -114,6 +115,7 @@ class SM_Blocks {
             'acf/tabs',
             'acf/tab',
             'acf/hero',
+            'acf/hero-bis',
             'acf/small-hero',
             'acf/accordion',
             'acf/about',

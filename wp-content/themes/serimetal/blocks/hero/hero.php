@@ -21,7 +21,7 @@ $link          = is_array( $link ) ? $link : array();
 
 $video_desktop = is_string( $video_desktop ) ? $video_desktop : '';
 $video_mobile  = is_string( $video_mobile ) ? $video_mobile : '';
-$classes       = array( 'block-hero' );
+$classes       = array( 'block-hero', 'bg--dark' );
 
 if ( $video_mobile ) {
 	$classes[] = 'has-mobile-video';

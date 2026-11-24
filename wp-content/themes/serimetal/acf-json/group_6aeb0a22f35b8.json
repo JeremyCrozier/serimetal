@@ -91,7 +91,7 @@
             "max_size": "",
             "mime_types": "",
             "insert": "append",
-            "preview_size": "medium"
+            "preview_size": "thumbnail"
         }
     ],
     "location": [

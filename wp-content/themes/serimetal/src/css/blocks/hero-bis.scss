@@ -1,0 +1,64 @@
+@use "../config" as *;
+
+.block-hero-bis {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 717px;
+    overflow: hidden;
+
+    .hero-media {
+        position: absolute;
+        inset: 0;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, $dark-30 0%, $dark-80 100%);
+    }
+
+    .inside {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 48px;
+        width: $wide-size;
+        margin-inline: auto;
+        padding: 48px 0;
+    }
+
+    .heading-xlarge,
+    .hero-bis__copy {
+        flex: 1 1 0;
+        width: 100%;
+        max-width: 643px;
+        min-width: 0;
+    }
+
+    .btn-filled-secondary {
+        margin-top: 24px;
+    }
+
+    @media (max-width: $tablet) {
+        min-height: 560px;
+
+        .inside {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+            padding: 32px 0;
+        }
+
+        .heading-xlarge,
+        .hero-bis__copy {
+            flex: none;
+            max-width: none;
+        }
+    }
+}
