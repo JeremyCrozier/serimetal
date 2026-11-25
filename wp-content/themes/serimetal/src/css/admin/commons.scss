@@ -1,17 +1,7 @@
 @use "../config" as *;
 
 .screen-reader-text {
-    clip: rect(1px, 1px, 1px, 1px);
-    word-wrap: normal !important;
-    border: 0;
-    clip-path: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    overflow-wrap: normal !important;
-    padding: 0;
-    position: absolute !important;
-    width: 1px;
+    @include screen-reader-text;
 }
 
 #nav-menu-footer {
@@ -66,6 +56,10 @@
         @media (max-width: $mobile-large) {
             grid-template-columns: 1fr;
         }
+
+        @media (max-width: $mobile-large) {
+            gap: 8px;
+        }
     }
 
     .columns-3 {
@@ -79,6 +73,10 @@
 
         @media (max-width: $desktop-small) {
             grid-template-columns: 1fr;
+        }
+
+        @media (max-width: $mobile-large) {
+            gap: 8px;
         }
     }
 
@@ -151,6 +149,12 @@
             &.block-item {
                 @include on-dark-foreground(false);
             }
+
+            .wp-block-heading, .title-divider {
+                &:before, &:after {
+                    background: $metal-600;
+                }
+            }
         }
 
         &--top-gradient {
@@ -218,6 +222,12 @@
                 background: $metal-300;
                 pointer-events: none;
             }
+        }
+    }
+
+    main:has(.wp-block-acf-hero, .wp-block-acf-hero-bis) {
+        #breadcrumbs {
+            @include screen-reader-text;
         }
     }
 
