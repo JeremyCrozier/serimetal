@@ -71,7 +71,10 @@ body:not(:has(.wp-block-acf-hero, .wp-block-acf-hero-bis)) {
         width: $wide-size;
         margin-inline: auto;
         background-color: $dark-80;
-        backdrop-filter: blur(8px);
+
+        @media (min-width: $tablet) {
+            backdrop-filter: blur(8px);
+        }
     }
 
     .burger-menu-button, .logo-mobile {
