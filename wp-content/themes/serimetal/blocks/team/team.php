@@ -85,7 +85,7 @@ $wrapper_attributes = ! empty( $is_preview )
 						<?php endif; ?>
 
 						<?php if ( ! empty( $cta['url'] ) ) : ?>
-							<a class="btn-filled-primary" href="<?php echo esc_url( $cta['url'] ); ?>" target="<?php echo esc_attr( ! empty( $cta['target'] ) ? $cta['target'] : '_self' ); ?>"<?php echo ! empty( $is_preview ) ? ' style="pointer-events: none"' : ''; ?>>
+							<a class="btn-filled-primary" href="<?php echo esc_url( $cta['url'] ); ?>" target="<?php echo esc_attr( ! empty( $cta['target'] ) ? $cta['target'] : '_self' ); ?>">
 								<?php echo esc_html( ! empty( $cta['title'] ) ? $cta['title'] : 'En savoir plus' ); ?>
 							</a>
 						<?php endif; ?>

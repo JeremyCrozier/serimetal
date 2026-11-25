@@ -19,6 +19,8 @@ $text    = isset( $column_1['text'] ) ? $column_1['text'] : '';
 $image   = ! empty( $column_1['image'] ) ? (int) $column_1['image'] : 0;
 $text_2  = isset( $column_2['text'] ) ? $column_2['text'] : '';
 $image_2 = ! empty( $column_2['image'] ) ? (int) $column_2['image'] : 0;
+$cta     = isset( $column_1['cta'] ) ? $column_1['cta'] : '';
+$cta_2   = isset( $column_2['cta'] ) ? $column_2['cta'] : '';
 
 $classes = array( 'image-texte-col-block' );
 
@@ -43,11 +45,18 @@ $wrapper_attributes = ! empty( $is_preview )
 					<div class="image-texte-col__text wysiwyg"><?php echo wp_kses_post( $text ); ?></div>
 				<?php endif; ?>
 
+				<?php if ( $cta ) : ?>
+					<a class="btn-filled-primary" href="<?php echo esc_url( $cta['url'] ); ?>" target="<?php echo esc_attr( $cta['target'] ); ?>">
+						<?php echo esc_html( $cta['title'] ); ?>
+					</a>
+				<?php endif; ?>
+
 				<?php if ( $image ) : ?>
 					<div class="image-texte-col__media">
 						<?php echo wp_get_attachment_image( $image, 'medium' ); ?>
 					</div>
 				<?php endif; ?>
+
 			</div>
 		<?php endif; ?>
 
@@ -61,6 +70,12 @@ $wrapper_attributes = ! empty( $is_preview )
 
 				<?php if ( $text_2 ) : ?>
 					<div class="image-texte-col__text wysiwyg"><?php echo wp_kses_post( $text_2 ); ?></div>
+				<?php endif; ?>
+
+				<?php if ( $cta_2 ) : ?>
+					<a class="btn-filled-primary" href="<?php echo esc_url( $cta_2['url'] ); ?>" target="<?php echo esc_attr( $cta_2['target'] ); ?>">
+						<?php echo esc_html( $cta_2['title'] ); ?>
+					</a>
 				<?php endif; ?>
 			</div>
 		<?php endif; ?>

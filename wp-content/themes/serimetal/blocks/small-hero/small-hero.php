@@ -28,7 +28,6 @@ $cta         = is_array( $cta ) ? $cta : array();
 $cta_url     = ! empty( $cta['url'] ) ? $cta['url'] : '';
 $cta_title   = ! empty( $cta['title'] ) ? $cta['title'] : '';
 $target      = ! empty( $cta['target'] ) ? $cta['target'] : '_self';
-$disabled    = $is_preview ? 'style="pointer-events: none"' : '';
 
 $wrapper_attributes = ! empty( $is_preview )
 	? 'class="block-small-hero"'
@@ -62,7 +61,7 @@ $wrapper_attributes = ! empty( $is_preview )
 			</div>
 
 			<?php if ( $cta_url ) : ?>
-				<a href="<?php echo esc_url( $cta_url ); ?>" class="btn-filled-primary" target="<?php echo esc_attr( $target ); ?>" <?php echo $disabled; ?>>
+				<a href="<?php echo esc_url( $cta_url ); ?>" class="btn-filled-primary" target="<?php echo esc_attr( $target ); ?>">
 					<?php echo esc_html( $cta_title ? $cta_title : 'Texte du bouton' ); ?>
 				</a>
 			<?php endif; ?>

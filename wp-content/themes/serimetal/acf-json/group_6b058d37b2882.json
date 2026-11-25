@@ -85,6 +85,23 @@
                     "mime_types": "",
                     "allow_in_bindings": 0,
                     "preview_size": "thumbnail"
+                },
+                {
+                    "key": "field_6b06a85ba59f6",
+                    "label": "CTA",
+                    "name": "cta",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 0
                 }
             ]
         },
@@ -150,6 +167,23 @@
                     "mime_types": "",
                     "allow_in_bindings": 0,
                     "preview_size": "thumbnail"
+                },
+                {
+                    "key": "field_6b06a87ca59f7",
+                    "label": "CTA",
+                    "name": "cta",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 0
                 }
             ]
         }
@@ -175,5 +209,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1795530180
+    "modified": 1795598537
 }

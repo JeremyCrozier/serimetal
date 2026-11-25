@@ -176,7 +176,7 @@ class SM_Setup {
             return $links;
         }
 
-        $page = get_page_by_path('recrutement');
+        $page = get_page_by_path('nous-rejoindre');
 
         if (!$page) {
             return $links;

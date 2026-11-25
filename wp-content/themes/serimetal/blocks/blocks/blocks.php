@@ -53,8 +53,7 @@ $wrapper_attributes = ! empty( $is_preview )
 			<?php endif; ?>
 			<?php if ( $highlighting['cta'] ) : ?>
 				<?php $target = !empty($highlighting['cta']['target']) ? $highlighting['cta']['target'] : '_self'; ?>
-				<?php $disabled = $is_preview ? 'style="pointer-events: none"' : ''; ?>
-				<a href="<?php echo esc_url( $highlighting['cta']['url'] ); ?>" class="btn-filled-secondary" target="<?php echo esc_attr( $target ); ?>" <?php echo $disabled ?>>
+				<a href="<?php echo esc_url( $highlighting['cta']['url'] ); ?>" class="btn-filled-secondary" target="<?php echo esc_attr( $target ); ?>">
 					<?php echo esc_html( $highlighting['cta']['title'] ); ?>
 				</a>
 			<?php endif; ?>

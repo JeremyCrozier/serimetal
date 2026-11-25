@@ -72,7 +72,6 @@ if ( 'poles' === $type ) {
 	$query_args['order']     = 'DESC';
 }
 
-$disabled  = ! empty( $is_preview ) ? ' style="pointer-events: none"' : '';
 $is_slider = ( 'realisation' === $type && ! empty( $taxo ) );
 $classes   = array( 'block-loop', 'block-loop--' . $type );
 
@@ -95,7 +94,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 <div <?php echo $wrapper_attributes; ?>>
 	<?php if ( 'realisation' === $type ) : ?>
 		<?php if ( $pole_terms ) : ?>
-			<div class="realisation-filters"<?php echo $disabled; ?>>
+			<div class="realisation-filters">
 				<div class="realisation-filters__tabs" role="tablist">
 					<?php foreach ( $pole_terms as $term ) : ?>
 						<?php
@@ -121,7 +120,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 			</div>
 		<?php endif; ?>
 
-		<ul class="loop" <?php echo $disabled; ?>>
+		<ul class="loop">
 			<?php echo SM_Ajax::realisation_cards_html( $active_term ? $active_term->term_id : 0 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</ul>
 	<?php else : ?>
@@ -129,7 +128,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		$query = new WP_Query( $query_args );
 		?>
 		<?php if ( $query->have_posts() ) : ?>
-			<ul class="loop<?php echo $is_slider ? ' swiper-wrapper' : ''; ?>" <?php echo $disabled; ?>>
+			<ul class="loop<?php echo $is_slider ? ' swiper-wrapper' : ''; ?>">
 				<?php
 				while ( $query->have_posts() ) :
 					$query->the_post();
@@ -142,6 +141,18 @@ $wrapper_attributes = get_block_wrapper_attributes(
 					);
 				endwhile;
 				?>
+				<?php if ( 'recrutement' === $type ) : ?>
+					<li class="job-card bg--dark block-highlight">
+						<div class="job-card__content">
+							<p class="job-card__category">Autres</p>
+							<h3 class="heading-small">Candidature spontanée</h3>
+						</div>
+
+						<a class="btn-filled-secondary" href="/#contact">
+							Envoyer une demande
+						</a>
+					</li>
+				<?php endif; ?>
 			</ul>
 			<?php if ( $is_slider ) : ?>
 				<div class="swiper-nav">

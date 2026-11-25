@@ -46,4 +46,8 @@
             pointer-events: none;
         }
     }
+
+    a, button {
+        pointer-events: none !important;
+    }
 }

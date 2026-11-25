@@ -98,24 +98,39 @@ class SM_Menu {
             return $title;
         }
 
-        if (in_array('menu-item-type-post_type', $item->classes)) {
-            $post_id = $item->object_id;
+        $image_id = get_field('image', $item->ID);
+        $is_post_type = in_array('menu-item-type-post_type', $item->classes, true);
 
-            $thumbnail = get_the_post_thumbnail($post_id, array('128', '84'), array('class' => 'menu-item-thumb'));
-            $post_title = get_the_title($post_id);
-
-            $output  = '';
-            if ($thumbnail) {
-                $output .= $thumbnail;
-            }
-            $output .= '<span class="menu-item-title">' . esc_html($post_title) . '</span>';
-            $output .= '<i class="ph ph-caret-right"></i>';
-
-            return $output;
-
+        if (!$is_post_type && !$image_id) {
+            return $title;
         }
 
-        return $title;
+        $post_id = (int) $item->object_id;
+        $thumbnail = '';
+
+        if ($image_id) {
+            $thumbnail = wp_get_attachment_image(
+                (int) $image_id,
+                array(128, 84),
+                false,
+                array('class' => 'menu-item-thumb')
+            );
+        }
+
+        if (!$thumbnail && $is_post_type) {
+            $thumbnail = get_the_post_thumbnail($post_id, array(128, 84), array('class' => 'menu-item-thumb'));
+        }
+
+        $post_title = $is_post_type ? get_the_title($post_id) : $item->title;
+
+        $output = '';
+        if ($thumbnail) {
+            $output .= $thumbnail;
+        }
+        $output .= '<span class="menu-item-title">' . esc_html($post_title) . '</span>';
+        $output .= '<i class="ph ph-caret-right"></i>';
+
+        return $output;
     }
 }
 

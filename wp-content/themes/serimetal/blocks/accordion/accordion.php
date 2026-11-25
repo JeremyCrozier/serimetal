@@ -62,17 +62,18 @@ $wrapper_attributes = ! empty( $is_preview )
 					<?php if ( $title ) : ?>
 						<h2 class="heading-large title-divider"><?php echo esc_html( $title ); ?></h2>
 					<?php endif; ?>
+					<div class="wysiwyg">
 					<?php if ( $text ) : ?>
-						<p><?php echo esc_html( $text ); ?></p>
-					<?php endif; ?>
+							<?php echo wp_kses_post( $text ); ?>
+						<?php endif; ?>
+					</div>
 			<?php endif; ?>
 
 			<?php if ( ! empty( $cta['url'] ) ) : ?>
 				<?php
 				$target   = ! empty( $cta['target'] ) ? $cta['target'] : '_self';
-				$disabled = $is_preview ? 'style="pointer-events: none"' : '';
 				?>
-				<a class="btn-filled-primary" href="<?php echo esc_url( $cta['url'] ); ?>" target="<?php echo esc_attr( $target ); ?>" <?php echo $disabled; ?>>
+				<a class="btn-filled-primary" href="<?php echo esc_url( $cta['url'] ); ?>" target="<?php echo esc_attr( $target ); ?>">
 					<?php echo esc_html( $cta['title'] ? $cta['title'] : 'En savoir plus' ); ?>
 				</a>
 			<?php endif; ?>
@@ -92,9 +93,9 @@ $wrapper_attributes = ! empty( $is_preview )
 						<span class="heading-small"><?php echo esc_html( $question ); ?></span>
 						<span class="btn-outline btn-icon btn-sm ph<?php echo $is_open ? ' ph-minus' : ' ph-plus'; ?>" aria-hidden="true"></span>
 					</button>
-					<div class="accordion-content">
+					<div class="accordion-content wysiwyg">
 						<?php if ( $answer ) : ?>
-							<p><?php echo nl2br( esc_html( $answer ) ); ?></p>
+							<?php echo wp_kses_post( $answer ); ?>	
 						<?php endif; ?>
 					</div>
 				</div>

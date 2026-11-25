@@ -46,7 +46,7 @@ $media_style = $image_url ? ' style="background-image: url(' . esc_url( $image_u
 				<?php endif; ?>
 
 				<?php if ( ! empty( $link['url'] ) ) : ?>
-					<a class="btn-filled-secondary" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( ! empty( $link['target'] ) ? $link['target'] : '_self' ); ?>"<?php echo ! empty( $is_preview ) ? ' style="pointer-events: none"' : ''; ?>>
+					<a class="btn-filled-secondary" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( ! empty( $link['target'] ) ? $link['target'] : '_self' ); ?>">
 						<?php echo esc_html( ! empty( $link['title'] ) ? $link['title'] : 'En savoir plus' ); ?>
 						<i class="ph ph-caret-down" aria-hidden="true"></i>
 					</a>

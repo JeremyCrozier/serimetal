@@ -45,9 +45,8 @@ if ( ! function_exists( 'serimetal_about_panel' ) ) {
 				<?php if ( ! empty( $cta['url'] ) ) : ?>
 					<?php
 					$target   = ! empty( $cta['target'] ) ? $cta['target'] : '_self';
-					$disabled = $is_preview ? 'style="pointer-events: none"' : '';
 					?>
-					<a class="btn-filled-primary" href="<?php echo esc_url( $cta['url'] ); ?>" target="<?php echo esc_attr( $target ); ?>" <?php echo $disabled; ?>>
+					<a class="btn-filled-primary" href="<?php echo esc_url( $cta['url'] ); ?>" target="<?php echo esc_attr( $target ); ?>">
 						<?php echo esc_html( ! empty( $cta['title'] ) ? $cta['title'] : 'En savoir plus' ); ?>
 					</a>
 				<?php endif; ?>

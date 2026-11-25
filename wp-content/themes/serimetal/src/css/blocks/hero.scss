@@ -5,7 +5,6 @@
     display: flex;
     align-items: flex-end;
     min-height: 100vh;
-    margin-bottom: 48px;
     overflow: hidden;
 
     .hero-media {
@@ -64,7 +63,7 @@
 
     @media (min-width: $desktop-small) {
         .heading-xlarge {
-            font-size: 5vw;
+            font-size: clamp(2.5rem, 5vw, 96px);
         }
     }
 

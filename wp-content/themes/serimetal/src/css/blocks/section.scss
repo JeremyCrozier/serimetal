@@ -4,7 +4,7 @@
 
     .inside > h2.wp-block-heading {
 
-        &:not(.has-text-align-left) {
+        &:not(.has-text-align-left, .no-divider) {
             position: relative;
             display: flex;
             align-items: center;
@@ -35,11 +35,11 @@
     & > .inside {
         display: flex;
         flex-direction: column;
-        padding: 48px 0;
+        padding: 84px 0;
         width: $container-width;
         margin-inline: auto;
 
-        & > div, & > .wp-block-heading,  & > section, & > .wp-block-paragraph {
+        & > div, & > .wp-block-heading, & > .wp-block-paragraph {
             margin-bottom: 24px;
 
             &:last-child {
@@ -51,8 +51,22 @@
             margin-top: 24px;
         }
 
-        .block-section .inside {
-            width: 100%;
+        .block-section {
+            .inside {
+                width: 100%;
+            }
+
+            &:last-child {
+                .inside {
+                    padding-bottom: 0;
+                }
+            }
+
+            &:first-child {
+                .inside {
+                    padding-top: 0;
+                }
+            }
         }
     }
 }

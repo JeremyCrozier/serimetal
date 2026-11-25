@@ -104,7 +104,7 @@ body:not(:has(.wp-block-acf-hero, .wp-block-acf-hero-bis)) {
                 }
             }
 
-            &.current-menu-parent {
+            &.current-menu-parent, &.current-menu-item {
                 & > a {
                     color: $light-100;
                     background-color: $light-10;

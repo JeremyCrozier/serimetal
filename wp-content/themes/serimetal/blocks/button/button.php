@@ -15,13 +15,12 @@
 $link   = get_field( 'button' );
 $style  = get_field( 'style' );
 $target = !empty($link['target']) ? $link['target'] : '_self';
-$disabled = $is_preview ? 'style="pointer-events: none"' : '';
 
 $wrapper_attributes = get_block_wrapper_attributes();
 ?>
 
 <div <?php echo $wrapper_attributes ?>>
-	<a href="<?php echo esc_url($link['url'] ?? '#') ?>" class="<?php echo esc_attr($style) ?>" target="<?php echo esc_attr($target) ?>" <?php echo $disabled ?> title="Accéder à la page">
+	<a href="<?php echo esc_url($link['url'] ?? '#') ?>" class="<?php echo esc_attr($style) ?>" target="<?php echo esc_attr($target) ?>" title="Accéder à la page">
 		<?php echo esc_html($link['title'] ?? 'Texte du bouton') ?>
 	</a>
 </div>
