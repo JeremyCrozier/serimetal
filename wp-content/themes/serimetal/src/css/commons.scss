@@ -230,3 +230,23 @@ main:has(.wp-block-acf-hero, .wp-block-acf-hero-bis) {
     width: 100%;
     height: 100%;
 }
+
+#page-404 {
+
+    .inside {
+        align-items: flex-start;
+        padding-bottom: 184px;
+    }
+
+    .heading-xlarge {
+        margin-bottom: 16px;
+    }
+
+    .heading-medium {
+        margin-bottom: 32px;
+    }
+
+    .btn-filled-secondary {
+        margin-top: 32px;
+    }
+}
