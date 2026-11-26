@@ -62,6 +62,35 @@
             "zoom": 15,
             "height": "",
             "allow_in_bindings": 0
+        },
+        {
+            "key": "field_6b17realgallery",
+            "label": "Photos",
+            "name": "images",
+            "aria-label": "",
+            "type": "gallery",
+            "instructions": "Jusqu'à 3 photos. La première s'affiche en grand, les deux suivantes à droite.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min": "",
+            "max": 3,
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "insert": "append",
+            "preview_size": "thumbnail",
+            "allow_in_bindings": 0
         }
     ],
     "location": [
@@ -85,5 +114,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1794839579
+    "modified": 1795800000
 }

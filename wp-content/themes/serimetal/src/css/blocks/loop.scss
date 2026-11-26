@@ -368,9 +368,11 @@
 
     .realisation-card__facts {
         display: flex;
+        flex: 1 1 0;
         flex-direction: column;
         justify-content: flex-end;
         gap: 16px;
+        min-height: 0;
         padding: 12px;
         background-color: $dark-50;
         backdrop-filter: blur(4px);
@@ -385,9 +387,21 @@
 
     .realisation-card__map {
         position: relative;
-        display: flex;
-        align-items: flex-start;
+        flex: 1 1 0;
+        min-height: 0;
         overflow: hidden;
+        filter: grayscale(100%);
+
+        .map-overlay {
+            position: absolute;
+            inset: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: $dark-40;
+            pointer-events: none;
+        }
 
         .map_part {
             width: 100%;
@@ -451,6 +465,11 @@
         .realisation-card__aside {
             flex-basis: auto;
             width: 100%;
+        }
+
+        .realisation-card__facts,
+        .realisation-card__map {
+            flex: 1 1 auto;
         }
 
         .realisation-card__map {

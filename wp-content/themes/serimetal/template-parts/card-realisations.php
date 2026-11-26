@@ -12,14 +12,11 @@ $date       = get_field( 'date', get_the_ID() );
 $duration   = get_field( 'duration', get_the_ID() );
 $location   = get_field( 'location', get_the_ID() );
 $background = get_the_post_thumbnail_url( get_the_ID(), 'large' );
-$coords     = '';
+$point      = SM_Ajax::realisation_coordinates( $location );
+$coords     = $point ? $point['label'] : '';
 $map_url    = '';
 
-if ( is_array( $location ) && isset( $location['lat'], $location['lng'] ) ) {
-	$lat = (float) $location['lat'];
-	$lng = (float) $location['lng'];
-	$coords  = number_format( abs( $lat ), 6, '.', '' ) . ( $lat >= 0 ? 'N' : 'S' );
-	$coords .= ', ' . number_format( abs( $lng ), 6, '.', '' ) . ( $lng >= 0 ? 'E' : 'W' );
+if ( $coords ) {
 	$map_url = 'https://maps.google.com/maps?width=100%&amp;height=100%&amp;hl=en&amp;q=' . rawurlencode( $coords ) . '&amp;t=&amp;z=8&amp;ie=UTF8&amp;iwloc=B&amp;output=embed&amp;size=400x170';
 }
 
@@ -27,7 +24,7 @@ $has_facts = $duration || $date;
 ?>
 
 <li class="realisation-card">
-	<a class="realisation-card__link" href="<?php echo esc_url( get_permalink() ); ?>"<?php echo $background ? ' style="background-image: url(' . esc_url( $background ) . ');"' : ''; ?>>
+	<a class="realisation-card__link" href="<?php echo esc_url( get_permalink() ); ?>"<?php SM_Ajax::realisation_modal_attributes(); ?><?php echo $background ? ' style="background-image: url(' . esc_url( $background ) . ');"' : ''; ?>>
 		<span class="realisation-card__overlay" aria-hidden="true"></span>
 
 		<div class="realisation-card__main">
@@ -64,10 +61,13 @@ $has_facts = $duration || $date;
 
 				<?php if ( $coords ) : ?>
 					<div class="realisation-card__map">
+						<div class="map-overlay" aria-hidden="true"></div>
 						<iframe id="map"
+						title="Carte"
 						class="map_part"
 						width="400"
 						height="170"
+						loading="lazy"
 						frameborder="0"
 						scrolling="no"
 						marginheight="0"

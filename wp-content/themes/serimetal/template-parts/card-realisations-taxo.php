@@ -12,7 +12,7 @@ $background = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 ?>
 
 <li class="realisation-card swiper-slide">
-	<a class="realisation-card__link" href="<?php echo esc_url( get_permalink() ); ?>"<?php echo $background ? ' style="background-image: url(' . esc_url( $background ) . ');"' : ''; ?>>
+	<a class="realisation-card__link" href="<?php echo esc_url( get_permalink() ); ?>"<?php SM_Ajax::realisation_modal_attributes( true ); ?><?php echo $background ? ' style="background-image: url(' . esc_url( $background ) . ');"' : ''; ?>>
 		<span class="realisation-card__overlay" aria-hidden="true"></span>
 
 		<div class="realisation-card__main">

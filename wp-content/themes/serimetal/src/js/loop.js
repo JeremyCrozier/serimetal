@@ -136,8 +136,11 @@
                         return;
                     }
 
+                    const color = response.data.color || "";
+
                     $loop.html(response.data.html);
-                    $block.css("--pole-color", response.data.color || "");
+                    $block.css("--pole-color", color);
+                    $block.attr("data-color", color);
                     revealLoop($loop);
                     $block.attr("aria-busy", "false");
                 };

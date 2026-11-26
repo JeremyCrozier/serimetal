@@ -87,6 +87,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	array(
 		'class' => implode( ' ', $classes ),
 		'style' => $pole_color ? '--pole-color: ' . $pole_color . ';' : '',
+		'data-color' => $pole_color ? $pole_color : '',
 	)
 );
 ?>
