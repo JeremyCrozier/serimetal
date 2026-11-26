@@ -1,9 +1,15 @@
         </main>  
         <footer id="footer">
             <div class="inside">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo" aria-label="<?php bloginfo( 'name' ); ?>" title="Accueil">
-                    <img src="/wp-content/uploads/icons/logo-serimetal-blue-white.svg" alt="<?php bloginfo( 'name' ); ?>" width="220" height="32" class="logo-desktop">
-                </a>
+                <div class="footer-logo">
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo" aria-label="<?php bloginfo( 'name' ); ?>" title="Accueil">
+                        <img src="/wp-content/uploads/icons/logo-serimetal-blue-white.svg" alt="<?php bloginfo( 'name' ); ?>" width="220" height="32" class="logo-desktop">
+                    </a>
+                    <div class="footer-logo-scmf">
+                        <p class="heading-small">Adhérent au SCMF</p>
+                        <img src="/wp-content/uploads/icons/logo-scmf.png" alt="SCMF" width="182" height="58">
+                    </div>
+                </div>
 
                 <div class="footer-content">
                     <nav class="footer-nav" aria-label="<?php esc_attr_e( 'Nos Pôles', 'Serimetal' ); ?>">

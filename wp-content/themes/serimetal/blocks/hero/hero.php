@@ -73,7 +73,7 @@ $poster      = $image_url ? ' poster="' . esc_url( $image_url ) . '"' : '';
 				<?php endif; ?>
 
 				<?php if ( ! empty( $link['url'] ) ) : ?>
-					<a href="<?php echo esc_url( $link['url'] ); ?>" aria-label="<?php echo esc_html( ! empty( $link['title'] ) ? $link['title'] : 'En savoir plus' ); ?>" aria-hidden="true" class="scroll-down-container">
+					<a href="<?php echo esc_url( $link['url'] ); ?>" aria-label="<?php echo esc_html( ! empty( $link['title'] ) ? $link['title'] : 'En savoir plus' ); ?>" class="scroll-down-container">
 						<span class="scroll-down">
 							<?php echo esc_html( ! empty( $link['title'] ) ? $link['title'] : 'En savoir plus' ); ?> 
 							<i class="ph ph-caret-down" aria-hidden="true"></i>

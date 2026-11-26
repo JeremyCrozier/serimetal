@@ -27,6 +27,14 @@
     }
 }
 
+.footer-logo-scmf {
+    margin-top: 48px;
+
+    .heading-small {
+        padding: 16px 0;
+    }
+}
+
 .footer-content {
     display: flex;
     flex: 1 1 auto;
@@ -47,7 +55,7 @@
 
     .menu a {
         display: block;
-        padding: 16px 0;
+        padding: 12px 0;
     }
 }
 
