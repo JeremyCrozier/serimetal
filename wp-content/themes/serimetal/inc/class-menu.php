@@ -94,7 +94,7 @@ class SM_Menu {
             return $output;
         }
 
-        if ($depth !== 1) {
+        if ($depth !== 1 || !in_array('image', $item->classes)) {
             return $title;
         }
 
