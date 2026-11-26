@@ -37,7 +37,7 @@
 				</div>
 				<div class="realisation-modal__map" hidden>
 					<div class="map-overlay" aria-hidden="true"></div>
-					<iframe id="map"
+					<iframe
 						referrerpolicy="no-referrer-when-downgrade"
 						title="Carte"
 						loading="lazy"

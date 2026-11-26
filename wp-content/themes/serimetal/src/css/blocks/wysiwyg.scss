@@ -1,6 +1,6 @@
 @use "../config" as *;
 
-.wysiwyg {
+.wysiwyg, .cmplz-document {
     h1 {
         @include heading-large;
         margin-top: 0;

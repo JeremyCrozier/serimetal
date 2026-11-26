@@ -257,6 +257,7 @@ $font-body: 'IBM Plex', 'Inter', sans-serif;
     border: 1px solid transparent;
     background-color: transparent;
     transition: $transition;
+    overflow: hidden;
 
     @include button-size($size, $icon-only);
 

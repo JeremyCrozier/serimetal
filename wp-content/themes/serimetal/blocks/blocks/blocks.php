@@ -26,6 +26,7 @@ if ( $highlighting ) {
 }
 
 $classes = array(
+	'blocks',
 	'columns-' . min( $nb_columns, $nb_blocks ),
 	'blocks-style-' . $style,
 );

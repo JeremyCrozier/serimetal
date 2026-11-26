@@ -86,7 +86,7 @@
         $exclude: "";
 
         @if $skip-block-items {
-            $exclude: ":not(.block-item *)";
+            $exclude: ":not(.block-item *, .job-card__category)";
         }
 
         :is(h1, h2, h3, h4, h5, h6, p, li, .wp-block-heading, .heading-small)#{$exclude} {
@@ -234,5 +234,10 @@
     .simpleParallax {
         width: 100%;
         height: 100%;
+    }
+
+    .cmplz-document {
+        margin-inline: auto;
+        padding-bottom: 84px;
     }
 }

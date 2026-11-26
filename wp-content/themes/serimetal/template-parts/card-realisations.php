@@ -70,7 +70,7 @@ $has_content = $content && strlen( trim( $content ) ) > 0;
 				<?php if ( $coords ) : ?>
 					<div class="realisation-card__map">
 						<div class="map-overlay" aria-hidden="true"></div>
-						<iframe id="map"
+						<iframe
 						title="Carte"
 						class="map_part"
 						width="400"

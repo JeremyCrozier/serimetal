@@ -1,7 +1,6 @@
 @use "../config" as *;
 
-.wp-block-acf-blocks {
-
+.blocks {
     &.blocks-style-numbers:not(.has-highlighting) {
         .block-item {
             display: flex;
