@@ -27,14 +27,23 @@ $timeline-gutter: 16px;
 
 .timeline-runway {
     position: relative;
+    width: 100%;
+    min-width: 0;
 }
 
 .timeline-sticky {
     position: sticky;
     top: var(--timeline-top, 112px);
+    min-width: 0;
 }
 
 .timeline-viewport {
+    box-sizing: border-box;
+    width: 100cqi;
+    min-width: 0;
+    margin-left: calc(50% - 50cqi);
+    padding-inline: var(--timeline-pad);
+    overflow: clip;
     scroll-snap-type: x mandatory;
     scroll-padding-inline: var(--timeline-pad);
     scrollbar-width: none;
@@ -152,13 +161,21 @@ $timeline-gutter: 16px;
 }
 
 .block-timeline.is-pinned .timeline-viewport {
-    //overflow: hidden;
+    overflow: clip;
     scroll-snap-type: none;
 }
 
 .block-timeline.is-preview {
     .timeline-sticky {
         position: static;
+    }
+
+    .timeline-viewport {
+        width: auto;
+        margin-inline: 0;
+        padding-inline: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
     }
 
     .timeline-track {
@@ -194,6 +211,12 @@ $timeline-gutter: 16px;
 
     .timeline-sticky {
         position: static;
+    }
+
+    .timeline-viewport {
+        overflow-x: auto;
+        overflow-y: hidden;
+        overscroll-behavior-x: contain;
     }
 
     .timeline-track {

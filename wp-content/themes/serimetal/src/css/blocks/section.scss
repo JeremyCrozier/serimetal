@@ -1,6 +1,7 @@
 @use "../config" as *;
 
 .block-section {
+    container-type: inline-size;
 
     .inside > h2.wp-block-heading {
 
