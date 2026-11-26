@@ -7,7 +7,7 @@
  * @package Serimetal
  */
 
-$excerpt    = get_the_excerpt();
+$content    = get_the_content();
 $date       = get_field( 'date', get_the_ID() );
 $duration   = get_field( 'duration', get_the_ID() );
 $location   = get_field( 'location', get_the_ID() );
@@ -21,17 +21,22 @@ if ( $coords ) {
 }
 
 $has_facts = $duration || $date;
+$has_content = $content && strlen( trim( $content ) ) > 0;
 ?>
 
 <li class="realisation-card">
-	<a class="realisation-card__link" href="<?php echo esc_url( get_permalink() ); ?>"<?php SM_Ajax::realisation_modal_attributes(); ?><?php echo $background ? ' style="background-image: url(' . esc_url( $background ) . ');"' : ''; ?>>
+	<a class="realisation-card__link" 
+		href="<?php echo esc_url( get_permalink() ); ?>"
+		<?php SM_Ajax::realisation_modal_attributes(); ?>
+		<?php echo $background ? ' style="background-image: url(' . esc_url( $background ) . ');"' : ''; ?>
+	>
 		<span class="realisation-card__overlay" aria-hidden="true"></span>
 
 		<div class="realisation-card__main">
 			<div class="realisation-card__intro">
 				<h3 class="heading-medium"><?php the_title(); ?></h3>
-				<?php if ( $excerpt ) : ?>
-					<p class="realisation-card__excerpt"><?php echo esc_html( $excerpt ); ?></p>
+				<?php if ( $has_content ) : ?>
+					<p class="realisation-card__content"><?php echo wp_kses_post( $content ); ?></p>
 				<?php endif; ?>
 			</div>
 			<span class="btn-ghost-secondary">

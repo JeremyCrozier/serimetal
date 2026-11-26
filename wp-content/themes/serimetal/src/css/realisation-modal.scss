@@ -123,18 +123,6 @@ body.has-realisation-modal {
     color: $light-100;
 }
 
-.realisation-modal__summary {
-    color: $light-100;
-
-    p {
-        margin: 0 0 12px;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-}
-
 .realisation-modal__facts {
     display: flex;
     flex-direction: column;

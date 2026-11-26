@@ -17,11 +17,11 @@
     }
 
     function show($element) {
-        $element.removeAttr("hidden");
+        $element.removeAttr("hidden").css("display", "");
     }
 
     function hide($element) {
-        $element.attr("hidden", "hidden");
+        $element.attr("hidden", "hidden").css("display", "none");
     }
 
     function findLink(slug) {
@@ -122,7 +122,6 @@
         $panel.removeAttr("data-slug");
         $panel.find(".realisation-modal__title").text("");
         $panel.find(".realisation-modal__excerpt").text("");
-        $panel.find(".realisation-modal__summary").empty();
         $panel.find(".realisation-modal__value").text("");
         $panel.find(".realisation-modal__coords-value").text("");
         $map.find("iframe").removeAttr("src").attr("title", "");
@@ -132,7 +131,6 @@
         });
 
         hide($panel.find(".realisation-modal__excerpt"));
-        hide($panel.find(".realisation-modal__summary"));
         hide($panel.find(".realisation-modal__fact"));
         hide($panel.find(".realisation-modal__facts"));
         hide($panel.find(".realisation-modal__details"));
@@ -145,9 +143,8 @@
     function fillPanel($link, slug) {
         const $panel = dialog();
         const title = $.trim($link.find(".heading-medium").first().text());
-        const excerpt = $.trim($link.find(".realisation-card__excerpt").first().text());
-        const text = $link.attr("data-text") || "";
-        const hasText = $.trim($("<div>").html(text).text()) !== "";
+        const $content = $link.find(".realisation-card__content").first();
+        const excerpt = $content.length ? $content.html() : "";
         const duration = factValue($link, "Durée", "data-duration");
         const date = factValue($link, "Livré le", "data-date");
         const lat = $.trim($link.attr("data-lat") || "");
@@ -158,21 +155,15 @@
         const hasDuration = Boolean(duration);
         const hasDate = Boolean(date);
         const hasFacts = hasDuration || hasDate;
-        const hasDetails = hasText || hasFacts;
 
         resetPanel();
         setDialogColor(blockColor($link));
         $panel.attr("data-slug", slug);
         $panel.find(".realisation-modal__title").text(title);
 
-        if (excerpt) {
-            $panel.find(".realisation-modal__excerpt").text(excerpt);
+        if (excerpt && $.trim($content.text())) {
+            $panel.find(".realisation-modal__excerpt").html(excerpt);
             show($panel.find(".realisation-modal__excerpt"));
-        }
-
-        if (hasText) {
-            $panel.find(".realisation-modal__summary").html(text);
-            show($panel.find(".realisation-modal__summary"));
         }
 
         if (hasDuration) {
@@ -187,10 +178,10 @@
 
         if (hasFacts) {
             show($panel.find(".realisation-modal__facts"));
-        }
-
-        if (hasDetails) {
             show($panel.find(".realisation-modal__details"));
+        } else {
+            hide($panel.find(".realisation-modal__facts"));
+            hide($panel.find(".realisation-modal__details"));
         }
 
         if (hasCoords) {
@@ -202,7 +193,7 @@
             show($panel.find(".realisation-modal__map"));
         }
 
-        if (hasDetails || hasCoords) {
+        if (hasFacts || hasCoords) {
             show($panel.find(".realisation-modal__split"));
         }
 

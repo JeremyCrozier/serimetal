@@ -180,43 +180,30 @@ class SM_Ajax {
 			'data-realisation' => (string) get_post_field( 'post_name', $post_id ),
 		);
 
-		$content = get_post_field( 'post_content', $post_id );
-		$content = is_string( $content ) ? trim( $content ) : '';
+		$point = self::realisation_coordinates( get_field( 'location', $post_id ) );
 
-		if ( '' !== $content ) {
-			$content = trim( (string) apply_filters( 'the_content', $content ) );
-
-			if ( '' !== trim( wp_strip_all_tags( $content ) ) ) {
-				$attributes['data-text'] = $content;
-			}
+		if ( $point ) {
+			$attributes['data-lat']    = $point['lat'];
+			$attributes['data-lng']    = $point['lng'];
+			$attributes['data-coords'] = $point['label'];
 		}
 
-		if ( function_exists( 'get_field' ) ) {
-			$point = self::realisation_coordinates( get_field( 'location', $post_id ) );
+		$urls = self::realisation_gallery_urls( $post_id );
 
-			if ( $point ) {
-				$attributes['data-lat']    = $point['lat'];
-				$attributes['data-lng']    = $point['lng'];
-				$attributes['data-coords'] = $point['label'];
+		if ( $urls ) {
+			$attributes['data-images'] = wp_json_encode( $urls );
+		}
+
+		if ( $include_facts ) {
+			$duration = get_field( 'duration', $post_id );
+			$date     = get_field( 'date', $post_id );
+
+			if ( $duration ) {
+				$attributes['data-duration'] = (string) $duration;
 			}
 
-			$urls = self::realisation_gallery_urls( $post_id );
-
-			if ( $urls ) {
-				$attributes['data-images'] = wp_json_encode( $urls );
-			}
-
-			if ( $include_facts ) {
-				$duration = get_field( 'duration', $post_id );
-				$date     = get_field( 'date', $post_id );
-
-				if ( $duration ) {
-					$attributes['data-duration'] = (string) $duration;
-				}
-
-				if ( $date ) {
-					$attributes['data-date'] = (string) $date;
-				}
+			if ( $date ) {
+				$attributes['data-date'] = (string) $date;
 			}
 		}
 

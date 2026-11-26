@@ -24,7 +24,6 @@
 
 			<div class="realisation-modal__split" hidden>
 				<div class="realisation-modal__details" hidden>
-					<div class="realisation-modal__summary body-small" hidden></div>
 					<div class="realisation-modal__facts" hidden>
 						<p class="realisation-modal__fact" data-fact="duration" hidden>
 							<span class="realisation-modal__label">Durée</span>
