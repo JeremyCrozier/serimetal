@@ -6,15 +6,15 @@
                 </a>
 
                 <div class="footer-content">
-                    <nav class="footer-nav" aria-label="<?php esc_attr_e( 'Pôles', 'Serimetal' ); ?>">
-                        <?php $poles_menu = wp_get_nav_menu_object( 'poles' ); ?>
+                    <nav class="footer-nav" aria-label="<?php esc_attr_e( 'Nos Pôles', 'Serimetal' ); ?>">
+                        <?php $poles_menu = wp_get_nav_menu_object( 'nos-poles' ); ?>
                         <?php if ( $poles_menu ) : ?>
                             <p class="footer-nav__title heading-small"><?php echo esc_html( $poles_menu->name ); ?></p>
                         <?php endif; ?>
                         <?php
                         wp_nav_menu(
                             array(
-                                'menu'        => 'poles',
+                                'menu'        => 'nos-poles',
                                 'container'   => '',
                                 'menu_class'  => 'menu menu-poles',
                                 'fallback_cb' => false,
