@@ -243,7 +243,7 @@ class SM_Ajax {
 		$args    = array(
 			'post_type'           => 'realisation',
 			'post_status'         => 'publish',
-			'posts_per_page'      => -1,
+			'posts_per_page'      => 2,
 			'ignore_sticky_posts' => true,
 			'no_found_rows'       => true,
 			'orderby'             => 'date',
