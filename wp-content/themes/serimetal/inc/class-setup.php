@@ -1,0 +1,199 @@
+<?php
+/**
+ * Setup theme
+ *
+ * @package Serimetal
+ */
+
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
+class SM_Setup {
+    /**
+     * Instance unique de la classe
+     *
+     * @var SM_Setup
+     */
+    private static $instance = null;
+
+    /**
+     * Obtenir l'instance unique de la classe
+     *
+     * @return SM_Setup
+     */
+    public static function get_instance() {
+        if (null === self::$instance) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+
+    /**
+     * Constructeur
+     */
+    private function __construct() {
+        $this->setup_hooks();
+    }
+
+    /**
+     * Configurer les hooks
+     */
+    private function setup_hooks() {
+        // Configuration du thème
+        add_action('after_setup_theme', array($this, 'theme_setup'));
+        add_action('after_setup_theme', array($this, 'add_image_sizes'));
+        
+        // Support SVG
+        add_filter('upload_mimes', array($this, 'add_svg_support'));
+
+        // Page color as a CSS custom property
+        add_action('wp_head', array($this, 'output_page_color'));
+        add_filter('block_editor_settings_all', array($this, 'add_page_color_editor_style'), 10, 2);
+
+        // Breadcrumb
+        add_filter('wpseo_breadcrumb_links', array($this, 'add_breadcrumb'));
+
+        // ACF init
+        add_action('acf/init', array($this, 'acf_init'));
+
+        // Hide ACF menu on production
+        if ( wp_get_environment_type() === 'production' ) {
+            add_filter( 'acf/settings/show_admin', '__return_false' );
+            add_action('admin_menu', array($this, 'remove_menu'), 999);
+        }
+    }
+
+    /**
+     * Configuration du thème
+     */
+    public function theme_setup() {
+        /* menu */
+        add_theme_support('menus');
+        /* tag-title */
+        add_theme_support('title-tag');
+        /* Thumbnails */
+        add_theme_support('post-thumbnails');
+        add_theme_support('block-patterns');
+        // Add support for excerpts on pages
+        add_post_type_support( 'page', 'excerpt' );
+
+        remove_theme_support('core-block-patterns');
+    }
+
+    public function remove_menu() {
+        remove_menu_page('edit.php');          // Articles
+        remove_menu_page('edit-comments.php'); // Commentaires
+    }
+
+    /**
+     * Ajouter le support SVG
+     *
+     * @param array $mimes Types MIME.
+     * @return array
+     */
+    public function add_svg_support($mimes) {
+        $mimes['svg'] = 'image/svg+xml';
+        return $mimes;
+    }
+
+    /**
+     * Resolved page color, falling back to the theme blue.
+     *
+     * @param int $post_id Post ID. 0 uses the current post.
+     * @return string Hex color.
+     */
+    private function get_page_color($post_id = 0) {
+        $color = '#0874f9';
+
+        if (!function_exists('get_field')) {
+            return $color;
+        }
+
+        $page_color = $post_id ? get_field('page_color', $post_id) : get_field('page_color');
+
+        if (is_string($page_color)) {
+            $page_color = sanitize_hex_color($page_color);
+
+            if ($page_color) {
+                $color = $page_color;
+            }
+        }
+
+        return $color;
+    }
+
+    /**
+     * Print the ACF page color as --page-color.
+     */
+    public function output_page_color() {
+        printf(
+            "<style>:root{--page-color:%s;}</style>\n",
+            esc_attr($this->get_page_color())
+        );
+    }
+
+    /**
+     * Expose --page-color inside the block editor canvas.
+     *
+     * @param array                   $settings Editor settings.
+     * @param WP_Block_Editor_Context $context  Editor context.
+     * @return array
+     */
+    public function add_page_color_editor_style($settings, $context) {
+        $post_id = 0;
+
+        if ($context instanceof WP_Block_Editor_Context && isset($context->post->ID)) {
+            $post_id = (int) $context->post->ID;
+        }
+
+        if (!isset($settings['styles']) || !is_array($settings['styles'])) {
+            $settings['styles'] = array();
+        }
+
+        $settings['styles'][] = array(
+            'css' => sprintf(':root{--page-color:%s;}', $this->get_page_color($post_id)),
+        );
+
+        return $settings;
+    }
+
+    public function add_image_sizes() {
+        add_image_size('icon', 24, 24, true);
+        add_image_size('small-hero', 773, 493, true);
+        // add_image_size('featured-post', 636, 440, true);
+        // add_image_size('thumbnail-post', 400, 200, true);
+    }
+    
+    /**
+     * Add breadcrumb
+     *
+     * @param array $links Breadcrumb links.
+     * @return array
+     */
+    public function add_breadcrumb($links) {
+
+        if (!is_singular('recrutement')) {
+            return $links;
+        }
+
+        $page = get_page_by_path('nous-rejoindre');
+
+        if (!$page) {
+            return $links;
+        }
+
+        array_splice($links, 1, 0, [
+            [
+                'id'   => $page->ID,
+                'text' => get_the_title($page->ID),
+                'url'  => get_permalink($page->ID),
+            ],
+        ]);
+
+        return $links;
+    }
+
+    public function acf_init() {
+        acf_update_setting('google_api_key', APIKEY_GOOGLE_MAP);
+    }
+}

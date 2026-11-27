@@ -1,0 +1,134 @@
+{
+    "key": "group_6af73ca99cdce",
+    "title": "Block: Savoir Faire",
+    "fields": [
+        {
+            "key": "field_6af73ca9bcd3f",
+            "label": "Titre",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Titre",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6af73cc6bcd40",
+            "label": "Texte",
+            "name": "text",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "<p><strong>Spécialisée dans la construction métallique depuis 1986, SERIMETAL accompagne les professionnels dans une grande variété de projets de bâtiments et d’ouvrages, et ce de la conception sur mesure à la pose.<\/strong><\/p>\r\n<p>Parce qu’une construction métallique réussie ne se résume pas à assembler des poutres en acier. Chaque ouvrage doit reprendre ses charges, s’intégrer à son site, durer dans le temps et répondre aux besoins de celui qui l’exploite.<\/p>\r\n<ul>\r\n<li><strong>La charpente métallique,<\/strong><\/li>\r\n<li>la couverture et le bardage de bâtiments industriels, commerciaux et<\/li>\r\n<\/ul>\r\n<p>Pour chaque projet, la même ambition : une réponse technique juste, un savoir-faire éprouvé, une réalisation maîtrisée et la réactivité qu’attendent les professionnels.<\/p>",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_6af73cd8bcd41",
+            "label": "CTA",
+            "name": "cta",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_6af73ce8bcd42",
+            "label": "Image",
+            "name": "image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "thumbnail"
+        },
+        {
+            "key": "field_6af73cf4bcd43",
+            "label": "Liste",
+            "name": "list",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "<ul>\r\n<li><strong>La charpente métallique,<\/strong><\/li>\r\n<li>la couverture et le bardage de bâtiments industriels, commerciaux et agricoles,<\/li>\r\n<li>la serrurerie-métallerie,<\/li>\r\n<li>Les structures métalliques spécifiques pour l’industrie (manutention, levage, accès aux équipements),<\/li>\r\n<li>Les charpentes de postes électriques pour RTE,<\/li>\r\n<li>La fourniture d’aciers sur mesure.<\/li>\r\n<\/ul>",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/savoir-faire"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1795076038
+}

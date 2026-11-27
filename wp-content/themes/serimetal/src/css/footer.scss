@@ -1,0 +1,124 @@
+@use "./config" as *;
+
+#footer {
+    display: flex;
+    flex-direction: column;
+    gap: 84px;
+    padding: 84px 0;
+    background: linear-gradient(180deg, $metal-800 0%, $metal-950 100%);
+    color: $light-100;
+
+    .inside {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 48px;
+        width: $container-width;
+        margin-inline: auto;
+    }
+
+    .logo {
+        flex: 0 0 auto;
+    }
+
+    .heading-small,
+    .menu a {
+        color: $light-100;
+    }
+}
+
+.footer-logo-scmf {
+    margin-top: 48px;
+
+    .heading-small {
+        padding: 16px 0;
+    }
+}
+
+.footer-content {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 16px;
+    min-width: 0;
+}
+
+.footer-nav {
+    flex: 1 1 180px;
+    max-width: 322px;
+
+    &__title {
+        margin: 0;
+        padding: 16px 0;
+    }
+
+    .menu a {
+        display: block;
+        padding: 12px 0;
+    }
+}
+
+.footer-contact {
+    display: flex;
+    flex: 0 1 209px;
+    flex-direction: column;
+    gap: 48px;
+    max-width: 209px;
+}
+
+.footer-address {
+    margin: 0;
+    padding: 16px 0;
+    font-weight: 500;
+}
+
+.menu-social {
+    display: flex;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-tagline {
+    width: $wide-size;
+    margin: 0 auto;
+    font-family: $font-heading;
+    font-weight: 600;
+    font-size: clamp(2.5rem, 5vw, 96px);
+    line-height: 0.72;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-align: center;
+
+}
+
+@media (max-width: $tablet) {
+    #footer {
+        gap: 48px;
+        padding: 48px 0;
+
+        .inside {
+            flex-direction: column;
+            gap: 32px;
+        }
+    }
+
+    .footer-content {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .footer-nav,
+    .footer-contact {
+        max-width: none;
+    }
+
+    .footer-tagline {
+        width: $wide-size;
+        font-size: clamp(28px, 8vw, 48px);
+        line-height: 1;
+        white-space: normal;
+    }
+}

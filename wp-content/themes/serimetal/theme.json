@@ -1,0 +1,98 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "color": {
+      "background": false,
+      "text": false,
+      "link": false,
+      "heading": false,
+      "button": false,
+      "caption": false,
+      "palette": [],
+      "custom": false,
+      "customDuotone": false,
+      "customGradient": false,
+      "defaultDuotone": false,
+      "defaultGradients": false,
+      "defaultPalette": false,
+      "duotone": [],
+      "gradients": []
+    },
+    "typography": {
+      "customFontSize": false,
+      "dropCap": false,
+      "fontStyle": false,
+      "fontWeight": false,
+      "letterSpacing": false,
+      "lineHeight": false,
+      "textColumns": false,
+      "textDecoration": false,
+      "textTransform": false,
+      "writingMode": false,
+      "fontSizes": []
+    },
+    "spacing": {
+      "blockGap": false,
+      "margin": false,
+      "padding": false,
+      "customSpacingSize": false,
+      "spacingSizes": []
+    },
+    "border": {
+			"color": false,
+			"radius": false,
+			"style": false,
+			"width": false
+		},
+    "shadow": {
+			"defaultPresets": false
+    },
+    "layout": {
+      "contentSize": "1320px",
+      "wideSize": "1920px"
+    },
+    "blocks": {
+			"core/heading": {
+        "color": {
+          "background": false,
+          "text": false
+        },
+        "border": {
+          "color": false,
+          "radius": false,
+          "style": false,
+          "width": false
+        },
+        "splitting": false,
+        "align": false,
+        "typography": false,
+        "spacing": false
+      },
+      "core/paragraph": {
+        "color": {
+          "background": false,
+          "text": false
+        },
+        "spacing": {
+          "margin": false,
+          "padding": false
+        }
+      },
+      "core/html": {
+        "color": {
+          "background": false,
+          "text": false
+        },
+        "spacing": {
+          "margin": false,
+          "padding": false
+        }
+      }
+    },
+    "appearanceTools": false
+  },
+  "templateParts": [
+
+  ]
+}

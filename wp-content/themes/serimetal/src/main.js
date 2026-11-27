@@ -1,0 +1,9 @@
+import './js/tabs.js';
+import './js/menu.js';
+import './js/smoothScroll.js';
+import './js/accordion.js';
+import './js/loop.js';
+import './js/realisation-modal.js';
+import './js/swiper.js';
+import './js/parallax.js';
+import './js/timeline.js';

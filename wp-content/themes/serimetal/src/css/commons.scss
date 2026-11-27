@@ -1,0 +1,257 @@
+@use "./config" as *;
+
+.screen-reader-text {
+    @include screen-reader-text;
+}
+
+body {
+    @include body-medium;
+    background-color: $metal-100;
+
+    div {
+        box-sizing: border-box;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .wp-block-paragraph {
+        margin: 0 0 16px 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    ul, ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+    }
+}
+
+.columns-1 {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+}
+
+.columns-2 {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+
+    @media (max-width: $mobile-large) {
+        grid-template-columns: 1fr;
+    }
+
+    @media (max-width: $mobile-large) {
+        gap: 8px;
+    }
+}
+
+.columns-3 {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+
+    @media (max-width: $tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $desktop-small) {
+        grid-template-columns: 1fr;
+    }
+
+    @media (max-width: $mobile-large) {
+        gap: 8px;
+    }
+}
+
+// Skip text/button color overrides for descendants of .block-item.
+// A .block-item that is itself .bg--dark / .bg--gradient still receives them.
+@mixin on-dark-foreground($skip-block-items: false) {
+    $exclude: "";
+
+    @if $skip-block-items {
+        $exclude: ":not(.block-item *, .job-card__category)";
+    }
+
+    :is(h1, h2, h3, h4, h5, h6, p, li, .wp-block-heading, .heading-small)#{$exclude} {
+        color: $light-100;
+    }
+
+    &.section h2.wp-block-heading#{$exclude} {
+        &::before,
+        &::after {
+            background: $metal-600;
+        }
+    }
+
+    :is(.btn-ghost-primary, .btn-ghost-secondary)#{$exclude} {
+        color: $light-100;
+    }
+
+    :is(.btn-filled-primary, .btn-outline)#{$exclude} {
+        color: $light-100;
+        border-color: $light-100;
+    }
+
+    .btn-filled-secondary#{$exclude} {
+        background-color: $light-100;
+        color: $metal-900;
+    }
+
+    .btn-filled-primary#{$exclude}:hover {
+        background-color: $light-100;
+        border-color: $light-100;
+        color: $metal-900;
+    }
+
+    .accordion-item, .about-card {
+        background: rgba(255, 255, 255, 0.10);
+    }
+}
+
+.bg {
+
+    &--gradient {
+        background: linear-gradient(180deg, $metal-800 0%, $metal-950 100%);
+    }
+
+    &--dark {
+        background: $metal-900;
+    }
+
+    &--gradient, &--dark {
+        color: $metal-50;
+
+        .block-item:not(.bg--gradient):not(.bg--dark) {
+            color: $metal-900;
+        }
+
+        &:not(.block-item) {
+            @include on-dark-foreground(true);
+        }
+
+        &.block-item {
+            @include on-dark-foreground(false);
+        }
+
+        .wp-block-heading, .title-divider {
+            &:before, &:after {
+                background: $metal-600;
+            }
+        }
+    }
+
+    &--top-gradient {
+        background: linear-gradient(180deg, $metal-950 50%, $metal-100 50%);
+    }
+
+    &--bottom-gradient {
+        background: linear-gradient(180deg, $metal-100 50%, $metal-800 50%);
+    }
+}
+
+// Typography
+
+h1.wp-block-heading, h1.wp-block-post-title, .wp-block-heading.h1, .heading-xlarge {
+    @include heading-xlarge;
+}
+
+h2.wp-block-heading, .wp-block-heading.is-style-h2, .heading-large {
+    @include heading-large;
+}
+
+h3.wp-block-heading, .wp-block-heading.is-style-h3, .heading-medium {
+    @include heading-medium;
+}
+
+h4.wp-block-heading, .wp-block-heading.is-style-h4, .heading-small {
+    @include heading-small;
+}
+
+.body-large {
+    @include body-large;
+}
+
+.body-medium {
+    @include body-medium;
+}
+
+.body-small {
+    @include body-small;
+}
+
+.body-xsmall {
+    @include body-xsmall;
+}
+
+.has-text-align-center {
+    text-align: center;
+}
+
+.has-text-align-right {
+    text-align: right;
+}
+
+@media (min-width: $tablet) {
+    .title-divider, .has-text-align-left {
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 23px;
+            left: calc((100% - 100vw) / 2);
+            right: calc(100% + 48px);
+            height: 1px;
+            background: $metal-300;
+            pointer-events: none;
+        }
+    }
+}
+
+main:has(.wp-block-acf-hero, .wp-block-acf-hero-bis) {
+    #breadcrumbs {
+        @include screen-reader-text;
+    }
+}
+
+.simpleParallax {
+    width: 100%;
+    height: 100%;
+}
+
+.cmplz-document {
+    margin-inline: auto;
+    padding-bottom: 84px;
+}
+
+#page-404 {
+
+    .inside {
+        align-items: flex-start;
+        padding-bottom: 184px;
+    }
+
+    .heading-xlarge {
+        margin-bottom: 16px;
+    }
+
+    .heading-medium {
+        margin-bottom: 32px;
+    }
+
+    .btn-filled-secondary {
+        margin-top: 32px;
+    }
+}

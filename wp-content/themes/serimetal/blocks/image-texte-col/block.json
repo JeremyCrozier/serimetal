@@ -1,0 +1,18 @@
+{
+    "name": "acf/image-texte-col",
+    "title": "Image & Texte en colonne",
+    "description": "Image & Texte en colonne",
+    "style": [],
+    "category": "design",
+    "icon": "columns",
+    "keywords": ["image", "texte", "colonne"],
+    "acf": {
+        "version": 3,
+        "mode": "preview",
+        "renderTemplate": "image-texte-col.php"
+    },
+    "supports": {
+        "anchor": true,
+        "align": false
+    }
+}

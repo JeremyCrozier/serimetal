@@ -1,0 +1,52 @@
+@use "./config" as *;
+
+#recrutement-hero {
+
+    @media (min-width: $tablet) {
+        .inside {
+            grid-template-columns: minmax(0, 547fr) minmax(0, 773fr);
+        }
+    }
+
+    .tag {
+        color: $blue-700;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+
+    .excerpt {
+        margin: 24px 0;
+    }
+
+    .content-bottom {
+        span {
+            &:not(:last-child):after {
+                content: "";
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+                background-color: $blue-700;
+                margin: 2px 16px;
+            }
+        }
+    }
+}
+
+#recrutement-content {
+    .inside {
+        width: $container-width-small;
+    }
+
+    .form-panel {
+        margin-top: 48px;
+
+        .wp-block-heading {
+            margin-bottom: 48px;
+        }
+    }
+}
+
+.recrutement-gallery {
+    width: $container-width;
+    margin: 48px auto;
+}

@@ -1,0 +1,8 @@
+// Import main styles (excluding blocks and admin)
+// Note: config is already imported in commons.scss
+@use './commons';
+@use './fonts';
+@use './header';
+@use './footer';
+@use './recrutement';
+@use './realisation-modal';

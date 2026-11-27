@@ -1,0 +1,46 @@
+@use "../config" as *;
+
+.image-texte-block {
+    display: flex;
+    align-items: stretch;
+    gap: 16px;
+    padding: 32px;
+    background-color: $light-100;
+    border-bottom: 4px solid var(--page-color, $orange-300);
+}
+
+.image-texte-block__image {
+    position: relative;
+    flex: 0 0 515px;
+    width: 515px;
+    overflow: hidden;
+
+    img {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.image-texte-block__text {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 12px;
+}
+
+@media (max-width: $tablet) {
+    .image-texte-block {
+        flex-direction: column;
+        padding: 24px;
+        gap: 8px;
+    }
+
+    .image-texte-block__image {
+        flex-basis: auto;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+    }
+}

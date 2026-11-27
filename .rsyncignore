@@ -1,0 +1,12 @@
+# Exclude generated and local files before including the theme.
+- *.log
+- **/node_modules/***
+
+# Deploy only the Serimetal theme.
++ /wp-content/
++ /wp-content/themes/
++ /wp-content/themes/serimetal/
++ /wp-content/themes/serimetal/***
+
+# Protect WordPress core, uploads, plugins and every other file from rsync.
+- /***
