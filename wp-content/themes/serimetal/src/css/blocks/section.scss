@@ -6,21 +6,22 @@
     .inside > h2.wp-block-heading {
 
         &:not(.has-text-align-left, .no-divider) {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 32px;
-            width: calc(100vw - 8px);
-            left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
-            padding-left: 0;
-            padding-right: 0;
             text-align: center;
-            
-            @media (min-width: $tablet) {    
+
+            @media (min-width: $tablet) { 
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 32px;
+                width: calc(100vw - 8px);
+                left: 50%;
+                right: 50%;
+                margin-left: -50vw;
+                margin-right: -50vw;
+                padding-left: 0;
+                padding-right: 0;
+                
                 &::before,
                 &::after {
                     content: "";
@@ -74,5 +75,9 @@
                 }
             }
         }
+    }
+
+    &:has(.swiper) {
+        overflow: hidden;
     }
 }

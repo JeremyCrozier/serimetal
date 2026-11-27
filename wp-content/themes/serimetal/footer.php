@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-            <p class="footer-tagline">Concevoir. Fabriquer. Assembler</p>
+            <p class="footer-tagline">Concevoir. Fabriquer. Poser.</p>
         </footer>
 
         <?php wp_footer(); ?>

@@ -154,6 +154,11 @@ $font-body: 'IBM Plex', 'Inter', sans-serif;
     @include text-heading;
     font-size: 56px;
     line-height: 60px;
+
+    @media (max-width: $tablet) {
+        font-size: 36px;
+        line-height: 40px;
+    }
 }
 
 @mixin heading-large {

@@ -236,6 +236,11 @@
 }
 
 .block-loop--realisation {
+
+    &.swiper {
+        overflow: visible;
+    }
+
     .realisation-filters {
         display: flex;
         align-items: flex-start;
@@ -368,7 +373,6 @@
 
     .realisation-card__facts {
         display: flex;
-        flex: 1 1 0;
         flex-direction: column;
         justify-content: flex-end;
         gap: 16px;
@@ -444,6 +448,7 @@
         }
     }
 
+
     @media (prefers-reduced-motion: reduce) {
         .realisation-filters__indicator,
         .loop {
@@ -487,7 +492,7 @@
 
         .swiper-slide .realisation-card__link {
             height: 100%;
-            min-height: 100%;
+            min-height: 350px;
         }
     }
 }

@@ -85,12 +85,13 @@
     margin: 0 auto;
     font-family: $font-heading;
     font-weight: 600;
-    font-size: min(84px, calc((100vw - 168px) / 20.76));
+    font-size: clamp(2.5rem, 5vw, 96px);
     line-height: 0.72;
     letter-spacing: 0;
     text-transform: uppercase;
     white-space: nowrap;
-    color: $light-100;
+    text-align: center;
+
 }
 
 @media (max-width: $tablet) {

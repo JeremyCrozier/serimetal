@@ -17,7 +17,6 @@ import { Autoplay, Mousewheel, Navigation, Pagination } from "swiper/modules";
             slidesPerView: 1,
             spaceBetween: 16,
             watchOverflow: true,
-            loop: true,
             autoHeight: true,
             autoplay: reduceMotion
                 ? false

@@ -57,6 +57,9 @@ if ( 'poles' === $type ) {
 			array(
 				'taxonomy'   => 'pole',
 				'hide_empty' => true,
+				'meta_key'   => 'weight',
+				'orderby'    => 'meta_value_num',
+				'order'      => 'ASC',
 			)
 		);
 
@@ -114,10 +117,10 @@ $wrapper_attributes = get_block_wrapper_attributes(
 						</button>
 					<?php endforeach; ?>
 				</div>
-				<button type="button" class="btn-filled-secondary realisation-filter" data-term="0">
-					<?php echo esc_html( 'Voir toutes les autres' ); ?>
+				<!-- <button type="button" class="btn-filled-secondary realisation-filter" data-term="0">
+					<?php //echo esc_html( 'Voir toutes les autres' ); ?>
 					<i class="ph ph-caret-right" aria-hidden="true"></i>
-				</button>
+				</button> -->
 			</div>
 		<?php endif; ?>
 
